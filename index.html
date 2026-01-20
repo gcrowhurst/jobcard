@@ -1,0 +1,2064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motor Vehicle Job Card</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #0a1929 0%, #1a3a52 50%, #0f2847 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .form-content {
+            padding: 25px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 20px;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 18px;
+            color: #2a5298;
+            margin-bottom: 15px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 20px;
+            background: #667eea;
+            margin-right: 10px;
+            border-radius: 2px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        input[type="text"]:focus,
+        input[type="date"]:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .btn-small {
+            padding: 8px 16px;
+            font-size: 13px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #218838;
+        }
+
+        .btn-danger {
+            background: #dc3545;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #c82333;
+        }
+
+        .btn-info {
+            background: #17a2b8;
+            color: white;
+        }
+
+        .btn-info:hover {
+            background: #138496;
+        }
+
+        .status-message {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .status-message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .status-message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        /* Customer Requests Section */
+        .request-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 2px solid #e0e0e0;
+        }
+
+        .request-item.completed {
+            background: #e8f5e9;
+            opacity: 0.7;
+        }
+
+        .request-item input[type="checkbox"] {
+            width: 22px;
+            height: 22px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .request-item .request-text {
+            flex: 1;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .request-item.completed .request-text {
+            text-decoration: line-through;
+            color: #999;
+        }
+
+        .request-item .delete-btn {
+            padding: 6px 12px;
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        .request-item .delete-btn:hover {
+            background: #ee5a52;
+        }
+
+        .add-request-input {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        /* Jobs Section */
+        .job-card {
+            background: #fff;
+            border: 2px solid #667eea;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .job-title {
+            flex: 1;
+        }
+
+        .job-number {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 5px;
+        }
+
+        .job-request {
+            font-size: 16px;
+            color: #2a5298;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .job-status {
+            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+
+        .job-status.completed {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .job-status.in-progress {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .job-actions {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        /* Tasks within Jobs */
+        .task-item {
+            background: #f8f9fa;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+        }
+
+        .task-header {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .task-header input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .task-description {
+            flex: 1;
+            font-size: 14px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .task-item.completed {
+            opacity: 0.6;
+        }
+
+        .task-item.completed .task-description {
+            text-decoration: line-through;
+            color: #999;
+        }
+
+        .task-actions {
+            display: flex;
+            gap: 10px;
+            margin-left: 30px;
+            margin-top: 10px;
+        }
+
+        .photo-section {
+            margin-left: 30px;
+            margin-top: 10px;
+        }
+
+        .photo-upload-label {
+            display: inline-block;
+            padding: 8px 14px;
+            background: #667eea;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all 0.3s;
+            margin-bottom: 10px;
+        }
+
+        .photo-upload-label:hover {
+            background: #5568d3;
+        }
+
+        .photo-upload-label input[type="file"] {
+            display: none;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .photo-item {
+            position: relative;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 80px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-item .delete-photo-btn {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            background: rgba(255, 59, 48, 0.9);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .photo-item .delete-photo-btn:hover {
+            background: rgba(255, 59, 48, 1);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: #999;
+        }
+
+        .empty-state-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .bottom-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .loading {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .loading.active {
+            display: flex;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255,255,255,0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .add-task-section {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .add-task-input {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 10px;
+        }
+
+        /* Tools List */
+        .tool-item {
+            background: #f8f9fa;
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-left: 4px solid #17a2b8;
+        }
+
+        .tool-item .tool-name {
+            flex: 1;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .tool-item .delete-btn {
+            padding: 4px 10px;
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .tool-item .delete-btn:hover {
+            background: #ee5a52;
+        }
+
+        /* Saved Cards List */
+        .saved-card-item {
+            background: #f8f9fa;
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            border-left: 4px solid #667eea;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .saved-card-item .card-info {
+            flex: 1;
+        }
+
+        .saved-card-item .card-name {
+            font-weight: 600;
+            color: #333;
+            font-size: 14px;
+            margin-bottom: 2px;
+        }
+
+        .saved-card-item .card-date {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .saved-card-item .card-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .saved-card-item .card-actions button {
+            padding: 6px 12px;
+            font-size: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .saved-card-item .load-btn {
+            background: #28a745;
+            color: white;
+        }
+
+        .saved-card-item .load-btn:hover {
+            background: #218838;
+        }
+
+        .saved-card-item .delete-card-btn {
+            background: #dc3545;
+            color: white;
+        }
+
+        .saved-card-item .delete-card-btn:hover {
+            background: #c82333;
+        }
+
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            font-size: 13px;
+            color: #1565c0;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            .form-content {
+                padding: 15px;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .bottom-actions {
+                grid-template-columns: 1fr;
+            }
+
+            .add-request-input,
+            .add-task-input {
+                grid-template-columns: 1fr;
+            }
+
+            .job-header {
+                flex-direction: column;
+            }
+
+            .job-actions,
+            .task-actions {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>🚗 Motor Vehicle Job Card</h1>
+            <p>Document your work and evidence</p>
+        </div>
+
+        <div class="form-content">
+            <div class="status-message" id="statusMessage"></div>
+
+            <!-- Template Selection & JSON Import -->
+            <div class="section">
+                <h2 class="section-title">📋 Load Template or Import Data</h2>
+                <div class="info-box">
+                    Select a template to load predefined requests and tools, or import a JSON file to populate the entire form
+                </div>
+                <div class="form-group">
+                    <label for="templateSelect">Choose Template</label>
+                    <select id="templateSelect" onchange="loadTemplate()">
+                        <option value="">-- Select a template --</option>
+                        <option value="engine-systems">Engine Systems Diagnosis & Repair</option>
+                        <option value="brake-systems">Brake Systems Service & Repair</option>
+                        <option value="transmission">Transmission & Drivetrain Service</option>
+                        <option value="electrical-systems">Electrical Systems & Diagnostics</option>
+                        <option value="cooling-systems">Cooling & Climate Systems</option>
+                        <option value="suspension-steering">Suspension & Steering Systems</option>
+                    </select>
+                </div>
+                <div class="two-column">
+                    <div class="form-group">
+                        <label for="demoSelect">📁 Quick Load Demo Template</label>
+                        <select id="demoSelect" onchange="loadDemoTemplate()">
+                            <option value="">-- Select a demo template --</option>
+                            <option value="json-templates/demo-cooling-systems.json">Cooling Systems Assessment</option>
+                            <option value="json-templates/demo-brake-systems.json">Brake Systems Service</option>
+                        </select>
+                        <small style="display: block; margin-top: 5px; color: #666;">Pre-configured templates in json-templates/ folder</small>
+                    </div>
+                    <div class="form-group">
+                        <label>&nbsp;</label>
+                        <button class="btn btn-info" onclick="exportToJSON()" style="margin-top: 0;">📥 Export to JSON</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="jsonFile">Or Upload Custom JSON</label>
+                    <input type="file" id="jsonFile" accept=".json" onchange="importFromJSON(event)">
+                    <small style="display: block; margin-top: 5px; color: #666;">Upload a .json file from your computer</small>
+                </div>
+            </div>
+
+            <!-- Student Information -->
+            <div class="section">
+                <h2 class="section-title">Student Information</h2>
+                <div class="two-column">
+                    <div class="form-group">
+                        <label for="studentName">Student Name</label>
+                        <input type="text" id="studentName" placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="jobDate">Date</label>
+                        <input type="date" id="jobDate">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="jobLocation">Location / Workshop</label>
+                    <input type="text" id="jobLocation" placeholder="e.g., College Workshop">
+                </div>
+            </div>
+
+            <!-- Vehicle Details -->
+            <div class="section">
+                <h2 class="section-title">🚗 Vehicle Details</h2>
+                <div class="two-column">
+                    <div class="form-group">
+                        <label for="vehicleReg">Registration Number</label>
+                        <input type="text" id="vehicleReg" placeholder="e.g., AB21XYZ">
+                    </div>
+                    <div class="form-group">
+                        <label for="vehicleMake">Make & Model</label>
+                        <input type="text" id="vehicleMake" placeholder="e.g., Ford Focus 1.6">
+                    </div>
+                </div>
+                <div class="two-column">
+                    <div class="form-group">
+                        <label for="vehicleYear">Year</label>
+                        <input type="text" id="vehicleYear" placeholder="e.g., 2020">
+                    </div>
+                    <div class="form-group">
+                        <label for="vehicleOdometer">Odometer Reading (miles)</label>
+                        <input type="text" id="vehicleOdometer" placeholder="e.g., 45000">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customer Requests -->
+            <div class="section">
+                <h2 class="section-title">Customer Requests</h2>
+                <p style="margin-bottom: 15px; color: #666; font-size: 14px;">
+                    Add each request from the customer. You'll select which request you're working on when adding jobs below.
+                </p>
+                <div class="add-request-input">
+                    <input type="text" id="newRequestInput" placeholder="Add a customer request...">
+                    <button class="btn btn-info btn-small" onclick="addCustomerRequest()">+ Add</button>
+                </div>
+                <div id="requestsList"></div>
+            </div>
+
+            <!-- Jobs -->
+            <div class="section">
+                <h2 class="section-title">My Jobs</h2>
+                <div class="form-group">
+                    <label for="selectRequest">Select Customer Request to Work On</label>
+                    <select id="selectRequest">
+                        <option value="">-- Select a customer request first --</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary" onclick="addJob()" style="margin-bottom: 20px;">+ Start New Job</button>
+                <div id="jobsList"></div>
+            </div>
+
+            <!-- Methodology Section -->
+            <div class="section">
+                <h2 class="section-title">📋 Methodology</h2>
+                <div class="form-group">
+                    <label for="methodology">Select your approach and methods used</label>
+                    <select id="methodology">
+                        <option value="">-- Select methodology --</option>
+                        <option value="visual-inspection">Visual Inspection and Testing</option>
+                        <option value="diagnostic-equipment">Diagnostic Equipment Analysis</option>
+                        <option value="manufacturer-procedures">Manufacturer Service Procedures</option>
+                        <option value="component-replacement">Component Removal and Replacement</option>
+                        <option value="system-testing">System Testing and Verification</option>
+                        <option value="measurement-recording">Precision Measurement and Recording</option>
+                        <option value="fault-diagnosis">Fault Code Analysis and Diagnosis</option>
+                        <option value="preventive-maintenance">Preventive Maintenance Procedures</option>
+                        <option value="repair-adjustment">Repair and Adjustment Techniques</option>
+                        <option value="quality-checks">Quality Checks and Final Inspection</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="methodologyNotes">Additional Notes (Optional)</label>
+                    <textarea id="methodologyNotes" placeholder="Add any additional details about your methodology..."></textarea>
+                </div>
+            </div>
+
+            <!-- Tools & Equipment -->
+            <div class="section">
+                <h2 class="section-title">🔧 Tools & Equipment</h2>
+                <p style="margin-bottom: 15px; color: #666; font-size: 14px;">
+                    Add each tool or piece of equipment used for this job.
+                </p>
+                <div class="add-request-input">
+                    <input type="text" id="newToolInput" placeholder="e.g., Torque wrench, Socket set, Jack...">
+                    <button class="btn btn-info btn-small" onclick="addTool()">+ Add</button>
+                </div>
+                <div id="toolsList"></div>
+            </div>
+
+            <!-- Technical Data -->
+            <div class="section">
+                <h2 class="section-title">📊 Technical Data</h2>
+                <div class="form-group">
+                    <label for="technicalData">Record relevant measurements and specifications</label>
+                    <textarea id="technicalData" placeholder="e.g., Torque settings: 85 Nm, Fluid capacity: 5L, Temperature: 45°C..."></textarea>
+                </div>
+            </div>
+
+            <!-- Learner Signature -->
+            <div class="section">
+                <h2 class="section-title">✍️ Learner Confirmation</h2>
+                <div class="form-group">
+                    <label for="learnerSignature">Your Signature/Initials</label>
+                    <input type="text" id="learnerSignature" placeholder="Your initials or 'Signed'">
+                </div>
+                <div class="form-group">
+                    <label for="learnerDate">Date Completed</label>
+                    <input type="date" id="learnerDate">
+                </div>
+                <div class="form-group">
+                    <label for="learnerProfile">Learner Profile Notes</label>
+                    <textarea id="learnerProfile" placeholder="Reflection on what you learned and your progress..."></textarea>
+                </div>
+            </div>
+
+            <!-- Multiple Job Cards Management -->
+            <div class="section">
+                <h2 class="section-title">📑 Job Cards</h2>
+                <div class="two-column">
+                    <div class="form-group">
+                        <label for="cardName">Job Card Name</label>
+                        <input type="text" id="cardName" placeholder="e.g., Engine Repair - Jan 2026">
+                    </div>
+                    <div class="button-group" style="margin-top: 22px;">
+                        <button class="btn btn-info btn-small" onclick="saveAsNewCard()">💾 Save As New Card</button>
+                    </div>
+                </div>
+                <div id="savedCardsList" style="margin-top: 15px;"></div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="bottom-actions">
+                <button class="btn btn-primary" onclick="saveJobCard()">💾 Save Progress</button>
+                <button class="btn btn-success" onclick="loadJobCard()">📂 Load Saved</button>
+                <button class="btn btn-secondary" onclick="exportToPDF()">📄 Export PDF</button>
+                <button class="btn btn-danger" onclick="clearForm()">🗑️ Clear All</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+
+    <script>
+        let db;
+        let currentJobId = 0;
+        let currentTaskId = 0;
+        let currentToolId = 0;
+        const DB_NAME = 'MotorVehicleJobCardDB';
+        const STORE_NAME = 'jobCards';
+        const PHOTO_STORE = 'photos';
+        
+        let customerRequests = [];
+        let jobs = [];
+        let tools = [];
+        let jobCards = [];
+
+        // Predefined Templates
+        const TEMPLATES = {
+            'engine-systems': {
+                name: 'Engine Systems Diagnosis & Repair',
+                customerRequests: [
+                    'Diagnose engine warning light',
+                    'Investigate unusual engine noise',
+                    'Check and replace spark plugs',
+                    'Perform compression test',
+                    'Inspect cooling system',
+                    'Service air filter and intake system'
+                ],
+                tools: [
+                    'OBD-II diagnostic scanner',
+                    'Torque wrench',
+                    'Socket set (metric)',
+                    'Compression tester',
+                    'Multimeter',
+                    'Feeler gauge set',
+                    'Spark plug socket',
+                    'Timing light'
+                ]
+            },
+            'brake-systems': {
+                name: 'Brake Systems Service & Repair',
+                customerRequests: [
+                    'Brake pedal feels spongy',
+                    'Grinding noise when braking',
+                    'Replace front brake pads',
+                    'Replace rear brake discs',
+                    'Brake fluid service',
+                    'Handbrake adjustment'
+                ],
+                tools: [
+                    'Jack and axle stands',
+                    'Wheel brace',
+                    'Socket set',
+                    'Brake caliper wind-back tool',
+                    'Micrometer',
+                    'Torque wrench',
+                    'Brake bleeding kit',
+                    'G-clamp',
+                    'Wire brush',
+                    'Copper grease'
+                ]
+            },
+            'transmission': {
+                name: 'Transmission & Drivetrain Service',
+                customerRequests: [
+                    'Gearbox oil service',
+                    'Clutch slipping issue',
+                    'Replace CV boot',
+                    'Driveshaft vibration investigation',
+                    'Transmission fluid leak diagnosis',
+                    'Differential service'
+                ],
+                tools: [
+                    'Vehicle ramp or axle stands',
+                    'Socket set (metric and imperial)',
+                    'Torque wrench',
+                    'Oil drain pan',
+                    'Fluid pump',
+                    'Seal puller',
+                    'CV boot clamp tool',
+                    'Bearing puller set'
+                ]
+            },
+            'electrical-systems': {
+                name: 'Electrical Systems & Diagnostics',
+                customerRequests: [
+                    'Battery not charging',
+                    'Headlight not working',
+                    'Diagnose electrical fault',
+                    'Replace alternator',
+                    'Starter motor replacement',
+                    'Wiring harness repair'
+                ],
+                tools: [
+                    'Multimeter',
+                    'Battery tester',
+                    'Circuit tester',
+                    'Wire strippers',
+                    'Crimping tool',
+                    'Diagnostic scanner',
+                    'Test light',
+                    'Insulation tester'
+                ]
+            },
+            'cooling-systems': {
+                name: 'Cooling & Climate Systems',
+                customerRequests: [
+                    'Engine overheating',
+                    'Coolant leak diagnosis',
+                    'Replace thermostat',
+                    'Radiator replacement',
+                    'Water pump service',
+                    'Air conditioning not working'
+                ],
+                tools: [
+                    'Coolant pressure tester',
+                    'Thermometer',
+                    'Refractometer',
+                    'AC pressure gauge set',
+                    'Drain pan',
+                    'Funnel',
+                    'Hose clamp pliers',
+                    'Vacuum pump'
+                ]
+            },
+            'suspension-steering': {
+                name: 'Suspension & Steering Systems',
+                customerRequests: [
+                    'Vehicle pulling to one side',
+                    'Excessive tire wear',
+                    'Replace shock absorbers',
+                    'Wheel alignment check',
+                    'Steering rack replacement',
+                    'Ball joint replacement'
+                ],
+                tools: [
+                    'Jack and axle stands',
+                    'Ball joint separator',
+                    'Spring compressor',
+                    'Alignment equipment',
+                    'Torque wrench',
+                    'Pry bar',
+                    'Track rod end remover',
+                    'Bearing puller'
+                ]
+            }
+        };
+
+        // Initialize IndexedDB
+        function initDB() {
+            return new Promise((resolve, reject) => {
+                const request = indexedDB.open(DB_NAME, 2);
+                request.onerror = () => reject(request.error);
+                request.onsuccess = () => {
+                    db = request.result;
+                    resolve(db);
+                };
+                request.onupgradeneeded = (event) => {
+                    const db = event.target.result;
+                    if (!db.objectStoreNames.contains(STORE_NAME)) {
+                        db.createObjectStore(STORE_NAME, { keyPath: 'id' });
+                    }
+                    if (!db.objectStoreNames.contains(PHOTO_STORE)) {
+                        db.createObjectStore(PHOTO_STORE, { keyPath: 'id', autoIncrement: true });
+                    }
+                };
+            });
+        }
+
+        // Template Management
+        function loadTemplate() {
+            const select = document.getElementById('templateSelect');
+            const templateKey = select.value;
+
+            if (!templateKey) return;
+
+            const template = TEMPLATES[templateKey];
+            if (!template) {
+                showMessage('Template not found', 'error');
+                return;
+            }
+
+            if (customerRequests.length > 0 || tools.length > 0) {
+                if (!confirm(`Loading "${template.name}" will replace current customer requests and tools. Continue?`)) {
+                    select.value = '';
+                    return;
+                }
+            }
+
+            // Load customer requests
+            customerRequests = [];
+            template.customerRequests.forEach((text, index) => {
+                customerRequests.push({
+                    id: Date.now() + index,
+                    text: text,
+                    completed: false
+                });
+            });
+
+            // Load tools
+            tools = [];
+            currentToolId = 0;
+            template.tools.forEach(toolName => {
+                tools.push({
+                    id: ++currentToolId,
+                    name: toolName
+                });
+            });
+
+            renderRequests();
+            updateRequestDropdown();
+            renderTools();
+
+            showMessage(`Template "${template.name}" loaded successfully!`, 'success');
+        }
+
+        // Image Compression
+        async function compressImage(file, maxWidth = 1200, quality = 0.8) {
+            return new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        const canvas = document.createElement('canvas');
+                        let width = img.width;
+                        let height = img.height;
+                        if (width > maxWidth) {
+                            height = (height * maxWidth) / width;
+                            width = maxWidth;
+                        }
+                        canvas.width = width;
+                        canvas.height = height;
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(img, 0, 0, width, height);
+                        resolve({
+                            dataUrl: canvas.toDataURL('image/jpeg', quality)
+                        });
+                    };
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        // Photo storage
+        async function storePhoto(photoData) {
+            return new Promise((resolve, reject) => {
+                const transaction = db.transaction([PHOTO_STORE], 'readwrite');
+                const store = transaction.objectStore(PHOTO_STORE);
+                const request = store.add(photoData);
+                request.onsuccess = () => resolve(request.result);
+                request.onerror = () => reject(request.error);
+            });
+        }
+
+        async function deletePhoto(photoId) {
+            return new Promise((resolve, reject) => {
+                const transaction = db.transaction([PHOTO_STORE], 'readwrite');
+                const store = transaction.objectStore(PHOTO_STORE);
+                const request = store.delete(photoId);
+                request.onsuccess = () => resolve();
+                request.onerror = () => reject(request.error);
+            });
+        }
+
+        // Add customer request
+        function addCustomerRequest() {
+            const input = document.getElementById('newRequestInput');
+            const text = input.value.trim();
+            
+            if (!text) {
+                showMessage('Please enter a customer request', 'error');
+                return;
+            }
+
+            const request = {
+                id: Date.now(),
+                text: text,
+                completed: false
+            };
+
+            customerRequests.push(request);
+            input.value = '';
+            renderRequests();
+            updateRequestDropdown();
+            showMessage('Customer request added', 'success');
+        }
+
+        function toggleRequestCompletion(id) {
+            const request = customerRequests.find(r => r.id === id);
+            if (request) {
+                request.completed = !request.completed;
+                renderRequests();
+            }
+        }
+
+        function deleteCustomerRequest(id) {
+            if (confirm('Delete this customer request? Jobs linked to it will remain.')) {
+                customerRequests = customerRequests.filter(r => r.id !== id);
+                renderRequests();
+                updateRequestDropdown();
+                showMessage('Customer request removed', 'success');
+            }
+        }
+
+        function renderRequests() {
+            const requestsList = document.getElementById('requestsList');
+            
+            if (customerRequests.length === 0) {
+                requestsList.innerHTML = '<div class="empty-state"><div class="empty-state-icon">📝</div><p>No customer requests added yet. Load a template or add manually.</p></div>';
+                return;
+            }
+
+            requestsList.innerHTML = customerRequests.map(req => `
+                <div class="request-item ${req.completed ? 'completed' : ''}">
+                    <input type="checkbox" ${req.completed ? 'checked' : ''} onchange="toggleRequestCompletion(${req.id})">
+                    <div class="request-text">${escapeHtml(req.text)}</div>
+                    <button class="delete-btn" onclick="deleteCustomerRequest(${req.id})">Remove</button>
+                </div>
+            `).join('');
+        }
+
+        function updateRequestDropdown() {
+            const select = document.getElementById('selectRequest');
+            const currentValue = select.value;
+            
+            select.innerHTML = '<option value="">-- Select a customer request --</option>' +
+                customerRequests.map(req => 
+                    `<option value="${req.id}">${escapeHtml(req.text)}</option>`
+                ).join('');
+            
+            if (currentValue) {
+                select.value = currentValue;
+            }
+        }
+
+        // Tools Management
+        function addTool() {
+            const input = document.getElementById('newToolInput');
+            const text = input.value.trim();
+            
+            if (!text) {
+                showMessage('Please enter a tool name', 'error');
+                return;
+            }
+
+            const tool = {
+                id: ++currentToolId,
+                name: text
+            };
+
+            tools.push(tool);
+            input.value = '';
+            renderTools();
+            showMessage('Tool added', 'success');
+        }
+
+        function deleteTool(id) {
+            tools = tools.filter(t => t.id !== id);
+            renderTools();
+            showMessage('Tool removed', 'success');
+        }
+
+        function renderTools() {
+            const toolsList = document.getElementById('toolsList');
+            
+            if (tools.length === 0) {
+                toolsList.innerHTML = '<div class="empty-state"><div class="empty-state-icon">🔧</div><p>No tools added yet. Load a template or add manually.</p></div>';
+                return;
+            }
+
+            toolsList.innerHTML = tools.map(tool => `
+                <div class="tool-item">
+                    <div class="tool-name">${escapeHtml(tool.name)}</div>
+                    <button class="delete-btn" onclick="deleteTool(${tool.id})">Remove</button>
+                </div>
+            `).join('');
+        }
+
+        // Add job
+        function addJob() {
+            const requestId = document.getElementById('selectRequest').value;
+            
+            if (!requestId) {
+                showMessage('Please select a customer request first', 'error');
+                return;
+            }
+
+            const request = customerRequests.find(r => r.id == requestId);
+            if (!request) {
+                showMessage('Selected request not found', 'error');
+                return;
+            }
+
+            const job = {
+                id: ++currentJobId,
+                requestId: parseInt(requestId),
+                requestText: request.text,
+                tasks: [],
+                completed: false
+            };
+
+            jobs.push(job);
+            renderJobs();
+            showMessage('New job started', 'success');
+        }
+
+        function toggleJobCompletion(jobId) {
+            const job = jobs.find(j => j.id === jobId);
+            if (job) {
+                job.completed = !job.completed;
+                renderJobs();
+            }
+        }
+
+        function deleteJob(jobId) {
+            if (confirm('Delete this entire job and all its tasks?')) {
+                jobs = jobs.filter(j => j.id !== jobId);
+                renderJobs();
+                showMessage('Job deleted', 'success');
+            }
+        }
+
+        // Add task to job
+        function addTaskToJob(jobId) {
+            const input = document.getElementById(`taskInput-${jobId}`);
+            const description = input.value.trim();
+            
+            if (!description) {
+                showMessage('Please describe the task', 'error');
+                return;
+            }
+
+            const job = jobs.find(j => j.id === jobId);
+            if (!job) return;
+
+            const task = {
+                id: ++currentTaskId,
+                description: description,
+                completed: false,
+                photos: []
+            };
+
+            job.tasks.push(task);
+            input.value = '';
+            renderJobs();
+            showMessage('Task added', 'success');
+        }
+
+        function toggleTaskCompletion(jobId, taskId) {
+            const job = jobs.find(j => j.id === jobId);
+            if (!job) return;
+            
+            const task = job.tasks.find(t => t.id === taskId);
+            if (task) {
+                task.completed = !task.completed;
+                renderJobs();
+            }
+        }
+
+        function deleteTask(jobId, taskId) {
+            const job = jobs.find(j => j.id === jobId);
+            if (!job) return;
+            
+            job.tasks = job.tasks.filter(t => t.id !== taskId);
+            renderJobs();
+            showMessage('Task deleted', 'success');
+        }
+
+        // Handle photo upload to task
+        async function handleTaskPhotoUpload(jobId, taskId, files) {
+            showLoading(true);
+
+            try {
+                const job = jobs.find(j => j.id === jobId);
+                if (!job) return;
+                
+                const task = job.tasks.find(t => t.id === taskId);
+                if (!task) return;
+
+                for (const file of files) {
+                    const compressed = await compressImage(file);
+                    const photoData = {
+                        jobId: jobId,
+                        taskId: taskId,
+                        dataUrl: compressed.dataUrl,
+                        timestamp: new Date().toISOString()
+                    };
+                    
+                    const photoId = await storePhoto(photoData);
+                    task.photos.push({ id: photoId, dataUrl: compressed.dataUrl });
+                }
+                
+                renderJobs();
+                showMessage('Photos uploaded', 'success');
+            } catch (error) {
+                console.error('Error uploading photos:', error);
+                showMessage('Error uploading photos', 'error');
+            } finally {
+                showLoading(false);
+            }
+        }
+
+        async function removePhotoFromTask(jobId, taskId, photoIndex) {
+            try {
+                const job = jobs.find(j => j.id === jobId);
+                if (!job) return;
+                
+                const task = job.tasks.find(t => t.id === taskId);
+                if (!task || !task.photos[photoIndex]) return;
+
+                const photoId = task.photos[photoIndex].id;
+                await deletePhoto(photoId);
+                task.photos.splice(photoIndex, 1);
+                renderJobs();
+                showMessage('Photo removed', 'success');
+            } catch (error) {
+                console.error('Error removing photo:', error);
+                showMessage('Error removing photo', 'error');
+            }
+        }
+
+        // Render jobs
+        function renderJobs() {
+            const jobsList = document.getElementById('jobsList');
+            
+            if (jobs.length === 0) {
+                jobsList.innerHTML = '<div class="empty-state"><div class="empty-state-icon">🔧</div><p>No jobs started yet. Select a customer request and click "Start New Job"</p></div>';
+                return;
+            }
+
+            jobsList.innerHTML = jobs.map((job, jobIndex) => `
+                <div class="job-card">
+                    <div class="job-header">
+                        <div class="job-title">
+                            <div class="job-number">Job ${jobIndex + 1}</div>
+                            <div class="job-request">📋 ${escapeHtml(job.requestText)}</div>
+                        </div>
+                        <div class="job-status ${job.completed ? 'completed' : 'in-progress'}">
+                            ${job.completed ? '✓ Complete' : '⏳ In Progress'}
+                        </div>
+                    </div>
+
+                    <div class="job-actions">
+                        <button class="btn ${job.completed ? 'btn-secondary' : 'btn-success'} btn-small" 
+                                onclick="toggleJobCompletion(${job.id})">
+                            ${job.completed ? 'Mark Incomplete' : 'Mark Complete'}
+                        </button>
+                        <button class="btn btn-danger btn-small" onclick="deleteJob(${job.id})">Delete Job</button>
+                    </div>
+
+                    <div class="add-task-section">
+                        <div class="add-task-input">
+                            <input type="text" id="taskInput-${job.id}" placeholder="Describe a task you performed...">
+                            <button class="btn btn-info btn-small" onclick="addTaskToJob(${job.id})">+ Add Task</button>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 20px;">
+                        ${job.tasks.length === 0 ? 
+                            '<p style="color: #999; font-size: 14px; padding: 10px;">No tasks added yet. Add tasks to document what you did.</p>' :
+                            job.tasks.map((task, taskIndex) => `
+                                <div class="task-item ${task.completed ? 'completed' : ''}">
+                                    <div class="task-header">
+                                        <input type="checkbox" ${task.completed ? 'checked' : ''} 
+                                               onchange="toggleTaskCompletion(${job.id}, ${task.id})">
+                                        <div class="task-description">${escapeHtml(task.description)}</div>
+                                    </div>
+                                    
+                                    <div class="task-actions">
+                                        <button class="btn btn-danger btn-small" onclick="deleteTask(${job.id}, ${task.id})">Delete</button>
+                                    </div>
+
+                                    <div class="photo-section">
+                                        <label class="photo-upload-label">
+                                            📸 Add Photos
+                                            <input type="file" accept="image/*" multiple 
+                                                   onchange="handleTaskPhotoUpload(${job.id}, ${task.id}, this.files)">
+                                        </label>
+                                        ${task.photos.length > 0 ? `
+                                            <div class="photo-grid">
+                                                ${task.photos.map((photo, photoIndex) => `
+                                                    <div class="photo-item">
+                                                        <img src="${photo.dataUrl}" alt="Task evidence">
+                                                        <button class="delete-photo-btn" 
+                                                                onclick="removePhotoFromTask(${job.id}, ${task.id}, ${photoIndex})">×</button>
+                                                    </div>
+                                                `).join('')}
+                                            </div>
+                                        ` : ''}
+                                    </div>
+                                </div>
+                            `).join('')
+                        }
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // JSON Import/Export
+        async function loadDemoTemplate() {
+            const select = document.getElementById('demoSelect');
+            const filePath = select.value;
+            
+            if (!filePath) return;
+
+            showLoading(true);
+            try {
+                const response = await fetch(filePath);
+                if (!response.ok) {
+                    showMessage(`Template not found: ${filePath}`, 'error');
+                    select.value = '';
+                    return;
+                }
+
+                const data = await response.json();
+                
+                // Validate basic structure
+                if (!data.studentName && !data.customerRequests && !data.jobs) {
+                    showMessage('Invalid template format', 'error');
+                    select.value = '';
+                    return;
+                }
+
+                populateForm(data);
+                select.value = '';
+                showMessage(`Template "${data.studentName || 'Demo'}" loaded successfully!`, 'success');
+                window.scrollTo(0, 0);
+            } catch (error) {
+                console.error('Error loading demo template:', error);
+                showMessage('Error loading template: ' + error.message, 'error');
+                select.value = '';
+            } finally {
+                showLoading(false);
+            }
+        }
+
+        async function importFromJSON(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            try {
+                const text = await file.text();
+                const data = JSON.parse(text);
+                
+                // Validate basic structure
+                if (!data.studentName && !data.customerRequests && !data.jobs) {
+                    showMessage('Invalid job card format', 'error');
+                    return;
+                }
+
+                populateForm(data);
+                document.getElementById('jsonFile').value = '';
+                showMessage(`Job card "${data.studentName || 'Untitled'}" imported successfully!`, 'success');
+                window.scrollTo(0, 0);
+            } catch (error) {
+                console.error('Error importing JSON:', error);
+                showMessage('Error importing JSON file: ' + error.message, 'error');
+            }
+        }
+
+        function exportToJSON() {
+            try {
+                const data = collectFormData();
+                const jsonString = JSON.stringify(data, null, 2);
+                const blob = new Blob([jsonString], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                const filename = `jobcard-${data.studentName || 'export'}-${new Date().toISOString().split('T')[0]}.json`;
+                link.href = url;
+                link.download = filename;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                URL.revokeObjectURL(url);
+                showMessage('Job card exported as JSON', 'success');
+            } catch (error) {
+                console.error('Error exporting JSON:', error);
+                showMessage('Error exporting JSON', 'error');
+            }
+        }
+
+        // Data management
+        function collectFormData() {
+            const methodologySelect = document.getElementById('methodology');
+            const methodologyText = methodologySelect.options[methodologySelect.selectedIndex]?.text || '';
+            
+            return {
+                id: 'current',
+                timestamp: new Date().toISOString(),
+                studentName: document.getElementById('studentName').value,
+                jobDate: document.getElementById('jobDate').value,
+                jobLocation: document.getElementById('jobLocation').value,
+                vehicleReg: document.getElementById('vehicleReg').value,
+                vehicleMake: document.getElementById('vehicleMake').value,
+                vehicleYear: document.getElementById('vehicleYear').value,
+                vehicleOdometer: document.getElementById('vehicleOdometer').value,
+                methodology: methodologySelect.value,
+                methodologyText: methodologyText,
+                methodologyNotes: document.getElementById('methodologyNotes').value,
+                tools: tools,
+                technicalData: document.getElementById('technicalData').value,
+                learnerSignature: document.getElementById('learnerSignature').value,
+                learnerDate: document.getElementById('learnerDate').value,
+                learnerProfile: document.getElementById('learnerProfile').value,
+                customerRequests: customerRequests,
+                jobs: jobs
+            };
+        }
+
+        function populateForm(data) {
+            document.getElementById('studentName').value = data.studentName || '';
+            document.getElementById('jobDate').value = data.jobDate || '';
+            document.getElementById('jobLocation').value = data.jobLocation || '';
+            document.getElementById('vehicleReg').value = data.vehicleReg || '';
+            document.getElementById('vehicleMake').value = data.vehicleMake || '';
+            document.getElementById('vehicleYear').value = data.vehicleYear || '';
+            document.getElementById('vehicleOdometer').value = data.vehicleOdometer || '';
+            document.getElementById('methodology').value = data.methodology || '';
+            document.getElementById('methodologyNotes').value = data.methodologyNotes || '';
+            document.getElementById('technicalData').value = data.technicalData || '';
+            document.getElementById('learnerSignature').value = data.learnerSignature || '';
+            document.getElementById('learnerDate').value = data.learnerDate || '';
+            document.getElementById('learnerProfile').value = data.learnerProfile || '';
+            
+            customerRequests = data.customerRequests || [];
+            jobs = data.jobs || [];
+            tools = data.tools || [];
+            
+            currentJobId = jobs.length > 0 ? Math.max(...jobs.map(j => j.id)) : 0;
+            currentTaskId = 0;
+            currentToolId = tools.length > 0 ? Math.max(...tools.map(t => t.id)) : 0;
+            jobs.forEach(job => {
+                job.tasks.forEach(task => {
+                    if (task.id > currentTaskId) currentTaskId = task.id;
+                });
+            });
+            
+            renderRequests();
+            updateRequestDropdown();
+            renderTools();
+            renderJobs();
+        }
+
+        async function saveJobCard() {
+            showLoading(true);
+            try {
+                const data = collectFormData();
+                const transaction = db.transaction([STORE_NAME], 'readwrite');
+                const store = transaction.objectStore(STORE_NAME);
+                await store.put(data);
+                showMessage('Job card saved successfully!', 'success');
+            } catch (error) {
+                console.error('Error saving:', error);
+                showMessage('Error saving job card', 'error');
+            } finally {
+                showLoading(false);
+            }
+        }
+
+        async function loadJobCard() {
+            showLoading(true);
+            try {
+                const transaction = db.transaction([STORE_NAME], 'readonly');
+                const store = transaction.objectStore(STORE_NAME);
+                const request = store.get('current');
+                
+                request.onsuccess = () => {
+                    const data = request.result;
+                    if (data) {
+                        populateForm(data);
+                        showMessage('Job card loaded!', 'success');
+                    } else {
+                        showMessage('No saved job card found', 'error');
+                    }
+                    showLoading(false);
+                };
+                
+                request.onerror = () => {
+                    showMessage('Error loading job card', 'error');
+                    showLoading(false);
+                };
+            } catch (error) {
+                console.error('Error loading:', error);
+                showMessage('Error loading job card', 'error');
+                showLoading(false);
+            }
+        }
+
+        async function exportToPDF() {
+            showLoading(true);
+            try {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                const data = collectFormData();
+                
+                let yPos = 20;
+                const lineHeight = 7;
+                const pageWidth = doc.internal.pageSize.width;
+                const margin = 15;
+                const contentWidth = pageWidth - (margin * 2);
+                
+                // Header
+                doc.setFillColor(30, 60, 114);
+                doc.rect(0, 0, pageWidth, 30, 'F');
+                doc.setTextColor(255, 255, 255);
+                doc.setFontSize(18);
+                doc.text('Motor Vehicle Job Card Report', pageWidth / 2, 15, { align: 'center' });
+                doc.setFontSize(10);
+                doc.text(new Date().toLocaleDateString(), pageWidth / 2, 23, { align: 'center' });
+                
+                yPos = 40;
+                doc.setTextColor(0, 0, 0);
+                
+                const addSection = (title, content) => {
+                    if (yPos > 270) {
+                        doc.addPage();
+                        yPos = 20;
+                    }
+                    
+                    doc.setFontSize(12);
+                    doc.setFont(undefined, 'bold');
+                    doc.text(title, margin, yPos);
+                    yPos += lineHeight + 2;
+                    
+                    doc.setFontSize(10);
+                    doc.setFont(undefined, 'normal');
+                    
+                    if (Array.isArray(content)) {
+                        content.forEach(item => {
+                            if (yPos > 280) {
+                                doc.addPage();
+                                yPos = 20;
+                            }
+                            const lines = doc.splitTextToSize(item, contentWidth - 10);
+                            doc.text(lines, margin + 5, yPos);
+                            yPos += lines.length * lineHeight;
+                        });
+                    } else {
+                        const lines = doc.splitTextToSize(content || 'N/A', contentWidth - 10);
+                        doc.text(lines, margin + 5, yPos);
+                        yPos += lines.length * lineHeight;
+                    }
+                    
+                    yPos += 5;
+                };
+                
+                addSection('Student Information', [
+                    `Name: ${data.studentName || 'N/A'}`,
+                    `Date: ${data.jobDate || 'N/A'}`,
+                    `Location: ${data.jobLocation || 'N/A'}`
+                ]);
+
+                // Vehicle Details
+                if (data.vehicleReg || data.vehicleMake) {
+                    const vehicleInfo = [];
+                    if (data.vehicleReg) vehicleInfo.push(`Registration: ${data.vehicleReg}`);
+                    if (data.vehicleMake) vehicleInfo.push(`Make & Model: ${data.vehicleMake}`);
+                    if (data.vehicleYear) vehicleInfo.push(`Year: ${data.vehicleYear}`);
+                    if (data.vehicleOdometer) vehicleInfo.push(`Odometer: ${data.vehicleOdometer} miles`);
+                    if (vehicleInfo.length > 0) addSection('Vehicle Details', vehicleInfo);
+                }
+                
+                if (data.customerRequests.length > 0) {
+                    const requests = data.customerRequests.map(r => 
+                        `${r.completed ? '✓' : '○'} ${r.text}`
+                    );
+                    addSection('Customer Requests', requests);
+                }
+
+                // Methodology
+                if (data.methodologyText) {
+                    const methodInfo = [data.methodologyText];
+                    if (data.methodologyNotes) {
+                        methodInfo.push(`Notes: ${data.methodologyNotes}`);
+                    }
+                    addSection('Methodology', methodInfo);
+                }
+
+                // Tools & Equipment
+                if (data.tools && data.tools.length > 0) {
+                    const toolsList = data.tools.map(t => `• ${t.name}`);
+                    addSection('Tools & Equipment Used', toolsList);
+                }
+
+                // Technical Data
+                if (data.technicalData) {
+                    addSection('Technical Data', data.technicalData);
+                }
+                
+                if (data.jobs.length > 0) {
+                    data.jobs.forEach((job, jobIndex) => {
+                        if (yPos > 260) {
+                            doc.addPage();
+                            yPos = 20;
+                        }
+                        
+                        doc.setFontSize(13);
+                        doc.setFont(undefined, 'bold');
+                        doc.setTextColor(102, 126, 234);
+                        doc.text(`Job ${jobIndex + 1}: ${job.requestText}`, margin, yPos);
+                        doc.setTextColor(0, 0, 0);
+                        yPos += lineHeight + 2;
+                        
+                        doc.setFontSize(10);
+                        doc.setFont(undefined, 'italic');
+                        doc.text(`Status: ${job.completed ? 'Complete' : 'In Progress'}`, margin + 5, yPos);
+                        yPos += lineHeight + 2;
+                        
+                        if (job.tasks.length > 0) {
+                            job.tasks.forEach((task, taskIndex) => {
+                                if (yPos > 275) {
+                                    doc.addPage();
+                                    yPos = 20;
+                                }
+                                
+                                doc.setFont(undefined, 'bold');
+                                doc.setFontSize(10);
+                                doc.text(`${task.completed ? '✓' : '○'} Task ${taskIndex + 1}:`, margin + 5, yPos);
+                                yPos += lineHeight;
+                                
+                                doc.setFont(undefined, 'normal');
+                                const lines = doc.splitTextToSize(task.description, contentWidth - 20);
+                                doc.text(lines, margin + 10, yPos);
+                                yPos += lines.length * lineHeight;
+                                
+                                if (task.photos && task.photos.length > 0) {
+                                    let xPos = margin + 10;
+                                    const imgWidth = 35;
+                                    const imgHeight = 26;
+                                    const spacing = 5;
+                                    
+                                    for (let i = 0; i < task.photos.length; i++) {
+                                        if (xPos + imgWidth > pageWidth - margin) {
+                                            xPos = margin + 10;
+                                            yPos += imgHeight + spacing;
+                                        }
+                                        
+                                        if (yPos + imgHeight > 280) {
+                                            doc.addPage();
+                                            yPos = 20;
+                                            xPos = margin + 10;
+                                        }
+                                        
+                                        try {
+                                            doc.addImage(task.photos[i].dataUrl, 'JPEG', xPos, yPos, imgWidth, imgHeight);
+                                        } catch (err) {
+                                            console.error('Error adding image:', err);
+                                        }
+                                        
+                                        xPos += imgWidth + spacing;
+                                    }
+                                    
+                                    yPos += imgHeight + 8;
+                                }
+                                
+                                yPos += 3;
+                            });
+                        }
+                        
+                        yPos += 5;
+                    });
+                }
+
+                // Learner Confirmation
+                if (data.learnerSignature || data.learnerProfile) {
+                    const learnerInfo = [];
+                    if (data.learnerSignature) learnerInfo.push(`Learner Signature: ${data.learnerSignature}`);
+                    if (data.learnerDate) learnerInfo.push(`Date: ${data.learnerDate}`);
+                    if (data.learnerProfile) learnerInfo.push(`Reflection: ${data.learnerProfile}`);
+                    if (learnerInfo.length > 0) addSection('Learner Confirmation', learnerInfo);
+                }
+                
+                const fileName = `JobCard_${data.studentName || 'Student'}_${new Date().toISOString().split('T')[0]}.pdf`;
+                doc.save(fileName);
+                
+                showMessage('PDF exported successfully!', 'success');
+            } catch (error) {
+                console.error('Error exporting PDF:', error);
+                showMessage('Error exporting PDF', 'error');
+            } finally {
+                showLoading(false);
+            }
+        }
+
+        async function clearForm() {
+            if (confirm('Clear all data? This cannot be undone.')) {
+                showLoading(true);
+                try {
+                    document.getElementById('studentName').value = '';
+                    document.getElementById('jobDate').value = '';
+                    document.getElementById('jobLocation').value = '';
+                    document.getElementById('vehicleReg').value = '';
+                    document.getElementById('vehicleMake').value = '';
+                    document.getElementById('vehicleYear').value = '';
+                    document.getElementById('vehicleOdometer').value = '';
+                    document.getElementById('methodology').value = '';
+                    document.getElementById('methodologyNotes').value = '';
+                    document.getElementById('technicalData').value = '';
+                    document.getElementById('learnerSignature').value = '';
+                    document.getElementById('learnerDate').value = '';
+                    document.getElementById('learnerProfile').value = '';
+                    document.getElementById('templateSelect').value = '';
+                    
+                    customerRequests = [];
+                    jobs = [];
+                    tools = [];
+                    currentJobId = 0;
+                    currentTaskId = 0;
+                    currentToolId = 0;
+                    
+                    renderRequests();
+                    updateRequestDropdown();
+                    renderTools();
+                    renderJobs();
+                    
+                    const transaction = db.transaction([STORE_NAME], 'readwrite');
+                    const store = transaction.objectStore(STORE_NAME);
+                    await store.delete('current');
+                    
+                    showMessage('All data cleared', 'success');
+                } catch (error) {
+                    console.error('Error clearing:', error);
+                    showMessage('Error clearing data', 'error');
+                } finally {
+                    showLoading(false);
+                }
+            }
+        }
+
+        function showMessage(message, type) {
+            const statusMessage = document.getElementById('statusMessage');
+            statusMessage.textContent = message;
+            statusMessage.className = `status-message ${type}`;
+            statusMessage.style.display = 'block';
+            setTimeout(() => {
+                statusMessage.style.display = 'none';
+            }, 5000);
+        }
+
+        function showLoading(show) {
+            const loading = document.getElementById('loading');
+            if (show) {
+                loading.classList.add('active');
+            } else {
+                loading.classList.remove('active');
+            }
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Multiple Job Cards Management
+        async function saveAsNewCard() {
+            const cardName = document.getElementById('cardName').value.trim();
+            
+            if (!cardName) {
+                showMessage('Please enter a name for this job card', 'error');
+                return;
+            }
+
+            showLoading(true);
+            try {
+                const data = collectFormData();
+                const cardId = Date.now().toString();
+                const cardData = {
+                    id: cardId,
+                    name: cardName,
+                    timestamp: new Date().toISOString(),
+                    data: data
+                };
+
+                const transaction = db.transaction([STORE_NAME], 'readwrite');
+                const store = transaction.objectStore(STORE_NAME);
+                await store.put(cardData);
+
+                document.getElementById('cardName').value = '';
+                loadSavedCards();
+                showMessage(`Job card "${cardName}" saved!`, 'success');
+            } catch (error) {
+                console.error('Error saving new card:', error);
+                showMessage('Error saving job card', 'error');
+            } finally {
+                showLoading(false);
+            }
+        }
+
+        async function loadSavedCards() {
+            try {
+                const transaction = db.transaction([STORE_NAME], 'readonly');
+                const store = transaction.objectStore(STORE_NAME);
+                const request = store.getAll();
+
+                request.onsuccess = () => {
+                    const allCards = request.result.filter(card => card.id !== 'current' && card.name);
+                    const cardsList = document.getElementById('savedCardsList');
+
+                    if (allCards.length === 0) {
+                        cardsList.innerHTML = '<div class="empty-state"><div class="empty-state-icon">📑</div><p>No saved job cards yet</p></div>';
+                        return;
+                    }
+
+                    cardsList.innerHTML = allCards.map(card => {
+                        const date = new Date(card.timestamp).toLocaleDateString();
+                        return `
+                            <div class="saved-card-item">
+                                <div class="card-info">
+                                    <div class="card-name">${escapeHtml(card.name)}</div>
+                                    <div class="card-date">Saved: ${date}</div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="load-btn" onclick="loadCard('${card.id}')">Load</button>
+                                    <button class="delete-card-btn" onclick="deleteCard('${card.id}')">Delete</button>
+                                </div>
+                            </div>
+                        `;
+                    }).join('');
+                };
+            } catch (error) {
+                console.error('Error loading saved cards:', error);
+            }
+        }
+
+        async function loadCard(cardId) {
+            showLoading(true);
+            try {
+                const transaction = db.transaction([STORE_NAME], 'readonly');
+                const store = transaction.objectStore(STORE_NAME);
+                const request = store.get(cardId);
+
+                request.onsuccess = () => {
+                    const card = request.result;
+                    if (card && card.data) {
+                        populateForm(card.data);
+                        showMessage(`Job card "${card.name}" loaded!`, 'success');
+                        window.scrollTo(0, 0);
+                    } else {
+                        showMessage('Job card not found', 'error');
+                    }
+                    showLoading(false);
+                };
+
+                request.onerror = () => {
+                    showMessage('Error loading job card', 'error');
+                    showLoading(false);
+                };
+            } catch (error) {
+                console.error('Error loading card:', error);
+                showMessage('Error loading job card', 'error');
+                showLoading(false);
+            }
+        }
+
+        async function deleteCard(cardId) {
+            if (confirm('Delete this saved job card? This cannot be undone.')) {
+                showLoading(true);
+                try {
+                    const transaction = db.transaction([STORE_NAME], 'readwrite');
+                    const store = transaction.objectStore(STORE_NAME);
+                    await store.delete(cardId);
+                    
+                    loadSavedCards();
+                    showMessage('Job card deleted', 'success');
+                } catch (error) {
+                    console.error('Error deleting card:', error);
+                    showMessage('Error deleting job card', 'error');
+                } finally {
+                    showLoading(false);
+                }
+            }
+        }
+
+        async function initApp() {
+            try {
+                await initDB();
+                document.getElementById('jobDate').valueAsDate = new Date();
+                document.getElementById('learnerDate').valueAsDate = new Date();
+                renderRequests();
+                updateRequestDropdown();
+                renderTools();
+                renderJobs();
+                loadSavedCards();
+            } catch (error) {
+                console.error('Error initializing app:', error);
+                showMessage('Error initializing app', 'error');
+            }
+        }
+
+        window.addEventListener('load', initApp);
+    </script>
+</body>
+</html>

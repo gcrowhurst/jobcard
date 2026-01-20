@@ -1,0 +1,318 @@
+{
+  "studentName": "Sarah Johnson",
+  "jobDate": "2026-01-18",
+  "jobLocation": "Training Centre - Bay 1",
+  "vehicleReg": "BK25 XYZ",
+  "vehicleMake": "Vauxhall Astra",
+  "vehicleYear": "2022",
+  "vehicleOdometer": "22150",
+  "methodology": "brake-systems",
+  "methodologyText": "Brake Systems Service & Repair",
+  "methodologyNotes": "Complete brake system inspection and service. Front and rear brake pads replaced, brake fluid bled through all circuits, disc thickness measured and verified within tolerance.",
+  "technicalData": "Front brake pad thickness before: 8.2mm (limit: 3mm)\nFront brake pad thickness after: 10.5mm\nRear brake pad thickness before: 6.1mm\nRear disc thickness: 24.8mm (min: 24.0mm)\nBrake fluid: Dot 4 specification\nBleeding sequence: RR-LR-RF-LF\nTorque specs: Caliper bolts 35Nm, Wheel bolts 110Nm",
+  "learnerSignature": "S. Johnson",
+  "learnerDate": "2026-01-18",
+  "learnerProfile": "Level 3 Motor Vehicle Service & Repair - Candidate 7290-701",
+  "customerRequests": [
+    {
+      "id": 1,
+      "text": "Brake pad replacement - front",
+      "completed": true
+    },
+    {
+      "id": 2,
+      "text": "Brake pad replacement - rear",
+      "completed": true
+    },
+    {
+      "id": 3,
+      "text": "Brake fluid bleed and flush",
+      "completed": true
+    },
+    {
+      "id": 4,
+      "text": "Brake disc inspection and measurement",
+      "completed": true
+    },
+    {
+      "id": 5,
+      "text": "Wheel alignment check",
+      "completed": false
+    },
+    {
+      "id": 6,
+      "text": "Handbrake adjustment",
+      "completed": true
+    }
+  ],
+  "tools": [
+    {
+      "id": 1,
+      "name": "Jack and axle stands"
+    },
+    {
+      "id": 2,
+      "name": "Wheel brace"
+    },
+    {
+      "id": 3,
+      "name": "Socket set"
+    },
+    {
+      "id": 4,
+      "name": "Brake caliper wind-back tool"
+    },
+    {
+      "id": 5,
+      "name": "Micrometer"
+    },
+    {
+      "id": 6,
+      "name": "Torque wrench (0-150Nm)"
+    },
+    {
+      "id": 7,
+      "name": "Brake bleeding kit"
+    },
+    {
+      "id": 8,
+      "name": "G-clamp"
+    },
+    {
+      "id": 9,
+      "name": "Wire brush"
+    },
+    {
+      "id": 10,
+      "name": "Copper grease"
+    }
+  ],
+  "jobs": [
+    {
+      "id": 1,
+      "requestId": 1,
+      "requestText": "Brake pad replacement - front",
+      "completed": true,
+      "tasks": [
+        {
+          "id": 1,
+          "description": "Safely raised vehicle using jack and supported on axle stands",
+          "completed": true,
+          "photos": []
+        },
+        {
+          "id": 2,
+          "description": "Removed wheels using wheel brace - stored safely",
+          "completed": true,
+          "photos": []
+        },
+        {
+          "id": 3,
+          "description": "Measured existing brake pad thickness - front left: 8.2mm, front right: 8.4mm (both below 3mm limit)",
+          "completed": true,
+          "photos": []
+        },
+        {
+          "id": 4,
+          "description": "Removed caliper bolts using socket set (35Nm specification)",
+          "completed": true,
+          "photos": []
+        },
+        {
+          "id": 5,
+          "description": "Extracted old brake pads and inspected rotor for scoring or damage",
+          "completed": true,
+          "photos": []
+        },
+        {
+          "id": 6,
+          "description": "Wound back caliper piston using brake wind-back tool to accommodate new thicker pads",
+          "completed": true,
+          "photos": []
+        },
+        {
+          "id": 7,
+          "description": "Applied copper grease to caliper sliding surfaces to prevent sticking",
+          "completed": true,
+          "photos": []
+        },
+        {
+          "id": 8,
+          "description": "Installed new brake pads (10.5mm thickness) and reinstalled caliper",
+          "completed": true,
+          "photos": []
+        },
+        {
+          "id": 9,
+          "description": "Torqued caliper bolts to 35Nm specification",
+          "completed": true,
+          "photos": []
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "requestId": 2,
+      "requestText": "Brake pad replacement - rear",
+      "completed": true,
+      "tasks": [
+        {
+          "id": 1,
+          "description": "Measured rear brake pad thickness - left: 6.1mm, right: 6.3mm (acceptable but recommend replacement at next service)",
+          "completed": true,
+          "photos": []
+        },
+        {
+          "id": 2,
+          "description": "Selected replacement rear pads matching OEM specifications",
+          "completed": true,
+          "photos": []
+        },
+        {
+          "id": 3,
+          "description": "Removed rear caliper using appropriate socket sizes",
+          "completed": true,
+          "photos": []
+        },
+        {
+          "id": 4,
+          "description": "Wound back rear caliper piston (drum brake type requires special tool)",
+          "completed": true,
+          "photos": []
+        },
+        {
+          "id": 5,
+          "description": "Installed new rear brake pads with wear indicators",
+          "completed": true,
+          "photos": []
+        },
+        {
+          "id": 6,
+          "description": "Reinstalled and torqued to specification",
+          "completed": true,
+          "photos": []
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "requestId": 3,
+      "requestText": "Brake fluid bleed and flush",
+      "completed": true,
+      "tasks": [
+        {
+          "id": 1,
+          "description": "Located brake fluid reservoir and checked level (was at minimum)",
+          "completed": true,
+          "photos": []
+        },
+        {
+          "id": 2,
+          "description": "Selected correct brake fluid (DOT 4) for system refill",
+          "completed": true,
+          "photos": []
+        },
+        {
+          "id": 3,
+          "description": "Set up brake bleeding kit with clear tubing and collection jar",
+          "completed": true,
+          "photos": []
+        },
+        {
+          "id": 4,
+          "description": "Started bleeding sequence at rear right wheel - opened bleed screw and pumped brake pedal",
+          "completed": true,
+          "photos": []
+        },
+        {
+          "id": 5,
+          "description": "Continued through all four corners following correct sequence: RR-LR-RF-LF",
+          "completed": true,
+          "photos": []
+        },
+        {
+          "id": 6,
+          "description": "Bled until clear fluid appeared with no air bubbles visible in tubing",
+          "completed": true,
+          "photos": []
+        },
+        {
+          "id": 7,
+          "description": "Refilled reservoir to correct level and checked pedal feel - firm with no sponginess",
+          "completed": true,
+          "photos": []
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "requestId": 4,
+      "requestText": "Brake disc inspection and measurement",
+      "completed": true,
+      "tasks": [
+        {
+          "id": 1,
+          "description": "Inspected front discs for scoring, cracks, or blue discoloration from overheating",
+          "completed": true,
+          "photos": []
+        },
+        {
+          "id": 2,
+          "description": "Measured disc thickness using micrometer - front left: 24.8mm, front right: 24.9mm (minimum 24.0mm)",
+          "completed": true,
+          "photos": []
+        },
+        {
+          "id": 3,
+          "description": "Checked disc run-out (wobble) - within acceptable tolerance",
+          "completed": true,
+          "photos": []
+        },
+        {
+          "id": 4,
+          "description": "Inspected rear discs - light scoring visible but within limits",
+          "completed": true,
+          "photos": []
+        },
+        {
+          "id": 5,
+          "description": "Recorded all measurements and findings in technical data section",
+          "completed": true,
+          "photos": []
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "requestId": 6,
+      "requestText": "Handbrake adjustment",
+      "completed": true,
+      "tasks": [
+        {
+          "id": 1,
+          "description": "Tested handbrake hold - would release after 3-4 clicks",
+          "completed": true,
+          "photos": []
+        },
+        {
+          "id": 2,
+          "description": "Located handbrake cable adjuster under vehicle",
+          "completed": true,
+          "photos": []
+        },
+        {
+          "id": 3,
+          "description": "Tightened cable adjuster to spec - handbrake now holds at 5-6 clicks",
+          "completed": true,
+          "photos": []
+        },
+        {
+          "id": 4,
+          "description": "Verified rear brakes not engaged with lever fully released",
+          "completed": true,
+          "photos": []
+        }
+      ]
+    }
+  ]
+}

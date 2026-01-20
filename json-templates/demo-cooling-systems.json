@@ -1,0 +1,214 @@
+{
+  "studentName": "John Smith",
+  "jobDate": "2026-01-20",
+  "jobLocation": "Training Centre - Bay 3",
+  "vehicleReg": "CV26 ABC",
+  "vehicleMake": "Ford Focus",
+  "vehicleYear": "2019",
+  "vehicleOdometer": "45230",
+  "methodology": "cooling-systems",
+  "methodologyText": "Cooling & Climate Systems",
+  "methodologyNotes": "Performed complete engine cooling system inspection and service following manufacturer specifications. All electrical components checked and thermostat replaced with new gasket.",
+  "technicalData": "Thermistor resistance: 2.4kΩ at 20°C\nCoolant capacity: 5.5 litres\nCooling fan switch position: Engine bay - driver side\nRecommended frost protection: -40°C\nThermostat gasket material: Cork composite\nThermostat opening temperature: 82°C\nTorque wrench settings: Thermostat housing bolts 20Nm, Water pump bolts 25Nm",
+  "learnerSignature": "J. Smith",
+  "learnerDate": "2026-01-20",
+  "learnerProfile": "Level 3 Motor Vehicle Service & Repair - Candidate 7290-702",
+  "customerRequests": [
+    {
+      "id": 1,
+      "text": "Engine overheating",
+      "completed": true
+    },
+    {
+      "id": 2,
+      "text": "Coolant leak diagnosis",
+      "completed": true
+    },
+    {
+      "id": 3,
+      "text": "Replace thermostat",
+      "completed": true
+    },
+    {
+      "id": 4,
+      "text": "Radiator replacement",
+      "completed": false
+    },
+    {
+      "id": 5,
+      "text": "Water pump service",
+      "completed": false
+    },
+    {
+      "id": 6,
+      "text": "Check cooling system electrical components",
+      "completed": true
+    }
+  ],
+  "tools": [
+    {
+      "id": 1,
+      "name": "Coolant pressure tester"
+    },
+    {
+      "id": 2,
+      "name": "Thermometer"
+    },
+    {
+      "id": 3,
+      "name": "Refractometer"
+    },
+    {
+      "id": 4,
+      "name": "AC pressure gauge set"
+    },
+    {
+      "id": 5,
+      "name": "Drain pan"
+    },
+    {
+      "id": 6,
+      "name": "Funnel"
+    },
+    {
+      "id": 7,
+      "name": "Hose clamp pliers"
+    },
+    {
+      "id": 8,
+      "name": "Multimeter (ohms and volts)"
+    },
+    {
+      "id": 9,
+      "name": "General sockets/spanners (10mm, 13mm, 15mm)"
+    },
+    {
+      "id": 10,
+      "name": "Torque wrench (0-100Nm)"
+    }
+  ],
+  "jobs": [
+    {
+      "id": 1,
+      "requestId": 1,
+      "requestText": "Engine overheating",
+      "completed": true,
+      "tasks": [
+        {
+          "id": 1,
+          "description": "Located and identified cooling system electrical/electronic components (thermostat sensor, cooling fan relay, temperature gauge sender)",
+          "completed": true,
+          "photos": []
+        },
+        {
+          "id": 2,
+          "description": "Removed and tested coolant level - found to be 2 litres below minimum mark",
+          "completed": true,
+          "photos": []
+        },
+        {
+          "id": 3,
+          "description": "Pressure tested cooling system - identified slow leak from thermostat housing area",
+          "completed": true,
+          "photos": []
+        },
+        {
+          "id": 4,
+          "description": "Checked antifreeze/coolant protection level using refractometer - reading showed -20°C frost protection (below -40°C requirement)",
+          "completed": true,
+          "photos": []
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "requestId": 3,
+      "requestText": "Replace thermostat",
+      "completed": true,
+      "tasks": [
+        {
+          "id": 1,
+          "description": "Drained coolant from system using drain pan - collected approximately 3.2 litres",
+          "completed": true,
+          "photos": []
+        },
+        {
+          "id": 2,
+          "description": "Removed thermostat housing cover using 13mm spanners - applied 20Nm torque setting",
+          "completed": true,
+          "photos": []
+        },
+        {
+          "id": 3,
+          "description": "Extracted old thermostat and gasket - inspected for damage and corrosion",
+          "completed": true,
+          "photos": []
+        },
+        {
+          "id": 4,
+          "description": "Fitted new thermostat (82°C opening temperature) with cork composite gasket",
+          "completed": true,
+          "photos": []
+        },
+        {
+          "id": 5,
+          "description": "Refilled cooling system with correct coolant mixture and bled air from system",
+          "completed": true,
+          "photos": []
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "requestId": 2,
+      "requestText": "Coolant leak diagnosis",
+      "completed": true,
+      "tasks": [
+        {
+          "id": 1,
+          "description": "Performed pressure test on sealed cooling system - maintained 1.0 bar for 10 minutes",
+          "completed": true,
+          "photos": []
+        },
+        {
+          "id": 2,
+          "description": "Inspected all hose connections and clamps - tightened clamps to secure hoses",
+          "completed": true,
+          "photos": []
+        },
+        {
+          "id": 3,
+          "description": "Located source of leak - small crack in thermostat housing gasket seal (now replaced)",
+          "completed": true,
+          "photos": []
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "requestId": 6,
+      "requestText": "Check cooling system electrical components",
+      "completed": true,
+      "tasks": [
+        {
+          "id": 1,
+          "description": "Tested coolant temperature sensor (thermistor) using multimeter - measured 2.4kΩ resistance at 20°C ambient",
+          "completed": true,
+          "photos": []
+        },
+        {
+          "id": 2,
+          "description": "Checked cooling fan relay operation - fan engaged when temperature reached 95°C",
+          "completed": true,
+          "photos": []
+        },
+        {
+          "id": 3,
+          "description": "Verified temperature gauge sender is functioning correctly - gauge reads accurately across temperature range",
+          "completed": true,
+          "photos": []
+        }
+      ]
+    }
+  ]
+}
