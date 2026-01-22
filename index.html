@@ -249,7 +249,7 @@
             line-height: 1.4;
         }
 
-        /* Tabs */
+        /* Tabs & Hamburger Menu */
         .tabs {
             display: flex;
             gap: 8px;
@@ -281,6 +281,100 @@
             background: #007AFF;
             color: white;
             border-color: #007AFF;
+        }
+
+        /* Hamburger Menu */
+        .hamburger-btn {
+            display: none;
+            position: sticky;
+            top: 60px;
+            z-index: 99;
+            width: 100%;
+            padding: 12px 16px;
+            background: white;
+            border: none;
+            border-bottom: 1px solid #E5E5EA;
+            text-align: left;
+            font-size: 16px;
+            font-weight: 600;
+            color: #1c1c1e;
+            cursor: pointer;
+        }
+
+        .hamburger-btn::before {
+            content: '☰ Sections';
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 101;
+            animation: fadeIn 0.2s;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu-content {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            max-width: 320px;
+            height: 100%;
+            background: white;
+            overflow-y: auto;
+            z-index: 102;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        .mobile-menu-close {
+            position: sticky;
+            top: 0;
+            padding: 16px;
+            background: #007AFF;
+            color: white;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            width: 100%;
+            text-align: right;
+        }
+
+        .mobile-menu .tab {
+            width: 100%;
+            margin: 0;
+            border: none;
+            border-bottom: 1px solid #E5E5EA;
+            border-radius: 0;
+            background: white;
+            padding: 16px;
+            text-align: left;
+        }
+
+        .mobile-menu .tab:hover {
+            background: #F9F9FB;
+        }
+
+        .mobile-menu .tab.active {
+            background: #E3F2FD;
+            color: #007AFF;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
         }
 
         /* Tab panels: hide by default, show active */
@@ -740,6 +834,14 @@
             .bottom-actions {
                 display: none;
             }
+
+            .tabs {
+                display: none;
+            }
+
+            .hamburger-btn {
+                display: block;
+            }
         }
 
         @media (max-width: 375px) {
@@ -780,6 +882,8 @@
             <p>Document your work and evidence</p>
         </div>
 
+        <button class="hamburger-btn" id="hamburgerBtn"></button>
+
         <div class="tabs" id="tabs">
             <button class="tab" data-tab-target="template">Template</button>
             <button class="tab" data-tab-target="student">Student</button>
@@ -793,7 +897,26 @@
             <button class="tab" data-tab-target="reflection">Reflection</button>
             <button class="tab" data-tab-target="cards">Cards</button>
             <button class="tab" data-tab-target="signature">Signature</button>
-            <button class="tab" data-tab-target="actions">Actions</button>
+            <button class="tab" data-tab-target="actions">Save and Export</button>
+        </div>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-content">
+                <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+                <button class="tab" data-tab-target="template">Template</button>
+                <button class="tab" data-tab-target="student">Student</button>
+                <button class="tab" data-tab-target="photos">Photos</button>
+                <button class="tab" data-tab-target="vehicle">Vehicle</button>
+                <button class="tab" data-tab-target="requests">Requests</button>
+                <button class="tab" data-tab-target="jobs">Jobs</button>
+                <button class="tab" data-tab-target="methodology">Methodology</button>
+                <button class="tab" data-tab-target="tools">Tools</button>
+                <button class="tab" data-tab-target="data">Data</button>
+                <button class="tab" data-tab-target="reflection">Reflection</button>
+                <button class="tab" data-tab-target="cards">Cards</button>
+                <button class="tab" data-tab-target="signature">Signature</button>
+                <button class="tab" data-tab-target="actions">Save and Export</button>
+            </div>
         </div>
 
         <div class="form-content">
@@ -844,27 +967,27 @@
                 <div id="photoGallery" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; margin-top: 15px;"></div>
             </div>
 
-            <!-- Vehicle Details -->
+            <!-- Vehicle Details (always shown, used in Save section) -->
             <div class="section" data-tab="vehicle">
                 <h2 class="section-title">🚗 Vehicle Details</h2>
                 <div class="two-column">
                     <div class="form-group">
                         <label for="vehicleReg">Registration Number</label>
-                        <input type="text" id="vehicleReg" placeholder="e.g., AB21XYZ">
+                        <input type="text" id="vehicleReg" placeholder="e.g., AB21XYZ" onchange="updateVehicleSummary()">
                     </div>
                     <div class="form-group">
                         <label for="vehicleMake">Make & Model</label>
-                        <input type="text" id="vehicleMake" placeholder="e.g., Ford Focus 1.6">
+                        <input type="text" id="vehicleMake" placeholder="e.g., Ford Focus 1.6" onchange="updateVehicleSummary()">
                     </div>
                 </div>
                 <div class="two-column">
                     <div class="form-group">
                         <label for="vehicleYear">Year</label>
-                        <input type="text" id="vehicleYear" placeholder="e.g., 2020">
+                        <input type="text" id="vehicleYear" placeholder="e.g., 2020" onchange="updateVehicleSummary()">
                     </div>
                     <div class="form-group">
                         <label for="vehicleOdometer">Odometer Reading (miles)</label>
-                        <input type="text" id="vehicleOdometer" placeholder="e.g., 45000">
+                        <input type="text" id="vehicleOdometer" placeholder="e.g., 45000" onchange="updateVehicleSummary()">
                     </div>
                 </div>
             </div>
@@ -970,23 +1093,45 @@
             <div class="section" data-tab="signature">
                 <h2 class="section-title">✏️ Learner Signature</h2>
                 <div class="form-group">
-                                <!-- Actions Tab (for mobile) -->
-                                <div class="section" data-tab="actions">
-                                    <h2 class="section-title">⚙️ Actions</h2>
-                                    <div class="button-group">
-                                        <button class="btn btn-primary" onclick="saveJobCard()">💾 Save Progress</button>
-                                        <button class="btn btn-success" onclick="loadJobCard()">📂 Load Saved</button>
-                                        <button class="btn btn-secondary" onclick="exportToPDF()">📄 Export PDF</button>
-                                        <button class="btn btn-danger" onclick="clearForm()">🗑️ Clear All</button>
-                                    </div>
-                                </div>
-
                     <label>Sign Below</label>
                     <canvas id="signatureCanvas" width="600" height="150" style="border: 2px solid #e0e0e0; border-radius: 8px; cursor: crosshair; background: white; display: block; margin: 10px 0;"></canvas>
                     <div style="display: flex; gap: 10px; margin-top: 10px;">
                         <button type="button" class="btn btn-secondary" onclick="clearSignature()" style="flex: 1;">Clear Signature</button>
                         <button type="button" class="btn btn-info" onclick="saveSignature()" style="flex: 1;">Save Signature</button>
                     </div>
+                </div>
+            </div>
+
+            <!-- Save and Export Tab -->
+            <div class="section" data-tab="actions">
+                <h2 class="section-title">💾 Save and Export</h2>
+                
+                <!-- Vehicle Details Summary -->
+                <div class="info-box" style="margin-bottom: 20px;">
+                    <strong>Vehicle Information:</strong>
+                    <div style="margin-top: 8px; font-size: 14px;">
+                        <div>Registration: <span id="summaryVehicleReg" style="font-weight: 500;">--</span></div>
+                        <div>Make/Model: <span id="summaryVehicleMake" style="font-weight: 500;">--</span></div>
+                        <div>Year: <span id="summaryVehicleYear" style="font-weight: 500;">--</span></div>
+                        <div>Odometer: <span id="summaryVehicleOdometer" style="font-weight: 500;">--</span> miles</div>
+                    </div>
+                </div>
+
+                <!-- Completion Status -->
+                <div class="info-box" style="background: #E3F2FD; border-left: 4px solid #2196F3;">
+                    <strong>Completion Status:</strong>
+                    <div style="margin-top: 8px; font-size: 13px;">
+                        <div>Requests Completed: <span id="completionRequests" style="font-weight: 600; color: #1976D2;">0/0</span></div>
+                        <div>Tasks Completed: <span id="completionTasks" style="font-weight: 600; color: #1976D2;">0/0</span></div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="button-group" style="margin-top: 20px;">
+                    <button class="btn btn-primary" onclick="saveJobCard()">💾 Save Progress</button>
+                    <button class="btn btn-success" onclick="loadJobCard()">📂 Load Saved</button>
+                    <button class="btn btn-secondary" onclick="exportToPDF()">📄 Export PDF</button>
+                    <button class="btn btn-danger" onclick="clearForm()">🗑️ Clear All</button>
                 </div>
             </div>
 
@@ -1393,6 +1538,7 @@
             if (request) {
                 request.completed = !request.completed;
                 renderRequests();
+                updateCompletionStatus();
             }
         }
 
@@ -1557,6 +1703,7 @@
             if (task) {
                 task.completed = !task.completed;
                 renderJobs();
+                updateCompletionStatus();
             }
         }
 
@@ -2540,15 +2687,34 @@
         // Tabs setup
         function initTabs() {
             const tabs = document.querySelectorAll('.tabs .tab[data-tab-target]');
+            const mobileMenuTabs = document.querySelectorAll('.mobile-menu .tab[data-tab-target]');
+            const allTabs = [...tabs, ...mobileMenuTabs];
             const panels = document.querySelectorAll('.section[data-tab]');
+            const hamburgerBtn = document.getElementById('hamburgerBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileMenuClose = document.getElementById('mobileMenuClose');
+
+            function closeMobileMenu() {
+                mobileMenu.classList.remove('active');
+            }
 
             function activate(tabName) {
-                tabs.forEach(btn => btn.classList.toggle('active', btn.dataset.tabTarget === tabName));
+                allTabs.forEach(btn => btn.classList.toggle('active', btn.dataset.tabTarget === tabName));
                 panels.forEach(p => p.classList.toggle('active', p.dataset.tab === tabName));
+                if (tabName === 'actions') {
+                    updateVehicleSummary();
+                    updateCompletionStatus();
+                }
+                closeMobileMenu();
                 try { localStorage.setItem('activeTab', tabName); } catch {}
             }
 
-            tabs.forEach(btn => btn.addEventListener('click', () => activate(btn.dataset.tabTarget)));
+            allTabs.forEach(btn => btn.addEventListener('click', () => activate(btn.dataset.tabTarget)));
+            hamburgerBtn.addEventListener('click', () => mobileMenu.classList.toggle('active'));
+            mobileMenuClose.addEventListener('click', closeMobileMenu);
+            mobileMenu.addEventListener('click', (e) => {
+                if (e.target === mobileMenu) closeMobileMenu();
+            });
 
             let initial = 'template';
             try {
@@ -2556,6 +2722,30 @@
                 if (saved) initial = saved;
             } catch {}
             activate(initial);
+        }
+
+        // Update vehicle summary in Save and Export tab
+        function updateVehicleSummary() {
+            document.getElementById('summaryVehicleReg').textContent = document.getElementById('vehicleReg').value || '--';
+            document.getElementById('summaryVehicleMake').textContent = document.getElementById('vehicleMake').value || '--';
+            document.getElementById('summaryVehicleYear').textContent = document.getElementById('vehicleYear').value || '--';
+            document.getElementById('summaryVehicleOdometer').textContent = document.getElementById('vehicleOdometer').value || '--';
+        }
+
+        // Update completion status
+        function updateCompletionStatus() {
+            const completedRequests = customerRequests.filter(r => r.completed).length;
+            const totalRequests = customerRequests.length;
+            
+            const completedTasks = jobs.reduce((sum, job) => {
+                return sum + (job.tasks ? job.tasks.filter(t => t.completed).length : 0);
+            }, 0);
+            const totalTasks = jobs.reduce((sum, job) => {
+                return sum + (job.tasks ? job.tasks.length : 0);
+            }, 0);
+
+            document.getElementById('completionRequests').textContent = `${completedRequests}/${totalRequests}`;
+            document.getElementById('completionTasks').textContent = `${completedTasks}/${totalTasks}`;
         }
 
         async function initApp() {
