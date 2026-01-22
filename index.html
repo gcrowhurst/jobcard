@@ -9,98 +9,106 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #0a1929 0%, #1a3a52 50%, #0f2847 100%);
+            background: #f2f2f7;
             min-height: 100vh;
-            padding: 20px;
-            line-height: 1.6;
+            padding: 0;
+            line-height: 1.5;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 600px;
             margin: 0 auto;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-            overflow: hidden;
+            background: #f2f2f7;
+            min-height: 100vh;
         }
 
         .header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
             color: white;
-            padding: 25px;
+            padding: 20px 20px 30px 20px;
             text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .header h1 {
-            font-size: 24px;
-            margin-bottom: 5px;
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            letter-spacing: -0.5px;
         }
 
         .header p {
-            font-size: 14px;
-            opacity: 0.9;
+            font-size: 13px;
+            opacity: 0.85;
+            font-weight: 400;
         }
 
         .form-content {
-            padding: 25px;
+            padding: 16px;
         }
 
         .section {
-            margin-bottom: 30px;
-            border-bottom: 2px solid #f0f0f0;
-            padding-bottom: 20px;
-        }
-
-        .section:last-child {
-            border-bottom: none;
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
         }
 
         .section-title {
-            font-size: 18px;
-            color: #2a5298;
-            margin-bottom: 15px;
+            font-size: 17px;
+            color: #1c1c1e;
+            margin-bottom: 16px;
             font-weight: 600;
             display: flex;
             align-items: center;
+            letter-spacing: -0.3px;
         }
 
         .section-title::before {
-            content: '';
-            display: inline-block;
-            width: 4px;
-            height: 20px;
-            background: #667eea;
-            margin-right: 10px;
-            border-radius: 2px;
+            display: none;
         }
 
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 16px;
+        }
+
+        .form-group:last-child {
+            margin-bottom: 0;
         }
 
         label {
             display: block;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
-            color: #333;
-            margin-bottom: 5px;
+            color: #3c3c43;
+            margin-bottom: 8px;
+            letter-spacing: -0.1px;
         }
 
         input[type="text"],
         input[type="date"],
+        input[type="file"],
         textarea,
         select {
             width: 100%;
-            padding: 12px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 14px;
-            transition: all 0.3s;
+            padding: 12px 16px;
+            border: 1px solid #d1d1d6;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.2s;
             font-family: inherit;
+            background: white;
+            color: #1c1c1e;
+            -webkit-appearance: none;
         }
 
         input[type="text"]:focus,
@@ -108,97 +116,105 @@
         textarea:focus,
         select:focus {
             outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            border-color: #007AFF;
+            box-shadow: 0 0 0 4px rgba(0, 122, 255, 0.1);
         }
 
         textarea {
-            min-height: 80px;
+            min-height: 100px;
             resize: vertical;
         }
 
         .two-column {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            gap: 12px;
         }
 
         .button-group {
             display: flex;
-            gap: 10px;
-            margin-top: 15px;
+            gap: 8px;
+            margin-top: 12px;
             flex-wrap: wrap;
         }
 
         .btn {
-            padding: 12px 20px;
+            padding: 14px 20px;
             border: none;
-            border-radius: 8px;
-            font-size: 14px;
+            border-radius: 12px;
+            font-size: 16px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.2s;
             text-align: center;
+            letter-spacing: -0.2px;
+            touch-action: manipulation;
+        }
+
+        .btn:active {
+            transform: scale(0.97);
         }
 
         .btn-small {
-            padding: 8px 16px;
-            font-size: 13px;
+            padding: 10px 16px;
+            font-size: 14px;
+            border-radius: 10px;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #007AFF;
             color: white;
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            background: #0051D5;
         }
 
         .btn-secondary {
-            background: #6c757d;
+            background: #8E8E93;
             color: white;
         }
 
         .btn-secondary:hover {
-            background: #5a6268;
+            background: #636366;
         }
 
         .btn-success {
-            background: #28a745;
+            background: #34C759;
             color: white;
         }
 
         .btn-success:hover {
-            background: #218838;
+            background: #30B350;
         }
 
         .btn-danger {
-            background: #dc3545;
+            background: #FF3B30;
             color: white;
         }
 
         .btn-danger:hover {
-            background: #c82333;
+            background: #D70015;
         }
 
         .btn-info {
-            background: #17a2b8;
+            background: #5AC8FA;
             color: white;
         }
 
         .btn-info:hover {
-            background: #138496;
+            background: #32ADE6;
         }
 
         .status-message {
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
+            padding: 14px 16px;
+            border-radius: 12px;
+            margin-bottom: 16px;
             display: none;
             animation: slideIn 0.3s ease;
+            font-size: 14px;
         }
+        
 
         @keyframes slideIn {
             from {
@@ -212,31 +228,80 @@
         }
 
         .status-message.success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
+            background: #D1F2EB;
+            color: #0C5134;
+            border: none;
         }
 
         .status-message.error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
+            background: #FFEBE9;
+            color: #8B0000;
+            border: none;
         }
+
+        .info-box {
+            background: #F0F0F5;
+            padding: 12px 16px;
+            border-radius: 10px;
+            font-size: 13px;
+            color: #3c3c43;
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 8px 16px;
+            background: white;
+            border-bottom: 1px solid #E5E5EA;
+        }
+
+        .tab {
+            flex: 0 0 auto;
+            padding: 8px 12px;
+            border-radius: 20px;
+            border: 1px solid #E5E5EA;
+            background: #F9F9FB;
+            color: #1c1c1e;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .tab:hover {
+            background: #F0F0F5;
+        }
+
+        .tab.active {
+            background: #007AFF;
+            color: white;
+            border-color: #007AFF;
+        }
+
+        /* Tab panels: hide by default, show active */
+        .section[data-tab] { display: none; }
+        .section[data-tab].active { display: block; }
 
         /* Customer Requests Section */
         .request-item {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 10px;
+            background: #F9F9FB;
+            padding: 14px;
+            border-radius: 12px;
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
-            gap: 10px;
-            border: 2px solid #e0e0e0;
+            gap: 12px;
+            border: 1px solid #E5E5EA;
         }
 
         .request-item.completed {
-            background: #e8f5e9;
+            background: #E8F5E9;
+            border-color: #C8E6C9;
             opacity: 0.7;
         }
 
@@ -245,57 +310,60 @@
             height: 22px;
             cursor: pointer;
             flex-shrink: 0;
+            accent-color: #007AFF;
         }
 
         .request-item .request-text {
             flex: 1;
-            font-size: 14px;
-            color: #333;
+            font-size: 15px;
+            color: #1c1c1e;
         }
 
         .request-item.completed .request-text {
             text-decoration: line-through;
-            color: #999;
+            color: #8E8E93;
         }
 
         .request-item .delete-btn {
             padding: 6px 12px;
-            background: #ff6b6b;
+            background: #FF3B30;
             color: white;
             border: none;
-            border-radius: 6px;
+            border-radius: 8px;
             cursor: pointer;
             font-size: 12px;
             flex-shrink: 0;
+            font-weight: 600;
         }
 
         .request-item .delete-btn:hover {
-            background: #ee5a52;
+            background: #D70015;
         }
 
-        .add-request-input {
+        .add-request-input, .add-task-input {
             display: grid;
             grid-template-columns: 1fr auto;
-            gap: 10px;
-            margin-bottom: 15px;
+            gap: 8px;
+            margin-bottom: 12px;
         }
 
         /* Jobs Section */
         .job-card {
-            background: #fff;
-            border: 2px solid #667eea;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
+            background: white;
+            border: 1px solid #007AFF;
+            border-radius: 16px;
+            padding: 18px;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 8px rgba(0, 122, 255, 0.08);
         }
 
         .job-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #f0f0f0;
+            margin-bottom: 14px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid #E5E5EA;
         }
 
         .job-title {
@@ -303,55 +371,60 @@
         }
 
         .job-number {
-            font-size: 12px;
-            color: #999;
-            margin-bottom: 5px;
+            font-size: 11px;
+            color: #8E8E93;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .job-request {
-            font-size: 16px;
-            color: #2a5298;
+            font-size: 15px;
+            color: #1c1c1e;
             font-weight: 600;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
+            letter-spacing: -0.2px;
         }
 
         .job-status {
-            font-size: 12px;
-            padding: 4px 10px;
-            border-radius: 12px;
+            font-size: 11px;
+            padding: 5px 10px;
+            border-radius: 10px;
             font-weight: 600;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
         }
 
         .job-status.completed {
-            background: #d4edda;
-            color: #155724;
+            background: #D1F2EB;
+            color: #0C5134;
         }
 
         .job-status.in-progress {
-            background: #fff3cd;
-            color: #856404;
+            background: #FFF4CE;
+            color: #996A00;
         }
 
         .job-actions {
             display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
+            gap: 8px;
+            margin-bottom: 12px;
         }
 
         /* Tasks within Jobs */
         .task-item {
-            background: #f8f9fa;
-            border-left: 4px solid #28a745;
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 6px;
+            background: #F9F9FB;
+            border-left: 3px solid #34C759;
+            padding: 12px;
+            margin-bottom: 8px;
+            border-radius: 10px;
         }
 
         .task-header {
             display: flex;
             gap: 10px;
             align-items: flex-start;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .task-header input[type="checkbox"] {
@@ -360,12 +433,13 @@
             cursor: pointer;
             margin-top: 2px;
             flex-shrink: 0;
+            accent-color: #34C759;
         }
 
         .task-description {
             flex: 1;
             font-size: 14px;
-            color: #333;
+            color: #1c1c1e;
             font-weight: 500;
         }
 
@@ -375,102 +449,219 @@
 
         .task-item.completed .task-description {
             text-decoration: line-through;
-            color: #999;
+            color: #8E8E93;
         }
 
         .task-actions {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             margin-left: 30px;
-            margin-top: 10px;
+            margin-top: 8px;
         }
 
         .photo-section {
             margin-left: 30px;
-            margin-top: 10px;
+            margin-top: 8px;
         }
 
         .photo-upload-label {
             display: inline-block;
             padding: 8px 14px;
-            background: #667eea;
+            background: #007AFF;
             color: white;
-            border-radius: 6px;
+            border-radius: 10px;
             cursor: pointer;
-            font-size: 12px;
-            font-weight: 500;
-            transition: all 0.3s;
-            margin-bottom: 10px;
+            font-size: 13px;
+            font-weight: 600;
         }
 
         .photo-upload-label:hover {
-            background: #5568d3;
+            background: #0056D6;
         }
 
         .photo-upload-label input[type="file"] {
             display: none;
         }
 
-        .photo-grid {
+        .photo-grid, .task-photo-gallery {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
             gap: 8px;
-            margin-top: 8px;
+            margin-top: 10px;
         }
 
-        .photo-item {
+        .photo-item, .task-photo-container {
             position: relative;
-            border-radius: 6px;
+            aspect-ratio: 1;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            background: #f0f0f5;
         }
 
-        .photo-item img {
+        .photo-item img, .task-photo {
             width: 100%;
-            height: 80px;
+            height: 100%;
             object-fit: cover;
-            display: block;
         }
 
-        .photo-item .delete-photo-btn {
+        .photo-item .delete-photo-btn, .task-photo-remove {
             position: absolute;
-            top: 2px;
-            right: 2px;
-            background: rgba(255, 59, 48, 0.9);
-            color: white;
-            border: none;
-            border-radius: 50%;
+            top: 4px;
+            right: 4px;
             width: 22px;
             height: 22px;
+            border-radius: 50%;
+            background: rgba(255, 59, 48, 0.95);
+            color: white;
+            border: none;
             cursor: pointer;
             font-size: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 0;
+            font-weight: bold;
+            backdrop-filter: blur(10px);
         }
 
-        .photo-item .delete-photo-btn:hover {
-            background: rgba(255, 59, 48, 1);
+        .photo-item .delete-photo-btn:hover, .task-photo-remove:hover {
+            background: #FF3B30;
         }
 
+        /* Tools Section */
+        .tool-item {
+            background: #F9F9FB;
+            padding: 12px 14px;
+            border-radius: 12px;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #E5E5EA;
+        }
+
+        .tool-info {
+            flex: 1;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            font-size: 15px;
+            color: #1c1c1e;
+        }
+
+        .tool-item .delete-btn {
+            padding: 6px 12px;
+            background: #FF3B30;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .tool-item .delete-btn:hover {
+            background: #D70015;
+        }
+
+        /* Main Photo Gallery */
+        #photoGallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .photo-container {
+            position: relative;
+            aspect-ratio: 1;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #f0f0f5;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo-container .remove-photo {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(255, 59, 48, 0.95);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            backdrop-filter: blur(10px);
+            transition: all 0.2s;
+        }
+
+        .photo-container .remove-photo:hover {
+            background: #FF3B30;
+            transform: scale(1.1);
+        }
+
+        /* Signature Canvas */
+        #signatureCanvas {
+            border: 2px solid #E5E5EA;
+            border-radius: 12px;
+            cursor: crosshair;
+            touch-action: none;
+            background: white;
+            width: 100%;
+            max-width: 600px;
+            display: block;
+        }
+
+        /* Empty States */
         .empty-state {
             text-align: center;
             padding: 40px 20px;
-            color: #999;
+            color: #8E8E93;
+            font-size: 15px;
+            background: #F9F9FB;
+            border-radius: 12px;
+            margin: 16px 0;
         }
 
         .empty-state-icon {
             font-size: 48px;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
+            opacity: 0.6;
         }
 
+        .empty-state-text {
+            font-size: 15px;
+            color: #8E8E93;
+            line-height: 1.4;
+        }
+
+        /* Bottom Actions */
         .bottom-actions {
+            position: sticky;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 16px 20px;
+            margin: 20px -20px -20px -20px;
+            border-top: 1px solid #E5E5EA;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 15px;
-            margin-top: 30px;
+            gap: 12px;
         }
 
+        /* Loading States */
         .loading {
             display: none;
             position: fixed;
@@ -478,7 +669,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.7);
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
             z-index: 9999;
             align-items: center;
             justify-content: center;
@@ -488,13 +680,13 @@
             display: flex;
         }
 
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid rgba(255,255,255,0.3);
-            border-top-color: white;
+        .spinner, .loading-indicator {
+            width: 40px;
+            height: 40px;
+            border: 3px solid #E5E5EA;
+            border-top-color: #007AFF;
             border-radius: 50%;
-            animation: spin 1s linear infinite;
+            animation: spin 0.8s linear infinite;
         }
 
         @keyframes spin {
@@ -502,153 +694,77 @@
         }
 
         .add-task-section {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 15px;
+            background: #F9F9FB;
+            padding: 14px;
+            border-radius: 12px;
+            margin-top: 12px;
+            border: 1px solid #E5E5EA;
         }
 
-        .add-task-input {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 10px;
-        }
-
-        /* Tools List */
-        .tool-item {
-            background: #f8f9fa;
-            padding: 12px 15px;
-            border-radius: 6px;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border-left: 4px solid #17a2b8;
-        }
-
-        .tool-item .tool-name {
-            flex: 1;
-            font-size: 14px;
-            color: #333;
-        }
-
-        .tool-item .delete-btn {
-            padding: 4px 10px;
-            background: #ff6b6b;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 12px;
-        }
-
-        .tool-item .delete-btn:hover {
-            background: #ee5a52;
-        }
-
-        /* Saved Cards List */
-        .saved-card-item {
-            background: #f8f9fa;
-            padding: 12px 15px;
-            border-radius: 6px;
-            margin-bottom: 8px;
-            border-left: 4px solid #667eea;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .saved-card-item .card-info {
-            flex: 1;
-        }
-
-        .saved-card-item .card-name {
-            font-weight: 600;
-            color: #333;
-            font-size: 14px;
-            margin-bottom: 2px;
-        }
-
-        .saved-card-item .card-date {
-            font-size: 12px;
-            color: #999;
-        }
-
-        .saved-card-item .card-actions {
-            display: flex;
-            gap: 8px;
-        }
-
-        .saved-card-item .card-actions button {
-            padding: 6px 12px;
-            font-size: 12px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .saved-card-item .load-btn {
-            background: #28a745;
-            color: white;
-        }
-
-        .saved-card-item .load-btn:hover {
-            background: #218838;
-        }
-
-        .saved-card-item .delete-card-btn {
-            background: #dc3545;
-            color: white;
-        }
-
-        .saved-card-item .delete-card-btn:hover {
-            background: #c82333;
-        }
-
-        .info-box {
-            background: #e3f2fd;
-            border-left: 4px solid #2196f3;
-            padding: 12px 15px;
-            border-radius: 6px;
-            margin-bottom: 15px;
-            font-size: 13px;
-            color: #1565c0;
-        }
-
-        @media (max-width: 600px) {
-            body {
-                padding: 10px;
+        /* Responsive Design */
+        @media (max-width: 640px) {
+            .container {
+                padding: 0;
+                border-radius: 0;
+                margin: 0;
+                min-height: 100vh;
             }
 
-            .form-content {
-                padding: 15px;
+            .header {
+                border-radius: 0;
+                padding: 16px 20px;
             }
 
-            .two-column {
-                grid-template-columns: 1fr;
+            .section {
+                border-radius: 0;
+                margin-bottom: 8px;
             }
 
-            .header h1 {
-                font-size: 20px;
+            h1 {
+                font-size: 24px;
+            }
+
+            .section-title {
+                font-size: 18px;
+            }
+
+            .job-card {
+                border-radius: 12px;
+            }
+
+            #photoGallery {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+                gap: 8px;
             }
 
             .bottom-actions {
-                grid-template-columns: 1fr;
+                display: none;
+            }
+        }
+
+        @media (max-width: 375px) {
+            .header {
+                padding: 14px 16px;
             }
 
-            .add-request-input,
-            .add-task-input {
-                grid-template-columns: 1fr;
+            h1 {
+                font-size: 22px;
             }
 
-            .job-header {
-                flex-direction: column;
+            .section {
+                padding: 16px;
             }
 
-            .job-actions,
-            .task-actions {
-                flex-wrap: wrap;
+            .section-title {
+                font-size: 17px;
+            }
+
+            input, select, textarea {
+                font-size: 16px; /* Prevents zoom on iOS */
+            }
+
+            #photoGallery, .task-photo-gallery, .photo-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
         }
     </style>
@@ -664,51 +780,42 @@
             <p>Document your work and evidence</p>
         </div>
 
+        <div class="tabs" id="tabs">
+            <button class="tab" data-tab-target="template">Template</button>
+            <button class="tab" data-tab-target="student">Student</button>
+            <button class="tab" data-tab-target="photos">Photos</button>
+            <button class="tab" data-tab-target="vehicle">Vehicle</button>
+            <button class="tab" data-tab-target="requests">Requests</button>
+            <button class="tab" data-tab-target="jobs">Jobs</button>
+            <button class="tab" data-tab-target="methodology">Methodology</button>
+            <button class="tab" data-tab-target="tools">Tools</button>
+            <button class="tab" data-tab-target="data">Data</button>
+            <button class="tab" data-tab-target="reflection">Reflection</button>
+            <button class="tab" data-tab-target="cards">Cards</button>
+            <button class="tab" data-tab-target="signature">Signature</button>
+            <button class="tab" data-tab-target="actions">Actions</button>
+        </div>
+
         <div class="form-content">
             <div class="status-message" id="statusMessage"></div>
 
-            <!-- Template Selection & JSON Import -->
-            <div class="section">
-                <h2 class="section-title">📋 Load Template or Import Data</h2>
+            <!-- Template Selection -->
+            <div class="section" data-tab="template">
+                <h2 class="section-title">📋 Load Assessment Template</h2>
                 <div class="info-box">
-                    Select a template to load predefined requests and tools, or import a JSON file to populate the entire form
+                    Select a template to load predefined requests and tools
                 </div>
                 <div class="form-group">
                     <label for="templateSelect">Choose Template</label>
                     <select id="templateSelect" onchange="loadTemplate()">
                         <option value="">-- Select a template --</option>
-                        <option value="engine-systems">Engine Systems Diagnosis & Repair</option>
-                        <option value="brake-systems">Brake Systems Service & Repair</option>
-                        <option value="transmission">Transmission & Drivetrain Service</option>
-                        <option value="electrical-systems">Electrical Systems & Diagnostics</option>
-                        <option value="cooling-systems">Cooling & Climate Systems</option>
-                        <option value="suspension-steering">Suspension & Steering Systems</option>
                     </select>
-                </div>
-                <div class="two-column">
-                    <div class="form-group">
-                        <label for="demoSelect">📁 Quick Load Demo Template</label>
-                        <select id="demoSelect" onchange="loadDemoTemplate()">
-                            <option value="">-- Select a demo template --</option>
-                            <option value="json-templates/demo-cooling-systems.json">Cooling Systems Assessment</option>
-                            <option value="json-templates/demo-brake-systems.json">Brake Systems Service</option>
-                        </select>
-                        <small style="display: block; margin-top: 5px; color: #666;">Pre-configured templates in json-templates/ folder</small>
-                    </div>
-                    <div class="form-group">
-                        <label>&nbsp;</label>
-                        <button class="btn btn-info" onclick="exportToJSON()" style="margin-top: 0;">📥 Export to JSON</button>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="jsonFile">Or Upload Custom JSON</label>
-                    <input type="file" id="jsonFile" accept=".json" onchange="importFromJSON(event)">
-                    <small style="display: block; margin-top: 5px; color: #666;">Upload a .json file from your computer</small>
+                    <small style="display: block; margin-top: 5px; color: #666;">Loading templates from json-templates/ folder...</small>
                 </div>
             </div>
 
             <!-- Student Information -->
-            <div class="section">
+            <div class="section" data-tab="student">
                 <h2 class="section-title">Student Information</h2>
                 <div class="two-column">
                     <div class="form-group">
@@ -726,8 +833,19 @@
                 </div>
             </div>
 
+            <!-- Photos Section -->
+            <div class="section" data-tab="photos">
+                <h2 class="section-title">📷 Photos</h2>
+                <div class="form-group">
+                    <label for="photoInput">Capture or Upload Photos</label>
+                    <input type="file" id="photoInput" accept="image/*" multiple onchange="handlePhotoUpload(event)">
+                    <small style="display: block; margin-top: 5px; color: #666;">Photos will be compressed and stored with your job card</small>
+                </div>
+                <div id="photoGallery" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; margin-top: 15px;"></div>
+            </div>
+
             <!-- Vehicle Details -->
-            <div class="section">
+            <div class="section" data-tab="vehicle">
                 <h2 class="section-title">🚗 Vehicle Details</h2>
                 <div class="two-column">
                     <div class="form-group">
@@ -752,7 +870,7 @@
             </div>
 
             <!-- Customer Requests -->
-            <div class="section">
+            <div class="section" data-tab="requests">
                 <h2 class="section-title">Customer Requests</h2>
                 <p style="margin-bottom: 15px; color: #666; font-size: 14px;">
                     Add each request from the customer. You'll select which request you're working on when adding jobs below.
@@ -765,7 +883,7 @@
             </div>
 
             <!-- Jobs -->
-            <div class="section">
+            <div class="section" data-tab="jobs">
                 <h2 class="section-title">My Jobs</h2>
                 <div class="form-group">
                     <label for="selectRequest">Select Customer Request to Work On</label>
@@ -778,7 +896,7 @@
             </div>
 
             <!-- Methodology Section -->
-            <div class="section">
+            <div class="section" data-tab="methodology">
                 <h2 class="section-title">📋 Methodology</h2>
                 <div class="form-group">
                     <label for="methodology">Select your approach and methods used</label>
@@ -803,7 +921,7 @@
             </div>
 
             <!-- Tools & Equipment -->
-            <div class="section">
+            <div class="section" data-tab="tools">
                 <h2 class="section-title">🔧 Tools & Equipment</h2>
                 <p style="margin-bottom: 15px; color: #666; font-size: 14px;">
                     Add each tool or piece of equipment used for this job.
@@ -816,7 +934,7 @@
             </div>
 
             <!-- Technical Data -->
-            <div class="section">
+            <div class="section" data-tab="data">
                 <h2 class="section-title">📊 Technical Data</h2>
                 <div class="form-group">
                     <label for="technicalData">Record relevant measurements and specifications</label>
@@ -824,17 +942,9 @@
                 </div>
             </div>
 
-            <!-- Learner Signature -->
-            <div class="section">
-                <h2 class="section-title">✍️ Learner Confirmation</h2>
-                <div class="form-group">
-                    <label for="learnerSignature">Your Signature/Initials</label>
-                    <input type="text" id="learnerSignature" placeholder="Your initials or 'Signed'">
-                </div>
-                <div class="form-group">
-                    <label for="learnerDate">Date Completed</label>
-                    <input type="date" id="learnerDate">
-                </div>
+            <!-- Learner Profile -->
+            <div class="section" data-tab="reflection">
+                <h2 class="section-title">🎓 Learner Reflection</h2>
                 <div class="form-group">
                     <label for="learnerProfile">Learner Profile Notes</label>
                     <textarea id="learnerProfile" placeholder="Reflection on what you learned and your progress..."></textarea>
@@ -842,7 +952,7 @@
             </div>
 
             <!-- Multiple Job Cards Management -->
-            <div class="section">
+            <div class="section" data-tab="cards">
                 <h2 class="section-title">📑 Job Cards</h2>
                 <div class="two-column">
                     <div class="form-group">
@@ -854,6 +964,30 @@
                     </div>
                 </div>
                 <div id="savedCardsList" style="margin-top: 15px;"></div>
+            </div>
+
+            <!-- Learner Signature -->
+            <div class="section" data-tab="signature">
+                <h2 class="section-title">✏️ Learner Signature</h2>
+                <div class="form-group">
+                                <!-- Actions Tab (for mobile) -->
+                                <div class="section" data-tab="actions">
+                                    <h2 class="section-title">⚙️ Actions</h2>
+                                    <div class="button-group">
+                                        <button class="btn btn-primary" onclick="saveJobCard()">💾 Save Progress</button>
+                                        <button class="btn btn-success" onclick="loadJobCard()">📂 Load Saved</button>
+                                        <button class="btn btn-secondary" onclick="exportToPDF()">📄 Export PDF</button>
+                                        <button class="btn btn-danger" onclick="clearForm()">🗑️ Clear All</button>
+                                    </div>
+                                </div>
+
+                    <label>Sign Below</label>
+                    <canvas id="signatureCanvas" width="600" height="150" style="border: 2px solid #e0e0e0; border-radius: 8px; cursor: crosshair; background: white; display: block; margin: 10px 0;"></canvas>
+                    <div style="display: flex; gap: 10px; margin-top: 10px;">
+                        <button type="button" class="btn btn-secondary" onclick="clearSignature()" style="flex: 1;">Clear Signature</button>
+                        <button type="button" class="btn btn-info" onclick="saveSignature()" style="flex: 1;">Save Signature</button>
+                    </div>
+                </div>
             </div>
 
             <!-- Action Buttons -->
@@ -871,216 +1005,194 @@
 
     <script>
         let db;
+        let useLocalStorage = false; // Fallback flag
         let currentJobId = 0;
         let currentTaskId = 0;
         let currentToolId = 0;
         const DB_NAME = 'MotorVehicleJobCardDB';
         const STORE_NAME = 'jobCards';
         const PHOTO_STORE = 'photos';
+        const STORAGE_KEY = 'jobcard_data';
         
         let customerRequests = [];
         let jobs = [];
         let tools = [];
         let jobCards = [];
+        let photos = []; // Store compressed photos
+        let signatureImage = null; // Store canvas signature
+        let isDrawing = false;
+        let lastX = 0;
+        let lastY = 0;
 
-        // Predefined Templates
-        const TEMPLATES = {
-            'engine-systems': {
-                name: 'Engine Systems Diagnosis & Repair',
-                customerRequests: [
-                    'Diagnose engine warning light',
-                    'Investigate unusual engine noise',
-                    'Check and replace spark plugs',
-                    'Perform compression test',
-                    'Inspect cooling system',
-                    'Service air filter and intake system'
-                ],
-                tools: [
-                    'OBD-II diagnostic scanner',
-                    'Torque wrench',
-                    'Socket set (metric)',
-                    'Compression tester',
-                    'Multimeter',
-                    'Feeler gauge set',
-                    'Spark plug socket',
-                    'Timing light'
-                ]
-            },
-            'brake-systems': {
-                name: 'Brake Systems Service & Repair',
-                customerRequests: [
-                    'Brake pedal feels spongy',
-                    'Grinding noise when braking',
-                    'Replace front brake pads',
-                    'Replace rear brake discs',
-                    'Brake fluid service',
-                    'Handbrake adjustment'
-                ],
-                tools: [
-                    'Jack and axle stands',
-                    'Wheel brace',
-                    'Socket set',
-                    'Brake caliper wind-back tool',
-                    'Micrometer',
-                    'Torque wrench',
-                    'Brake bleeding kit',
-                    'G-clamp',
-                    'Wire brush',
-                    'Copper grease'
-                ]
-            },
-            'transmission': {
-                name: 'Transmission & Drivetrain Service',
-                customerRequests: [
-                    'Gearbox oil service',
-                    'Clutch slipping issue',
-                    'Replace CV boot',
-                    'Driveshaft vibration investigation',
-                    'Transmission fluid leak diagnosis',
-                    'Differential service'
-                ],
-                tools: [
-                    'Vehicle ramp or axle stands',
-                    'Socket set (metric and imperial)',
-                    'Torque wrench',
-                    'Oil drain pan',
-                    'Fluid pump',
-                    'Seal puller',
-                    'CV boot clamp tool',
-                    'Bearing puller set'
-                ]
-            },
-            'electrical-systems': {
-                name: 'Electrical Systems & Diagnostics',
-                customerRequests: [
-                    'Battery not charging',
-                    'Headlight not working',
-                    'Diagnose electrical fault',
-                    'Replace alternator',
-                    'Starter motor replacement',
-                    'Wiring harness repair'
-                ],
-                tools: [
-                    'Multimeter',
-                    'Battery tester',
-                    'Circuit tester',
-                    'Wire strippers',
-                    'Crimping tool',
-                    'Diagnostic scanner',
-                    'Test light',
-                    'Insulation tester'
-                ]
-            },
-            'cooling-systems': {
-                name: 'Cooling & Climate Systems',
-                customerRequests: [
-                    'Engine overheating',
-                    'Coolant leak diagnosis',
-                    'Replace thermostat',
-                    'Radiator replacement',
-                    'Water pump service',
-                    'Air conditioning not working'
-                ],
-                tools: [
-                    'Coolant pressure tester',
-                    'Thermometer',
-                    'Refractometer',
-                    'AC pressure gauge set',
-                    'Drain pan',
-                    'Funnel',
-                    'Hose clamp pliers',
-                    'Vacuum pump'
-                ]
-            },
-            'suspension-steering': {
-                name: 'Suspension & Steering Systems',
-                customerRequests: [
-                    'Vehicle pulling to one side',
-                    'Excessive tire wear',
-                    'Replace shock absorbers',
-                    'Wheel alignment check',
-                    'Steering rack replacement',
-                    'Ball joint replacement'
-                ],
-                tools: [
-                    'Jack and axle stands',
-                    'Ball joint separator',
-                    'Spring compressor',
-                    'Alignment equipment',
-                    'Torque wrench',
-                    'Pry bar',
-                    'Track rod end remover',
-                    'Bearing puller'
-                ]
-            }
-        };
+        // Note: Templates are now loaded from JSON files in json-templates/ folder
+        // They are dynamically loaded in loadTemplates() function
 
-        // Initialize IndexedDB
+        // Initialize IndexedDB with localStorage fallback
         function initDB() {
-            return new Promise((resolve, reject) => {
-                const request = indexedDB.open(DB_NAME, 2);
-                request.onerror = () => reject(request.error);
-                request.onsuccess = () => {
-                    db = request.result;
-                    resolve(db);
-                };
-                request.onupgradeneeded = (event) => {
-                    const db = event.target.result;
-                    if (!db.objectStoreNames.contains(STORE_NAME)) {
-                        db.createObjectStore(STORE_NAME, { keyPath: 'id' });
-                    }
-                    if (!db.objectStoreNames.contains(PHOTO_STORE)) {
-                        db.createObjectStore(PHOTO_STORE, { keyPath: 'id', autoIncrement: true });
-                    }
-                };
+            return new Promise((resolve) => {
+                try {
+                    const testDb = indexedDB.open('test');
+                    testDb.onerror = () => {
+                        console.warn('IndexedDB unavailable, using localStorage');
+                        useLocalStorage = true;
+                        resolve(null);
+                    };
+                    testDb.onsuccess = () => {
+                        testDb.result.close();
+                        const request = indexedDB.open(DB_NAME, 2);
+                        request.onerror = () => {
+                            console.warn('IndexedDB error, using localStorage');
+                            useLocalStorage = true;
+                            resolve(null);
+                        };
+                        request.onsuccess = () => {
+                            db = request.result;
+                            resolve(db);
+                        };
+                        request.onupgradeneeded = (event) => {
+                            const database = event.target.result;
+                            if (!database.objectStoreNames.contains(STORE_NAME)) {
+                                database.createObjectStore(STORE_NAME, { keyPath: 'id' });
+                            }
+                            if (!database.objectStoreNames.contains(PHOTO_STORE)) {
+                                database.createObjectStore(PHOTO_STORE, { keyPath: 'id', autoIncrement: true });
+                            }
+                        };
+                    };
+                } catch (error) {
+                    console.warn('IndexedDB not available:', error);
+                    useLocalStorage = true;
+                    resolve(null);
+                }
             });
+        }
+        
+        // Validate data structure before storing
+        function validateFormData(data) {
+            if (!data || typeof data !== 'object') return false;
+            if (typeof data.studentName !== 'string') return false;
+            if (!Array.isArray(data.customerRequests)) return false;
+            if (!Array.isArray(data.jobs)) return false;
+            if (!Array.isArray(data.tools)) return false;
+            return true;
         }
 
         // Template Management
+        // Load templates from json-templates folder
+        async function loadTemplates() {
+            try {
+                const templates = [
+                    'json-templates/demo-cooling-systems.json',
+                    'json-templates/demo-brake-systems.json'
+                ];
+                
+                const select = document.getElementById('templateSelect');
+                
+                for (const templatePath of templates) {
+                    const response = await fetch(templatePath);
+                    if (response.ok) {
+                        const data = await response.json();
+                        const option = document.createElement('option');
+                        option.value = templatePath;
+                        option.textContent = data.templateName || templatePath.split('/').pop();
+                        select.appendChild(option);
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading templates:', error);
+            }
+        }
+
         function loadTemplate() {
             const select = document.getElementById('templateSelect');
-            const templateKey = select.value;
+            const templatePath = select.value;
 
-            if (!templateKey) return;
-
-            const template = TEMPLATES[templateKey];
-            if (!template) {
-                showMessage('Template not found', 'error');
+            // If template deselected (empty value), clear loaded template data
+            if (!templatePath) {
+                if (customerRequests.length > 0 || tools.length > 0 || jobs.length > 0) {
+                    if (confirm('Clear template data (customer requests, tools, and jobs)?')) {
+                        customerRequests = [];
+                        tools = [];
+                        jobs = [];
+                        currentJobId = 0;
+                        currentTaskId = 0;
+                        currentToolId = 0;
+                        
+                        renderRequests();
+                        updateRequestDropdown();
+                        renderTools();
+                        renderJobs();
+                        
+                        showMessage('Template data cleared', 'info');
+                    }
+                }
                 return;
             }
 
-            if (customerRequests.length > 0 || tools.length > 0) {
-                if (!confirm(`Loading "${template.name}" will replace current customer requests and tools. Continue?`)) {
-                    select.value = '';
-                    return;
-                }
+            try {
+                fetch(templatePath)
+                    .then(response => response.json())
+                    .then(template => {
+                        if (customerRequests.length > 0 || tools.length > 0) {
+                            if (!confirm(`Loading template will replace current customer requests and tools. Continue?`)) {
+                                select.value = '';
+                                return;
+                            }
+                        }
+
+                        // Load customer requests from template
+                        customerRequests = [];
+                        if (template.customerRequests && Array.isArray(template.customerRequests)) {
+                            template.customerRequests.forEach((text, index) => {
+                                customerRequests.push({
+                                    id: Date.now() + index,
+                                    text: text,
+                                    completed: false
+                                });
+                            });
+                        }
+
+                        // Load tools from template
+                        tools = [];
+                        currentToolId = 0;
+                        if (template.tools && Array.isArray(template.tools)) {
+                            template.tools.forEach(toolName => {
+                                tools.push({
+                                    id: ++currentToolId,
+                                    name: toolName
+                                });
+                            });
+                        }
+
+                        // Load jobs from template if they exist
+                        jobs = [];
+                        currentJobId = 0;
+                        if (template.jobs && Array.isArray(template.jobs)) {
+                            template.jobs.forEach((job, index) => {
+                                jobs.push({
+                                    id: ++currentJobId,
+                                    title: job.title || `Job ${index + 1}`,
+                                    description: job.description || '',
+                                    tasks: job.tasks || []
+                                });
+                            });
+                        }
+
+                        renderRequests();
+                        updateRequestDropdown();
+                        renderTools();
+                        renderJobs();
+
+                        showMessage(`Template loaded successfully!`, 'success');
+                    })
+                    .catch(error => {
+                        console.error('Error loading template:', error);
+                        showMessage('Error loading template', 'error');
+                    });
+            } catch (error) {
+                console.error('Error loading template:', error);
+                showMessage('Error loading template', 'error');
             }
-
-            // Load customer requests
-            customerRequests = [];
-            template.customerRequests.forEach((text, index) => {
-                customerRequests.push({
-                    id: Date.now() + index,
-                    text: text,
-                    completed: false
-                });
-            });
-
-            // Load tools
-            tools = [];
-            currentToolId = 0;
-            template.tools.forEach(toolName => {
-                tools.push({
-                    id: ++currentToolId,
-                    name: toolName
-                });
-            });
-
-            renderRequests();
-            updateRequestDropdown();
-            renderTools();
-
-            showMessage(`Template "${template.name}" loaded successfully!`, 'success');
         }
 
         // Image Compression
@@ -1102,7 +1214,9 @@
                         const ctx = canvas.getContext('2d');
                         ctx.drawImage(img, 0, 0, width, height);
                         resolve({
-                            dataUrl: canvas.toDataURL('image/jpeg', quality)
+                            dataUrl: canvas.toDataURL('image/jpeg', quality),
+                            fileName: file.name,
+                            timestamp: new Date().toISOString()
                         });
                     };
                     img.src = e.target.result;
@@ -1111,15 +1225,134 @@
             });
         }
 
-        // Photo storage
-        async function storePhoto(photoData) {
-            return new Promise((resolve, reject) => {
-                const transaction = db.transaction([PHOTO_STORE], 'readwrite');
-                const store = transaction.objectStore(PHOTO_STORE);
-                const request = store.add(photoData);
-                request.onsuccess = () => resolve(request.result);
-                request.onerror = () => reject(request.error);
+        // Handle photo upload with compression
+        async function handlePhotoUpload(event) {
+            const files = event.target.files;
+            if (!files.length) return;
+
+            showLoading(true);
+            try {
+                for (let file of files) {
+                    const compressed = await compressImage(file);
+                    photos.push(compressed);
+                }
+                displayPhotos();
+                showMessage(`${files.length} photo(s) added`, 'success');
+            } catch (error) {
+                console.error('Error uploading photos:', error);
+                showMessage('Error uploading photos', 'error');
+            } finally {
+                showLoading(false);
+                event.target.value = '';
+            }
+        }
+
+        // Display photos in gallery
+        function displayPhotos() {
+            const gallery = document.getElementById('photoGallery');
+            gallery.innerHTML = photos.map((photo, index) => `
+                <div class="photo-container">
+                    <img src="${photo.dataUrl}" alt="Photo ${index + 1}">
+                    <button type="button" class="remove-photo" onclick="removePhoto(${index})">×</button>
+                </div>
+            `).join('');
+        }
+
+        // Remove photo
+        function removePhoto(index) {
+            photos.splice(index, 1);
+            displayPhotos();
+            showMessage('Photo removed', 'success');
+        }
+
+        // Signature canvas setup
+        function setupSignatureCanvas() {
+            const canvas = document.getElementById('signatureCanvas');
+            if (!canvas) return;
+
+            const ctx = canvas.getContext('2d');
+
+            // Mouse events
+            canvas.addEventListener('mousedown', (e) => {
+                isDrawing = true;
+                [lastX, lastY] = [e.offsetX, e.offsetY];
             });
+
+            canvas.addEventListener('mousemove', (e) => {
+                if (!isDrawing) return;
+                ctx.strokeStyle = '#333';
+                ctx.lineWidth = 2;
+                ctx.lineCap = 'round';
+                ctx.lineJoin = 'round';
+                ctx.beginPath();
+                ctx.moveTo(lastX, lastY);
+                ctx.lineTo(e.offsetX, e.offsetY);
+                ctx.stroke();
+                [lastX, lastY] = [e.offsetX, e.offsetY];
+            });
+
+            canvas.addEventListener('mouseup', () => {
+                isDrawing = false;
+            });
+
+            canvas.addEventListener('mouseleave', () => {
+                isDrawing = false;
+            });
+
+            // Touch events for mobile
+            canvas.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                const touch = e.touches[0];
+                const rect = canvas.getBoundingClientRect();
+                isDrawing = true;
+                [lastX, lastY] = [touch.clientX - rect.left, touch.clientY - rect.top];
+            });
+
+            canvas.addEventListener('touchmove', (e) => {
+                e.preventDefault();
+                if (!isDrawing) return;
+                const touch = e.touches[0];
+                const rect = canvas.getBoundingClientRect();
+                const x = touch.clientX - rect.left;
+                const y = touch.clientY - rect.top;
+                
+                ctx.strokeStyle = '#333';
+                ctx.lineWidth = 2;
+                ctx.lineCap = 'round';
+                ctx.lineJoin = 'round';
+                ctx.beginPath();
+                ctx.moveTo(lastX, lastY);
+                ctx.lineTo(x, y);
+                ctx.stroke();
+                [lastX, lastY] = [x, y];
+            });
+
+            canvas.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                isDrawing = false;
+            });
+
+            canvas.addEventListener('touchcancel', (e) => {
+                e.preventDefault();
+                isDrawing = false;
+            });
+        }
+
+        function clearSignature() {
+            const canvas = document.getElementById('signatureCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            signatureImage = null;
+            showMessage('Signature cleared', 'info');
+        }
+
+        function saveSignature() {
+            const canvas = document.getElementById('signatureCanvas');
+            if (!canvas) return;
+            const canvasData = canvas.toDataURL('image/png');
+            signatureImage = canvasData;
+            showMessage('Signature saved', 'success');
         }
 
         async function deletePhoto(photoId) {
@@ -1467,88 +1700,6 @@
         }
 
         // JSON Import/Export
-        async function loadDemoTemplate() {
-            const select = document.getElementById('demoSelect');
-            const filePath = select.value;
-            
-            if (!filePath) return;
-
-            showLoading(true);
-            try {
-                const response = await fetch(filePath);
-                if (!response.ok) {
-                    showMessage(`Template not found: ${filePath}`, 'error');
-                    select.value = '';
-                    return;
-                }
-
-                const data = await response.json();
-                
-                // Validate basic structure
-                if (!data.studentName && !data.customerRequests && !data.jobs) {
-                    showMessage('Invalid template format', 'error');
-                    select.value = '';
-                    return;
-                }
-
-                populateForm(data);
-                select.value = '';
-                showMessage(`Template "${data.studentName || 'Demo'}" loaded successfully!`, 'success');
-                window.scrollTo(0, 0);
-            } catch (error) {
-                console.error('Error loading demo template:', error);
-                showMessage('Error loading template: ' + error.message, 'error');
-                select.value = '';
-            } finally {
-                showLoading(false);
-            }
-        }
-
-        async function importFromJSON(event) {
-            const file = event.target.files[0];
-            if (!file) return;
-
-            try {
-                const text = await file.text();
-                const data = JSON.parse(text);
-                
-                // Validate basic structure
-                if (!data.studentName && !data.customerRequests && !data.jobs) {
-                    showMessage('Invalid job card format', 'error');
-                    return;
-                }
-
-                populateForm(data);
-                document.getElementById('jsonFile').value = '';
-                showMessage(`Job card "${data.studentName || 'Untitled'}" imported successfully!`, 'success');
-                window.scrollTo(0, 0);
-            } catch (error) {
-                console.error('Error importing JSON:', error);
-                showMessage('Error importing JSON file: ' + error.message, 'error');
-            }
-        }
-
-        function exportToJSON() {
-            try {
-                const data = collectFormData();
-                const jsonString = JSON.stringify(data, null, 2);
-                const blob = new Blob([jsonString], { type: 'application/json' });
-                const url = URL.createObjectURL(blob);
-                const link = document.createElement('a');
-                const filename = `jobcard-${data.studentName || 'export'}-${new Date().toISOString().split('T')[0]}.json`;
-                link.href = url;
-                link.download = filename;
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-                URL.revokeObjectURL(url);
-                showMessage('Job card exported as JSON', 'success');
-            } catch (error) {
-                console.error('Error exporting JSON:', error);
-                showMessage('Error exporting JSON', 'error');
-            }
-        }
-
         // Data management
         function collectFormData() {
             const methodologySelect = document.getElementById('methodology');
@@ -1569,15 +1720,15 @@
                 methodologyNotes: document.getElementById('methodologyNotes').value,
                 tools: tools,
                 technicalData: document.getElementById('technicalData').value,
-                learnerSignature: document.getElementById('learnerSignature').value,
-                learnerDate: document.getElementById('learnerDate').value,
                 learnerProfile: document.getElementById('learnerProfile').value,
+                photos: photos,
+                signature: signatureImage,
                 customerRequests: customerRequests,
                 jobs: jobs
             };
         }
 
-        function populateForm(data) {
+        function populateFormFromData(data) {
             document.getElementById('studentName').value = data.studentName || '';
             document.getElementById('jobDate').value = data.jobDate || '';
             document.getElementById('jobLocation').value = data.jobLocation || '';
@@ -1588,13 +1739,13 @@
             document.getElementById('methodology').value = data.methodology || '';
             document.getElementById('methodologyNotes').value = data.methodologyNotes || '';
             document.getElementById('technicalData').value = data.technicalData || '';
-            document.getElementById('learnerSignature').value = data.learnerSignature || '';
-            document.getElementById('learnerDate').value = data.learnerDate || '';
             document.getElementById('learnerProfile').value = data.learnerProfile || '';
             
             customerRequests = data.customerRequests || [];
             jobs = data.jobs || [];
             tools = data.tools || [];
+            photos = data.photos || [];
+            signatureImage = data.signature || null;
             
             currentJobId = jobs.length > 0 ? Math.max(...jobs.map(j => j.id)) : 0;
             currentTaskId = 0;
@@ -1609,240 +1760,423 @@
             updateRequestDropdown();
             renderTools();
             renderJobs();
+            displayPhotos();
         }
 
-        async function saveJobCard() {
+        function populateForm(data) {
+            populateFormFromData(data);
+        }
+
+        function saveJobCard() {
             showLoading(true);
             try {
                 const data = collectFormData();
-                const transaction = db.transaction([STORE_NAME], 'readwrite');
-                const store = transaction.objectStore(STORE_NAME);
-                await store.put(data);
-                showMessage('Job card saved successfully!', 'success');
+                
+                if (!validateFormData(data)) {
+                    showMessage('Invalid data format', 'error');
+                    showLoading(false);
+                    return;
+                }
+                
+                if (useLocalStorage) {
+                    try {
+                        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+                        showMessage('Job card saved (local storage)', 'success');
+                    } catch (error) {
+                        if (error.name === 'QuotaExceededError') {
+                            showMessage('Storage quota exceeded. Please export to backup.', 'error');
+                        } else {
+                            showMessage('Error saving job card', 'error');
+                        }
+                    }
+                    showLoading(false);
+                } else {
+                    try {
+                        const transaction = db.transaction([STORE_NAME], 'readwrite');
+                        const store = transaction.objectStore(STORE_NAME);
+                        const request = store.put(data);
+                        
+                        request.onerror = () => {
+                            if (request.error.name === 'QuotaExceededError') {
+                                showMessage('Storage quota exceeded. Please export to backup.', 'error');
+                            } else {
+                                showMessage('Error saving job card', 'error');
+                            }
+                            showLoading(false);
+                        };
+                        
+                        transaction.oncomplete = () => {
+                            showMessage('Job card saved successfully!', 'success');
+                            showLoading(false);
+                        };
+                    } catch (error) {
+                        showMessage('Error saving job card: ' + error.message, 'error');
+                        showLoading(false);
+                    }
+                }
             } catch (error) {
-                console.error('Error saving:', error);
+                console.error('Error in saveJobCard:', error);
                 showMessage('Error saving job card', 'error');
-            } finally {
                 showLoading(false);
             }
         }
 
-        async function loadJobCard() {
+        function loadJobCard() {
             showLoading(true);
             try {
-                const transaction = db.transaction([STORE_NAME], 'readonly');
-                const store = transaction.objectStore(STORE_NAME);
-                const request = store.get('current');
-                
-                request.onsuccess = () => {
-                    const data = request.result;
-                    if (data) {
-                        populateForm(data);
-                        showMessage('Job card loaded!', 'success');
+                if (useLocalStorage) {
+                    const dataStr = localStorage.getItem(STORAGE_KEY);
+                    if (dataStr) {
+                        try {
+                            const data = JSON.parse(dataStr);
+                            if (validateFormData(data)) {
+                                populateForm(data);
+                                showMessage('Job card loaded (local storage)', 'success');
+                            } else {
+                                showMessage('Saved data is invalid', 'error');
+                            }
+                        } catch (parseError) {
+                            showMessage('Error parsing saved data', 'error');
+                        }
                     } else {
                         showMessage('No saved job card found', 'error');
                     }
                     showLoading(false);
-                };
-                
-                request.onerror = () => {
-                    showMessage('Error loading job card', 'error');
-                    showLoading(false);
-                };
+                } else {
+                    const transaction = db.transaction([STORE_NAME], 'readonly');
+                    const store = transaction.objectStore(STORE_NAME);
+                    const request = store.get('current');
+                    
+                    request.onsuccess = () => {
+                        const data = request.result;
+                        if (data && validateFormData(data)) {
+                            populateForm(data);
+                            showMessage('Job card loaded!', 'success');
+                        } else {
+                            showMessage('No saved job card found', 'error');
+                        }
+                        showLoading(false);
+                    };
+                    
+                    request.onerror = () => {
+                        showMessage('Error loading job card', 'error');
+                        showLoading(false);
+                    };
+                }
             } catch (error) {
-                console.error('Error loading:', error);
+                console.error('Error in loadJobCard:', error);
                 showMessage('Error loading job card', 'error');
                 showLoading(false);
             }
         }
 
-        async function exportToPDF() {
+        function exportToPDF() {
             showLoading(true);
             try {
                 const { jsPDF } = window.jspdf;
-                const doc = new jsPDF();
+                const doc = new jsPDF('p', 'mm', 'a4');
                 const data = collectFormData();
                 
-                let yPos = 20;
-                const lineHeight = 7;
+                let yPos = 10;
+                const lineHeight = 5;
+                const pageHeight = doc.internal.pageSize.height;
                 const pageWidth = doc.internal.pageSize.width;
-                const margin = 15;
+                const margin = 10;
                 const contentWidth = pageWidth - (margin * 2);
                 
-                // Header
+                // Professional header
                 doc.setFillColor(30, 60, 114);
-                doc.rect(0, 0, pageWidth, 30, 'F');
+                doc.rect(0, 0, pageWidth, 25, 'F');
+                
                 doc.setTextColor(255, 255, 255);
                 doc.setFontSize(18);
-                doc.text('Motor Vehicle Job Card Report', pageWidth / 2, 15, { align: 'center' });
-                doc.setFontSize(10);
-                doc.text(new Date().toLocaleDateString(), pageWidth / 2, 23, { align: 'center' });
+                doc.setFont(undefined, 'bold');
+                doc.text('MOTOR VEHICLE JOB CARD', pageWidth / 2, 12, { align: 'center' });
                 
-                yPos = 40;
+                doc.setFontSize(9);
+                doc.setFont(undefined, 'normal');
+                const dateStr = new Date().toLocaleDateString('en-GB', { 
+                    weekday: 'short', 
+                    year: 'numeric', 
+                    month: 'short', 
+                    day: 'numeric' 
+                });
+                doc.text(`Report Generated: ${dateStr}`, pageWidth / 2, 20, { align: 'center' });
+                
+                yPos = 32;
                 doc.setTextColor(0, 0, 0);
                 
-                const addSection = (title, content) => {
-                    if (yPos > 270) {
+                const checkNewPage = (spaceNeeded = 20) => {
+                    if (yPos + spaceNeeded > pageHeight - 10) {
                         doc.addPage();
-                        yPos = 20;
+                        yPos = 15;
                     }
-                    
-                    doc.setFontSize(12);
-                    doc.setFont(undefined, 'bold');
-                    doc.text(title, margin, yPos);
-                    yPos += lineHeight + 2;
-                    
-                    doc.setFontSize(10);
-                    doc.setFont(undefined, 'normal');
-                    
-                    if (Array.isArray(content)) {
-                        content.forEach(item => {
-                            if (yPos > 280) {
-                                doc.addPage();
-                                yPos = 20;
-                            }
-                            const lines = doc.splitTextToSize(item, contentWidth - 10);
-                            doc.text(lines, margin + 5, yPos);
-                            yPos += lines.length * lineHeight;
-                        });
-                    } else {
-                        const lines = doc.splitTextToSize(content || 'N/A', contentWidth - 10);
-                        doc.text(lines, margin + 5, yPos);
-                        yPos += lines.length * lineHeight;
-                    }
-                    
-                    yPos += 5;
                 };
                 
-                addSection('Student Information', [
-                    `Name: ${data.studentName || 'N/A'}`,
-                    `Date: ${data.jobDate || 'N/A'}`,
-                    `Location: ${data.jobLocation || 'N/A'}`
-                ]);
-
-                // Vehicle Details
-                if (data.vehicleReg || data.vehicleMake) {
-                    const vehicleInfo = [];
-                    if (data.vehicleReg) vehicleInfo.push(`Registration: ${data.vehicleReg}`);
-                    if (data.vehicleMake) vehicleInfo.push(`Make & Model: ${data.vehicleMake}`);
-                    if (data.vehicleYear) vehicleInfo.push(`Year: ${data.vehicleYear}`);
-                    if (data.vehicleOdometer) vehicleInfo.push(`Odometer: ${data.vehicleOdometer} miles`);
-                    if (vehicleInfo.length > 0) addSection('Vehicle Details', vehicleInfo);
-                }
+                // Section: Student & Vehicle Information
+                doc.setFontSize(11);
+                doc.setFont(undefined, 'bold');
+                doc.setFillColor(220, 220, 220);
+                doc.rect(margin, yPos - 2, contentWidth, 6, 'F');
+                doc.text('STUDENT & VEHICLE INFORMATION', margin + 2, yPos + 2);
+                yPos += 10;
                 
+                doc.setFontSize(9);
+                doc.setFont(undefined, 'normal');
+                
+                // Two column layout
+                const col1X = margin;
+                const col2X = pageWidth / 2;
+                
+                // Left column
+                doc.text('Student Name:', col1X, yPos);
+                doc.setFont(undefined, 'bold');
+                doc.text(data.studentName || 'N/A', col1X + 35, yPos);
+                doc.setFont(undefined, 'normal');
+                
+                // Right column
+                doc.text('Date:', col2X, yPos);
+                doc.setFont(undefined, 'bold');
+                doc.text(data.jobDate || 'N/A', col2X + 15, yPos);
+                doc.setFont(undefined, 'normal');
+                yPos += 6;
+                
+                // Location and registration
+                doc.text('Location:', col1X, yPos);
+                doc.setFont(undefined, 'bold');
+                doc.text(data.jobLocation || 'N/A', col1X + 35, yPos);
+                doc.setFont(undefined, 'normal');
+                
+                doc.text('Reg No:', col2X, yPos);
+                doc.setFont(undefined, 'bold');
+                doc.text(data.vehicleReg || 'N/A', col2X + 15, yPos);
+                doc.setFont(undefined, 'normal');
+                yPos += 6;
+                
+                // Vehicle details
+                doc.text('Vehicle:', col1X, yPos);
+                doc.setFont(undefined, 'bold');
+                let vehicleText = data.vehicleMake || 'N/A';
+                if (data.vehicleYear) vehicleText += ` (${data.vehicleYear})`;
+                doc.text(vehicleText, col1X + 35, yPos);
+                doc.setFont(undefined, 'normal');
+                
+                doc.text('Odometer:', col2X, yPos);
+                doc.setFont(undefined, 'bold');
+                doc.text(data.vehicleOdometer ? `${data.vehicleOdometer} miles` : 'N/A', col2X + 15, yPos);
+                doc.setFont(undefined, 'normal');
+                yPos += 10;
+                
+                // Section: Customer Requests
                 if (data.customerRequests.length > 0) {
-                    const requests = data.customerRequests.map(r => 
-                        `${r.completed ? '✓' : '○'} ${r.text}`
-                    );
-                    addSection('Customer Requests', requests);
-                }
-
-                // Methodology
-                if (data.methodologyText) {
-                    const methodInfo = [data.methodologyText];
-                    if (data.methodologyNotes) {
-                        methodInfo.push(`Notes: ${data.methodologyNotes}`);
-                    }
-                    addSection('Methodology', methodInfo);
-                }
-
-                // Tools & Equipment
-                if (data.tools && data.tools.length > 0) {
-                    const toolsList = data.tools.map(t => `• ${t.name}`);
-                    addSection('Tools & Equipment Used', toolsList);
-                }
-
-                // Technical Data
-                if (data.technicalData) {
-                    addSection('Technical Data', data.technicalData);
-                }
-                
-                if (data.jobs.length > 0) {
-                    data.jobs.forEach((job, jobIndex) => {
-                        if (yPos > 260) {
-                            doc.addPage();
-                            yPos = 20;
-                        }
-                        
-                        doc.setFontSize(13);
-                        doc.setFont(undefined, 'bold');
-                        doc.setTextColor(102, 126, 234);
-                        doc.text(`Job ${jobIndex + 1}: ${job.requestText}`, margin, yPos);
-                        doc.setTextColor(0, 0, 0);
-                        yPos += lineHeight + 2;
-                        
-                        doc.setFontSize(10);
-                        doc.setFont(undefined, 'italic');
-                        doc.text(`Status: ${job.completed ? 'Complete' : 'In Progress'}`, margin + 5, yPos);
-                        yPos += lineHeight + 2;
-                        
-                        if (job.tasks.length > 0) {
-                            job.tasks.forEach((task, taskIndex) => {
-                                if (yPos > 275) {
-                                    doc.addPage();
-                                    yPos = 20;
-                                }
-                                
-                                doc.setFont(undefined, 'bold');
-                                doc.setFontSize(10);
-                                doc.text(`${task.completed ? '✓' : '○'} Task ${taskIndex + 1}:`, margin + 5, yPos);
-                                yPos += lineHeight;
-                                
-                                doc.setFont(undefined, 'normal');
-                                const lines = doc.splitTextToSize(task.description, contentWidth - 20);
-                                doc.text(lines, margin + 10, yPos);
-                                yPos += lines.length * lineHeight;
-                                
-                                if (task.photos && task.photos.length > 0) {
-                                    let xPos = margin + 10;
-                                    const imgWidth = 35;
-                                    const imgHeight = 26;
-                                    const spacing = 5;
-                                    
-                                    for (let i = 0; i < task.photos.length; i++) {
-                                        if (xPos + imgWidth > pageWidth - margin) {
-                                            xPos = margin + 10;
-                                            yPos += imgHeight + spacing;
-                                        }
-                                        
-                                        if (yPos + imgHeight > 280) {
-                                            doc.addPage();
-                                            yPos = 20;
-                                            xPos = margin + 10;
-                                        }
-                                        
-                                        try {
-                                            doc.addImage(task.photos[i].dataUrl, 'JPEG', xPos, yPos, imgWidth, imgHeight);
-                                        } catch (err) {
-                                            console.error('Error adding image:', err);
-                                        }
-                                        
-                                        xPos += imgWidth + spacing;
-                                    }
-                                    
-                                    yPos += imgHeight + 8;
-                                }
-                                
-                                yPos += 3;
-                            });
-                        }
-                        
+                    checkNewPage(25);
+                    doc.setFontSize(11);
+                    doc.setFont(undefined, 'bold');
+                    doc.setFillColor(220, 220, 220);
+                    doc.rect(margin, yPos - 2, contentWidth, 6, 'F');
+                    doc.text('CUSTOMER REQUESTS', margin + 2, yPos + 2);
+                    yPos += 8;
+                    
+                    doc.setFontSize(9);
+                    doc.setFont(undefined, 'normal');
+                    data.customerRequests.forEach((req, idx) => {
+                        doc.text(`${idx + 1}. [${req.completed ? '✓' : '  '}] ${req.text}`, margin + 3, yPos);
                         yPos += 5;
                     });
-                }
-
-                // Learner Confirmation
-                if (data.learnerSignature || data.learnerProfile) {
-                    const learnerInfo = [];
-                    if (data.learnerSignature) learnerInfo.push(`Learner Signature: ${data.learnerSignature}`);
-                    if (data.learnerDate) learnerInfo.push(`Date: ${data.learnerDate}`);
-                    if (data.learnerProfile) learnerInfo.push(`Reflection: ${data.learnerProfile}`);
-                    if (learnerInfo.length > 0) addSection('Learner Confirmation', learnerInfo);
+                    yPos += 2;
                 }
                 
-                const fileName = `JobCard_${data.studentName || 'Student'}_${new Date().toISOString().split('T')[0]}.pdf`;
-                doc.save(fileName);
+                // Section: Methodology
+                if (data.methodologyText) {
+                    checkNewPage(20);
+                    doc.setFontSize(11);
+                    doc.setFont(undefined, 'bold');
+                    doc.setFillColor(220, 220, 220);
+                    doc.rect(margin, yPos - 2, contentWidth, 6, 'F');
+                    doc.text('METHODOLOGY', margin + 2, yPos + 2);
+                    yPos += 8;
+                    
+                    doc.setFontSize(9);
+                    doc.setFont(undefined, 'bold');
+                    doc.text(data.methodologyText, margin + 3, yPos);
+                    yPos += 5;
+                    
+                    if (data.methodologyNotes) {
+                        doc.setFont(undefined, 'normal');
+                        const noteLines = doc.splitTextToSize(`Notes: ${data.methodologyNotes}`, contentWidth - 6);
+                        doc.text(noteLines, margin + 3, yPos);
+                        yPos += (noteLines.length * 4) + 2;
+                    }
+                    yPos += 2;
+                }
                 
+                // Section: Tools & Equipment
+                if (data.tools && data.tools.length > 0) {
+                    checkNewPage(25);
+                    doc.setFontSize(11);
+                    doc.setFont(undefined, 'bold');
+                    doc.setFillColor(220, 220, 220);
+                    doc.rect(margin, yPos - 2, contentWidth, 6, 'F');
+                    doc.text('TOOLS & EQUIPMENT', margin + 2, yPos + 2);
+                    yPos += 8;
+                    
+                    doc.setFontSize(9);
+                    doc.setFont(undefined, 'normal');
+                    data.tools.forEach((tool, idx) => {
+                        doc.text(`• ${tool.name}`, margin + 3, yPos);
+                        yPos += 4;
+                    });
+                    yPos += 2;
+                }
+                
+                // Section: Technical Data
+                if (data.technicalData) {
+                    checkNewPage(20);
+                    doc.setFontSize(11);
+                    doc.setFont(undefined, 'bold');
+                    doc.setFillColor(220, 220, 220);
+                    doc.rect(margin, yPos - 2, contentWidth, 6, 'F');
+                    doc.text('TECHNICAL DATA & MEASUREMENTS', margin + 2, yPos + 2);
+                    yPos += 8;
+                    
+                    doc.setFontSize(8);
+                    doc.setFont(undefined, 'normal');
+                    const techLines = doc.splitTextToSize(data.technicalData, contentWidth - 6);
+                    doc.text(techLines, margin + 3, yPos);
+                    yPos += (techLines.length * 4) + 2;
+                }
+                
+                // Section: Jobs & Tasks
+                if (data.jobs.length > 0) {
+                    data.jobs.forEach((job, jobIdx) => {
+                        checkNewPage(20);
+                        
+                        doc.setFontSize(10);
+                        doc.setFont(undefined, 'bold');
+                        doc.setFillColor(100, 150, 200);
+                        doc.setTextColor(255, 255, 255);
+                        doc.rect(margin, yPos - 2, contentWidth, 6, 'F');
+                        doc.text(`JOB ${jobIdx + 1}: ${job.title}`, margin + 2, yPos + 2);
+                        doc.setTextColor(0, 0, 0);
+                        yPos += 8;
+                        
+                        if (job.description) {
+                            doc.setFontSize(8);
+                            doc.setFont(undefined, 'italic');
+                            const descLines = doc.splitTextToSize(job.description, contentWidth - 6);
+                            doc.text(descLines, margin + 2, yPos);
+                            yPos += (descLines.length * 3) + 2;
+                        }
+                        
+                        if (job.tasks && job.tasks.length > 0) {
+                            job.tasks.forEach((task, taskIdx) => {
+                                checkNewPage(10);
+                                doc.setFontSize(8);
+                                doc.setFont(undefined, 'bold');
+                                doc.text(`  Task ${taskIdx + 1}: [${task.completed ? '✓' : '  '}]`, margin + 3, yPos);
+                                yPos += 4;
+                                
+                                if (task.description) {
+                                    doc.setFont(undefined, 'normal');
+                                    const taskLines = doc.splitTextToSize(task.description, contentWidth - 10);
+                                    doc.text(taskLines, margin + 6, yPos);
+                                    yPos += (taskLines.length * 3) + 1;
+                                }
+                            });
+                        }
+                        yPos += 2;
+                    });
+                }
+                
+                // Section: Photos
+                if (photos && photos.length > 0) {
+                    checkNewPage(15);
+                    doc.setFontSize(11);
+                    doc.setFont(undefined, 'bold');
+                    doc.setFillColor(220, 220, 220);
+                    doc.rect(margin, yPos - 2, contentWidth, 6, 'F');
+                    doc.text('PHOTOGRAPHIC EVIDENCE', margin + 2, yPos + 2);
+                    yPos += 8;
+                    
+                    const imgWidth = 45;
+                    const imgHeight = 34;
+                    const spacing = 6;
+                    let xPos = margin;
+                    let imgsInRow = 0;
+                    const imgsPerRow = Math.floor(contentWidth / (imgWidth + spacing));
+                    
+                    photos.forEach((photo, idx) => {
+                        if (imgsInRow >= imgsPerRow) {
+                            xPos = margin;
+                            yPos += imgHeight + spacing;
+                            imgsInRow = 0;
+                            checkNewPage(imgHeight + 10);
+                        }
+                        
+                        try {
+                            doc.addImage(photo.dataUrl, 'JPEG', xPos, yPos, imgWidth, imgHeight);
+                            doc.setDrawColor(150);
+                            doc.rect(xPos, yPos, imgWidth, imgHeight);
+                        } catch (err) {
+                            console.error('Error adding image:', err);
+                        }
+                        
+                        xPos += imgWidth + spacing;
+                        imgsInRow++;
+                    });
+                    yPos += imgHeight + 8;
+                }
+                
+                // Section: Signature & Reflection
+                checkNewPage(35);
+                doc.setFontSize(11);
+                doc.setFont(undefined, 'bold');
+                doc.setFillColor(220, 220, 220);
+                doc.rect(margin, yPos - 2, contentWidth, 6, 'F');
+                doc.text('LEARNER SIGNATURE & REFLECTION', margin + 2, yPos + 2);
+                yPos += 10;
+                
+                // Signature canvas area
+                if (signatureImage) {
+                    try {
+                        doc.addImage(signatureImage, 'PNG', margin, yPos, 60, 25);
+                        doc.setDrawColor(0);
+                        doc.rect(margin, yPos, 60, 25);
+                    } catch (err) {
+                        console.error('Error adding signature:', err);
+                        doc.text('Signature: ________________________', margin + 2, yPos + 15);
+                    }
+                } else {
+                    doc.setFontSize(9);
+                    doc.text('Learner Signature: ________________________', margin + 2, yPos + 15);
+                }
+                yPos += 30;
+                
+                // Learner reflection
+                if (data.learnerProfile) {
+                    checkNewPage(15);
+                    doc.setFontSize(9);
+                    doc.setFont(undefined, 'normal');
+                    doc.text('Learner Reflection:', margin, yPos);
+                    yPos += 5;
+                    
+                    const reflectionLines = doc.splitTextToSize(data.learnerProfile, contentWidth - 4);
+                    doc.setFontSize(8);
+                    doc.text(reflectionLines, margin + 2, yPos);
+                }
+                
+                // Footer on all pages
+                const pageCount = doc.internal.pages.length;
+                for (let i = 2; i <= pageCount; i++) {
+                    doc.setPage(i);
+                    doc.setFontSize(8);
+                    doc.setTextColor(150);
+                    doc.text(`Page ${i - 1} of ${pageCount - 1}`, pageWidth / 2, pageHeight - 5, { align: 'center' });
+                }
+                
+                // Save PDF
+                const filename = `JobCard_${data.studentName || 'Report'}_${new Date().toISOString().split('T')[0]}.pdf`;
+                doc.save(filename);
                 showMessage('PDF exported successfully!', 'success');
             } catch (error) {
                 console.error('Error exporting PDF:', error);
@@ -1852,7 +2186,7 @@
             }
         }
 
-        async function clearForm() {
+        function clearForm() {
             if (confirm('Clear all data? This cannot be undone.')) {
                 showLoading(true);
                 try {
@@ -1866,10 +2200,14 @@
                     document.getElementById('methodology').value = '';
                     document.getElementById('methodologyNotes').value = '';
                     document.getElementById('technicalData').value = '';
-                    document.getElementById('learnerSignature').value = '';
-                    document.getElementById('learnerDate').value = '';
                     document.getElementById('learnerProfile').value = '';
                     document.getElementById('templateSelect').value = '';
+                    
+                    // Clear photos and signature
+                    photos = [];
+                    signatureImage = null;
+                    document.getElementById('photoGallery').innerHTML = '';
+                    clearSignature();
                     
                     customerRequests = [];
                     jobs = [];
@@ -1883,15 +2221,34 @@
                     renderTools();
                     renderJobs();
                     
-                    const transaction = db.transaction([STORE_NAME], 'readwrite');
-                    const store = transaction.objectStore(STORE_NAME);
-                    await store.delete('current');
-                    
-                    showMessage('All data cleared', 'success');
+                    if (useLocalStorage) {
+                        try {
+                            localStorage.removeItem(STORAGE_KEY);
+                            showMessage('All data cleared', 'success');
+                            showLoading(false);
+                        } catch (error) {
+                            console.error('Error clearing localStorage:', error);
+                            showMessage('Error clearing data', 'error');
+                            showLoading(false);
+                        }
+                    } else {
+                        const transaction = db.transaction([STORE_NAME], 'readwrite');
+                        const store = transaction.objectStore(STORE_NAME);
+                        const request = store.delete('current');
+                        
+                        request.onerror = () => {
+                            showMessage('Error clearing data', 'error');
+                            showLoading(false);
+                        };
+                        
+                        transaction.oncomplete = () => {
+                            showMessage('All data cleared', 'success');
+                            showLoading(false);
+                        };
+                    }
                 } catch (error) {
-                    console.error('Error clearing:', error);
+                    console.error('Error clearing form:', error);
                     showMessage('Error clearing data', 'error');
-                } finally {
                     showLoading(false);
                 }
             }
@@ -1923,17 +2280,28 @@
         }
 
         // Multiple Job Cards Management
-        async function saveAsNewCard() {
+        function saveAsNewCard() {
             const cardName = document.getElementById('cardName').value.trim();
             
             if (!cardName) {
                 showMessage('Please enter a name for this job card', 'error');
                 return;
             }
+            
+            if (cardName.length > 100) {
+                showMessage('Card name too long (max 100 characters)', 'error');
+                return;
+            }
 
             showLoading(true);
             try {
                 const data = collectFormData();
+                if (!validateFormData(data)) {
+                    showMessage('Invalid data format', 'error');
+                    showLoading(false);
+                    return;
+                }
+                
                 const cardId = Date.now().toString();
                 const cardData = {
                     id: cardId,
@@ -1942,80 +2310,185 @@
                     data: data
                 };
 
-                const transaction = db.transaction([STORE_NAME], 'readwrite');
-                const store = transaction.objectStore(STORE_NAME);
-                await store.put(cardData);
-
-                document.getElementById('cardName').value = '';
-                loadSavedCards();
-                showMessage(`Job card "${cardName}" saved!`, 'success');
+                if (useLocalStorage) {
+                    try {
+                        const savedCards = JSON.parse(localStorage.getItem('saved_cards') || '{}');
+                        savedCards[cardId] = cardData;
+                        localStorage.setItem('saved_cards', JSON.stringify(savedCards));
+                        document.getElementById('cardName').value = '';
+                        loadSavedCards();
+                        showMessage(`Job card "${cardName}" saved!`, 'success');
+                    } catch (error) {
+                        if (error.name === 'QuotaExceededError') {
+                            showMessage('Storage quota exceeded. Please export to backup.', 'error');
+                        } else {
+                            showMessage('Error saving job card', 'error');
+                        }
+                    }
+                    showLoading(false);
+                } else {
+                    const transaction = db.transaction([STORE_NAME], 'readwrite');
+                    const store = transaction.objectStore(STORE_NAME);
+                    const request = store.put(cardData);
+                    
+                    request.onerror = () => {
+                        if (request.error.name === 'QuotaExceededError') {
+                            showMessage('Storage quota exceeded. Please export to backup.', 'error');
+                        } else {
+                            showMessage('Error saving job card', 'error');
+                        }
+                        showLoading(false);
+                    };
+                    
+                    transaction.oncomplete = () => {
+                        document.getElementById('cardName').value = '';
+                        loadSavedCards();
+                        showMessage(`Job card "${cardName}" saved!`, 'success');
+                        showLoading(false);
+                    };
+                }
             } catch (error) {
-                console.error('Error saving new card:', error);
+                console.error('Error in saveAsNewCard:', error);
                 showMessage('Error saving job card', 'error');
-            } finally {
                 showLoading(false);
             }
         }
 
-        async function loadSavedCards() {
+        function loadSavedCards() {
             try {
-                const transaction = db.transaction([STORE_NAME], 'readonly');
-                const store = transaction.objectStore(STORE_NAME);
-                const request = store.getAll();
+                const cardsList = document.getElementById('savedCardsList');
+                
+                if (useLocalStorage) {
+                    try {
+                        const savedCards = JSON.parse(localStorage.getItem('saved_cards') || '{}');
+                        const allCards = Object.values(savedCards).filter(card => card.id && card.name);
+                        
+                        if (allCards.length === 0) {
+                            cardsList.innerHTML = '<div class="empty-state"><div class="empty-state-icon">📑</div><p>No saved job cards yet</p></div>';
+                            return;
+                        }
 
-                request.onsuccess = () => {
-                    const allCards = request.result.filter(card => card.id !== 'current' && card.name);
-                    const cardsList = document.getElementById('savedCardsList');
-
-                    if (allCards.length === 0) {
-                        cardsList.innerHTML = '<div class="empty-state"><div class="empty-state-icon">📑</div><p>No saved job cards yet</p></div>';
-                        return;
+                        cardsList.innerHTML = allCards.map(card => {
+                            const date = new Date(card.timestamp).toLocaleDateString();
+                            return `
+                                <div class="saved-card-item">
+                                    <div class="card-info">
+                                        <div class="card-name">${escapeHtml(card.name)}</div>
+                                        <div class="card-date">Saved: ${date}</div>
+                                    </div>
+                                    <div class="card-actions">
+                                        <button class="load-btn" onclick="loadCard('${card.id}')">Load</button>
+                                        <button class="delete-card-btn" onclick="deleteCard('${card.id}')">Delete</button>
+                                    </div>
+                                </div>
+                            `;
+                        }).join('');
+                    } catch (error) {
+                        console.error('Error loading saved cards from localStorage:', error);
+                        cardsList.innerHTML = '<div class="error-state">Error loading saved cards</div>';
                     }
+                } else {
+                    const transaction = db.transaction([STORE_NAME], 'readonly');
+                    const store = transaction.objectStore(STORE_NAME);
+                    const request = store.getAll();
 
-                    cardsList.innerHTML = allCards.map(card => {
-                        const date = new Date(card.timestamp).toLocaleDateString();
-                        return `
-                            <div class="saved-card-item">
-                                <div class="card-info">
-                                    <div class="card-name">${escapeHtml(card.name)}</div>
-                                    <div class="card-date">Saved: ${date}</div>
+                    request.onsuccess = () => {
+                        const allCards = request.result.filter(card => card.id !== 'current' && card.name);
+
+                        if (allCards.length === 0) {
+                            cardsList.innerHTML = '<div class="empty-state"><div class="empty-state-icon">📑</div><p>No saved job cards yet</p></div>';
+                            return;
+                        }
+
+                        cardsList.innerHTML = allCards.map(card => {
+                            const date = new Date(card.timestamp).toLocaleDateString();
+                            return `
+                                <div class="saved-card-item">
+                                    <div class="card-info">
+                                        <div class="card-name">${escapeHtml(card.name)}</div>
+                                        <div class="card-date">Saved: ${date}</div>
+                                    </div>
+                                    <div class="card-actions">
+                                        <button class="load-btn" onclick="loadCard('${card.id}')">Load</button>
+                                        <button class="delete-card-btn" onclick="deleteCard('${card.id}')">Delete</button>
+                                    </div>
                                 </div>
-                                <div class="card-actions">
-                                    <button class="load-btn" onclick="loadCard('${card.id}')">Load</button>
-                                    <button class="delete-card-btn" onclick="deleteCard('${card.id}')">Delete</button>
-                                </div>
-                            </div>
-                        `;
-                    }).join('');
-                };
+                            `;
+                        }).join('');
+                    };
+                    
+                    request.onerror = () => {
+                        console.error('Error loading cards from IndexedDB');
+                        cardsList.innerHTML = '<div class="error-state">Error loading saved cards</div>';
+                    };
+                }
             } catch (error) {
                 console.error('Error loading saved cards:', error);
             }
         }
 
-        async function loadCard(cardId) {
+        function loadCard(cardId) {
             showLoading(true);
             try {
-                const transaction = db.transaction([STORE_NAME], 'readonly');
-                const store = transaction.objectStore(STORE_NAME);
-                const request = store.get(cardId);
-
-                request.onsuccess = () => {
-                    const card = request.result;
-                    if (card && card.data) {
-                        populateForm(card.data);
-                        showMessage(`Job card "${card.name}" loaded!`, 'success');
+                if (useLocalStorage) {
+                    try {
+                        const savedCards = JSON.parse(localStorage.getItem('saved_cards') || '{}');
+                        const cardData = savedCards[cardId];
+                        
+                        if (!cardData || !cardData.data) {
+                            showMessage('Job card not found', 'error');
+                            showLoading(false);
+                            return;
+                        }
+                        
+                        if (!validateFormData(cardData.data)) {
+                            showMessage('Card data is invalid or corrupted', 'error');
+                            showLoading(false);
+                            return;
+                        }
+                        
+                        populateFormFromData(cardData.data);
+                        currentJobId = 0;
+                        currentTaskId = 0;
+                        currentToolId = 0;
+                        showMessage(`Job card "${cardData.name}" loaded!`, 'success');
                         window.scrollTo(0, 0);
-                    } else {
-                        showMessage('Job card not found', 'error');
+                        showLoading(false);
+                    } catch (error) {
+                        console.error('Error loading from localStorage:', error);
+                        showMessage('Error loading job card', 'error');
+                        showLoading(false);
                     }
-                    showLoading(false);
-                };
+                } else {
+                    const transaction = db.transaction([STORE_NAME], 'readonly');
+                    const store = transaction.objectStore(STORE_NAME);
+                    const request = store.get(cardId);
 
-                request.onerror = () => {
-                    showMessage('Error loading job card', 'error');
-                    showLoading(false);
-                };
+                    request.onsuccess = () => {
+                        const card = request.result;
+                        if (card && card.data) {
+                            if (!validateFormData(card.data)) {
+                                showMessage('Card data is invalid or corrupted', 'error');
+                                showLoading(false);
+                                return;
+                            }
+                            populateFormFromData(card.data);
+                            currentJobId = 0;
+                            currentTaskId = 0;
+                            currentToolId = 0;
+                            showMessage(`Job card "${card.name}" loaded!`, 'success');
+                            window.scrollTo(0, 0);
+                        } else {
+                            showMessage('Job card not found', 'error');
+                        }
+                        showLoading(false);
+                    };
+
+                    request.onerror = () => {
+                        showMessage('Error loading job card', 'error');
+                        showLoading(false);
+                    };
+                }
             } catch (error) {
                 console.error('Error loading card:', error);
                 showMessage('Error loading job card', 'error');
@@ -2023,42 +2496,87 @@
             }
         }
 
-        async function deleteCard(cardId) {
+        function deleteCard(cardId) {
             if (confirm('Delete this saved job card? This cannot be undone.')) {
                 showLoading(true);
                 try {
-                    const transaction = db.transaction([STORE_NAME], 'readwrite');
-                    const store = transaction.objectStore(STORE_NAME);
-                    await store.delete(cardId);
-                    
-                    loadSavedCards();
-                    showMessage('Job card deleted', 'success');
+                    if (useLocalStorage) {
+                        try {
+                            const savedCards = JSON.parse(localStorage.getItem('saved_cards') || '{}');
+                            delete savedCards[cardId];
+                            localStorage.setItem('saved_cards', JSON.stringify(savedCards));
+                            loadSavedCards();
+                            showMessage('Job card deleted', 'success');
+                            showLoading(false);
+                        } catch (error) {
+                            console.error('Error deleting from localStorage:', error);
+                            showMessage('Error deleting job card', 'error');
+                            showLoading(false);
+                        }
+                    } else {
+                        const transaction = db.transaction([STORE_NAME], 'readwrite');
+                        const store = transaction.objectStore(STORE_NAME);
+                        const request = store.delete(cardId);
+                        
+                        request.onerror = () => {
+                            showMessage('Error deleting job card', 'error');
+                            showLoading(false);
+                        };
+                        
+                        transaction.oncomplete = () => {
+                            loadSavedCards();
+                            showMessage('Job card deleted', 'success');
+                            showLoading(false);
+                        };
+                    }
                 } catch (error) {
                     console.error('Error deleting card:', error);
                     showMessage('Error deleting job card', 'error');
-                } finally {
                     showLoading(false);
                 }
             }
+        }
+
+        // Tabs setup
+        function initTabs() {
+            const tabs = document.querySelectorAll('.tabs .tab[data-tab-target]');
+            const panels = document.querySelectorAll('.section[data-tab]');
+
+            function activate(tabName) {
+                tabs.forEach(btn => btn.classList.toggle('active', btn.dataset.tabTarget === tabName));
+                panels.forEach(p => p.classList.toggle('active', p.dataset.tab === tabName));
+                try { localStorage.setItem('activeTab', tabName); } catch {}
+            }
+
+            tabs.forEach(btn => btn.addEventListener('click', () => activate(btn.dataset.tabTarget)));
+
+            let initial = 'template';
+            try {
+                const saved = localStorage.getItem('activeTab');
+                if (saved) initial = saved;
+            } catch {}
+            activate(initial);
         }
 
         async function initApp() {
             try {
                 await initDB();
                 document.getElementById('jobDate').valueAsDate = new Date();
-                document.getElementById('learnerDate').valueAsDate = new Date();
                 renderRequests();
                 updateRequestDropdown();
                 renderTools();
                 renderJobs();
                 loadSavedCards();
+                loadTemplates();
+                setupSignatureCanvas();
+                initTabs();
             } catch (error) {
                 console.error('Error initializing app:', error);
                 showMessage('Error initializing app', 'error');
             }
         }
 
-        window.addEventListener('load', initApp);
+        document.addEventListener('DOMContentLoaded', initApp);
     </script>
 </body>
 </html>
