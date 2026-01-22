@@ -886,16 +886,14 @@
 
         <div class="tabs" id="tabs">
             <button class="tab" data-tab-target="template">Template</button>
-            <button class="tab" data-tab-target="student">Student</button>
+            <button class="tab" data-tab-target="info">Info</button>
             <button class="tab" data-tab-target="photos">Photos</button>
-            <button class="tab" data-tab-target="vehicle">Vehicle</button>
-            <button class="tab" data-tab-target="requests">Requests</button>
-            <button class="tab" data-tab-target="jobs">Jobs</button>
+            <button class="tab" data-tab-target="work">Requests & Jobs</button>
             <button class="tab" data-tab-target="methodology">Methodology</button>
             <button class="tab" data-tab-target="tools">Tools</button>
-            <button class="tab" data-tab-target="data">Data</button>
+            <button class="tab" data-tab-target="data">Technical Data</button>
             <button class="tab" data-tab-target="reflection">Reflection</button>
-            <button class="tab" data-tab-target="cards">Cards</button>
+            <button class="tab" data-tab-target="cards">Saved Cards</button>
             <button class="tab" data-tab-target="signature">Signature</button>
             <button class="tab" data-tab-target="actions">Save and Export</button>
         </div>
@@ -904,16 +902,14 @@
             <div class="mobile-menu-content">
                 <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
                 <button class="tab" data-tab-target="template">Template</button>
-                <button class="tab" data-tab-target="student">Student</button>
+                <button class="tab" data-tab-target="info">Info</button>
                 <button class="tab" data-tab-target="photos">Photos</button>
-                <button class="tab" data-tab-target="vehicle">Vehicle</button>
-                <button class="tab" data-tab-target="requests">Requests</button>
-                <button class="tab" data-tab-target="jobs">Jobs</button>
+                <button class="tab" data-tab-target="work">Requests & Jobs</button>
                 <button class="tab" data-tab-target="methodology">Methodology</button>
                 <button class="tab" data-tab-target="tools">Tools</button>
-                <button class="tab" data-tab-target="data">Data</button>
+                <button class="tab" data-tab-target="data">Technical Data</button>
                 <button class="tab" data-tab-target="reflection">Reflection</button>
-                <button class="tab" data-tab-target="cards">Cards</button>
+                <button class="tab" data-tab-target="cards">Saved Cards</button>
                 <button class="tab" data-tab-target="signature">Signature</button>
                 <button class="tab" data-tab-target="actions">Save and Export</button>
             </div>
@@ -937,22 +933,50 @@
                 </div>
             </div>
 
-            <!-- Student Information -->
-            <div class="section" data-tab="student">
-                <h2 class="section-title">Student Information</h2>
-                <div class="two-column">
-                    <div class="form-group">
-                        <label for="studentName">Student Name</label>
-                        <input type="text" id="studentName" placeholder="Enter your name">
+            <!-- Student Information & Vehicle Details -->
+            <div class="section" data-tab="info">
+                <h2 class="section-title">📋 Student & Vehicle Information</h2>
+                
+                <div style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #E5E5EA;">
+                    <h3 style="font-size: 15px; font-weight: 600; color: #1c1c1e; margin-bottom: 12px;">Student Details</h3>
+                    <div class="two-column">
+                        <div class="form-group">
+                            <label for="studentName">Student Name</label>
+                            <input type="text" id="studentName" placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="jobDate">Date</label>
+                            <input type="date" id="jobDate">
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="jobDate">Date</label>
-                        <input type="date" id="jobDate">
+                        <label for="jobLocation">Location / Workshop</label>
+                        <input type="text" id="jobLocation" placeholder="e.g., College Workshop">
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="jobLocation">Location / Workshop</label>
-                    <input type="text" id="jobLocation" placeholder="e.g., College Workshop">
+
+                <div>
+                    <h3 style="font-size: 15px; font-weight: 600; color: #1c1c1e; margin-bottom: 12px;">🚗 Vehicle Details</h3>
+                    <div class="two-column">
+                        <div class="form-group">
+                            <label for="vehicleReg">Registration Number</label>
+                            <input type="text" id="vehicleReg" placeholder="e.g., AB21XYZ" onchange="updateVehicleSummary()">
+                        </div>
+                        <div class="form-group">
+                            <label for="vehicleMake">Make & Model</label>
+                            <input type="text" id="vehicleMake" placeholder="e.g., Ford Focus 1.6" onchange="updateVehicleSummary()">
+                        </div>
+                    </div>
+                    <div class="two-column">
+                        <div class="form-group">
+                            <label for="vehicleYear">Year</label>
+                            <input type="text" id="vehicleYear" placeholder="e.g., 2020" onchange="updateVehicleSummary()">
+                        </div>
+                        <div class="form-group">
+                            <label for="vehicleOdometer">Odometer Reading (miles)</label>
+                            <input type="text" id="vehicleOdometer" placeholder="e.g., 45000" onchange="updateVehicleSummary()">
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -967,55 +991,33 @@
                 <div id="photoGallery" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; margin-top: 15px;"></div>
             </div>
 
-            <!-- Vehicle Details (always shown, used in Save section) -->
-            <div class="section" data-tab="vehicle">
-                <h2 class="section-title">🚗 Vehicle Details</h2>
-                <div class="two-column">
-                    <div class="form-group">
-                        <label for="vehicleReg">Registration Number</label>
-                        <input type="text" id="vehicleReg" placeholder="e.g., AB21XYZ" onchange="updateVehicleSummary()">
+            <!-- Customer Requests & Jobs Combined -->
+            <div class="section" data-tab="work">
+                <h2 class="section-title">📋 Requests & Jobs</h2>
+                
+                <div style="margin-bottom: 25px; padding-bottom: 25px; border-bottom: 1px solid #E5E5EA;">
+                    <h3 style="font-size: 15px; font-weight: 600; color: #1c1c1e; margin-bottom: 12px;">Customer Requests</h3>
+                    <p style="margin-bottom: 15px; color: #666; font-size: 14px;">
+                        Add each request from the customer. You'll select which request you're working on when adding jobs.
+                    </p>
+                    <div class="add-request-input">
+                        <input type="text" id="newRequestInput" placeholder="Add a customer request...">
+                        <button class="btn btn-info btn-small" onclick="addCustomerRequest()">+ Add</button>
                     </div>
-                    <div class="form-group">
-                        <label for="vehicleMake">Make & Model</label>
-                        <input type="text" id="vehicleMake" placeholder="e.g., Ford Focus 1.6" onchange="updateVehicleSummary()">
-                    </div>
+                    <div id="requestsList"></div>
                 </div>
-                <div class="two-column">
-                    <div class="form-group">
-                        <label for="vehicleYear">Year</label>
-                        <input type="text" id="vehicleYear" placeholder="e.g., 2020" onchange="updateVehicleSummary()">
-                    </div>
-                    <div class="form-group">
-                        <label for="vehicleOdometer">Odometer Reading (miles)</label>
-                        <input type="text" id="vehicleOdometer" placeholder="e.g., 45000" onchange="updateVehicleSummary()">
-                    </div>
-                </div>
-            </div>
 
-            <!-- Customer Requests -->
-            <div class="section" data-tab="requests">
-                <h2 class="section-title">Customer Requests</h2>
-                <p style="margin-bottom: 15px; color: #666; font-size: 14px;">
-                    Add each request from the customer. You'll select which request you're working on when adding jobs below.
-                </p>
-                <div class="add-request-input">
-                    <input type="text" id="newRequestInput" placeholder="Add a customer request...">
-                    <button class="btn btn-info btn-small" onclick="addCustomerRequest()">+ Add</button>
+                <div>
+                    <h3 style="font-size: 15px; font-weight: 600; color: #1c1c1e; margin-bottom: 12px;">🔧 My Jobs</h3>
+                    <div class="form-group">
+                        <label for="selectRequest">Select Customer Request to Work On</label>
+                        <select id="selectRequest">
+                            <option value="">-- Select a customer request first --</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary" onclick="addJob()" style="margin-bottom: 20px;">+ Start New Job</button>
+                    <div id="jobsList"></div>
                 </div>
-                <div id="requestsList"></div>
-            </div>
-
-            <!-- Jobs -->
-            <div class="section" data-tab="jobs">
-                <h2 class="section-title">My Jobs</h2>
-                <div class="form-group">
-                    <label for="selectRequest">Select Customer Request to Work On</label>
-                    <select id="selectRequest">
-                        <option value="">-- Select a customer request first --</option>
-                    </select>
-                </div>
-                <button class="btn btn-primary" onclick="addJob()" style="margin-bottom: 20px;">+ Start New Job</button>
-                <div id="jobsList"></div>
             </div>
 
             <!-- Methodology Section -->
@@ -1076,7 +1078,7 @@
 
             <!-- Multiple Job Cards Management -->
             <div class="section" data-tab="cards">
-                <h2 class="section-title">📑 Job Cards</h2>
+                <h2 class="section-title">📑 Saved Cards</h2>
                 <div class="two-column">
                     <div class="form-group">
                         <label for="cardName">Job Card Name</label>
