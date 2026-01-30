@@ -1,0 +1,359 @@
+{
+  "studentName": "",
+  "candidateNumber": "",
+  "jobDate": "",
+  "assessmentDate": "",
+  "jobLocation": "",
+  "vehicleReg": "",
+  "vehicleMake": "",
+  "vehicleModel": "",
+  "vehicleYear": "",
+  "vehicleOdometer": "",
+  "methodology": "cooling-systems",
+  "methodologyText": "Skills in Vehicle Engine Cooling Systems (7290-702)",
+  "methodologyNotes": "Assessor Observation Recording Form - Candidate must achieve all practical assignment requirements listed below to successfully achieve a Pass.",
+  "startTime": "",
+  "finishTime": "",
+  "assessorName": "",
+  "assessorSignature": "",
+  "assessorDate": "",
+  "technicalData": "Vehicle make/model: [To be completed]\nThermistor resistance and temperature: [To be recorded]\nCoolant capacity: [To be recorded]\nPosition of cooling fan switch: [To be recorded]\nRecommended frost protection: [To be recorded]\nMaterial used for thermostat gasket: [To be recorded]\nThermostat opening temperature: [To be recorded]\nTorque wrench settings used: [To be recorded]\n\nTechnical Data Recorded:\n· Thermostat opening temperature: [Record specification and actual reading]\n· Coolant frost protection reading: [Record specification and actual reading]\n· Coolant capacity: [Record amount]\n· System pressure: [Record bar/psi]",
+  "learnerSignature": "",
+  "learnerDate": "",
+  "learnerProfile": "Level 3 Motor Vehicle Service & Repair - Candidate 7290-702",
+  "oralQuestionsCompleted": false,
+  "oralQuestionsNote": "The candidate has successfully answered the above oral short answer questions: Yes ☐ No ☐",
+  "assessorFeedbackPractical": "Feedback on practical assignment observation:\n[Assessor to complete]",
+  "assessorFeedbackKnowledge": "Feedback on knowledge (short answer questions assessment):\n[Assessor to complete]",
+  "assessorFeedbackOverall": "Feedback on overall evidence provided:\n[Assessor to complete]",
+  "customerRequests": [
+    {
+      "id": 1,
+      "text": "1. Inspect vehicle cooling system",
+      "completed": false
+    },
+    {
+      "id": 2,
+      "text": "2. Measure coolant frost protection / anti-freeze level",
+      "completed": false
+    },
+    {
+      "id": 3,
+      "text": "3. Remove and replace engine cooling system thermostat",
+      "completed": false
+    },
+    {
+      "id": 4,
+      "text": "4. Test engine cooling temperature sensor",
+      "completed": false
+    },
+    {
+      "id": 5,
+      "text": "5. Health/Safety, Relationship & Communication",
+      "completed": false
+    },
+    {
+      "id": 6,
+      "text": "6. Tools used/care of/checks",
+      "completed": false
+    }
+  ],
+  "tools": [
+    {
+      "id": 1,
+      "name": "Coolant pressure tester"
+    },
+    {
+      "id": 2,
+      "name": "Hydrometer (anti-freeze tester)"
+    },
+    {
+      "id": 3,
+      "name": "Thermometer"
+    },
+    {
+      "id": 4,
+      "name": "Coolant drain bowl/pan"
+    },
+    {
+      "id": 5,
+      "name": "Multimeter (ohms and volts)"
+    },
+    {
+      "id": 6,
+      "name": "General sockets/spanners"
+    },
+    {
+      "id": 7,
+      "name": "Torque wrench (0-100Nm)"
+    },
+    {
+      "id": 8,
+      "name": "Hose clamp pliers"
+    },
+    {
+      "id": 9,
+      "name": "Hot water bath/kettle"
+    }
+  ],
+  "jobs": [
+    {
+      "id": 1,
+      "requestId": 1,
+      "requestText": "Inspect vehicle cooling system",
+      "completed": false,
+      "tasks": [
+        {
+          "id": 1,
+          "description": "Ensured that the engine was not hot",
+          "completed": false,
+          "photos": [],
+          "learnerNotes": "Record: Temperature checked ___°C, Safe to proceed ___"
+        },
+        {
+          "id": 2,
+          "description": "Removed the coolant cap",
+          "completed": false,
+          "photos": ["Upload a picture of the removed coolant cap"],
+          "learnerNotes": "Record: Coolant cap location ___, Condition ___"
+        },
+        {
+          "id": 3,
+          "description": "Placed the coolant pressure tester on the expansion tank",
+          "completed": false,
+          "photos": ["Upload a picture of the pressure tester fitted"],
+          "learnerNotes": "Record: Tester type ___, Connection secure ___"
+        },
+        {
+          "id": 4,
+          "description": "Pumped to system pressure as per pressure cap specification (1bar typical)",
+          "completed": false,
+          "photos": ["Upload a picture of the pressure gauge reading"],
+          "learnerNotes": "Record: System pressure cap specification ___ bar, Pressure achieved ___ bar, Date/Time ___"
+        },
+        {
+          "id": 5,
+          "description": "Visually checked for leaks whilst ensuring there was no drop in pressure",
+          "completed": false,
+          "photos": ["Upload a picture of any leaks found (if present)"],
+          "learnerNotes": "Record: Pressure before check ___ bar, Pressure after check ___ bar, Leaks detected ___, Location ___"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "requestId": 2,
+      "requestText": "Measure coolant frost protection / anti-freeze level",
+      "completed": false,
+      "tasks": [
+        {
+          "id": 1,
+          "description": "Ensured that the engine was not hot",
+          "completed": false,
+          "photos": [],
+          "learnerNotes": "Record: Temperature checked ___°C, Safe to proceed ___"
+        },
+        {
+          "id": 2,
+          "description": "Removed the coolant cap",
+          "completed": false,
+          "photos": [],
+          "learnerNotes": "Record: Cap location ___, Condition of coolant ___"
+        },
+        {
+          "id": 3,
+          "description": "Used a hydrometer to suck up coolant into the hydrometer bulb",
+          "completed": false,
+          "photos": ["Upload a picture of the hydrometer with coolant sample"],
+          "learnerNotes": "Record: Hydrometer type ___, Sample taken successfully ___"
+        },
+        {
+          "id": 4,
+          "description": "Looked at how many floats were floating and checked against specification",
+          "completed": false,
+          "photos": ["Upload a picture of the hydrometer floats reading"],
+          "learnerNotes": "Record: Floats floating ___, Specification requirement ___, Reading matches specification ___ (Yes/No), Frost protection level ___°C"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "requestId": 3,
+      "requestText": "Remove and replace engine cooling system thermostat",
+      "completed": false,
+      "tasks": [
+        {
+          "id": 1,
+          "description": "Placed a coolant drain bowl under the car",
+          "completed": false,
+          "photos": [],
+          "learnerNotes": "Record: Location ___"
+        },
+        {
+          "id": 2,
+          "description": "Disconnected the lower coolant pipe and drained the coolant",
+          "completed": false,
+          "photos": ["Upload a picture of the disconnected pipe draining coolant"],
+          "learnerNotes": "Record: Coolant drained approximately ___ litres, Condition of coolant ___"
+        },
+        {
+          "id": 3,
+          "description": "Removed the air filter to create more room in the engine bay",
+          "completed": false,
+          "photos": ["Upload a picture of the removed air filter"],
+          "learnerNotes": "Record: Filter type ___, Condition ___"
+        },
+        {
+          "id": 4,
+          "description": "Removed the thermostat and coolant temperature sensor",
+          "completed": false,
+          "photos": ["Upload a picture of the removed thermostat and sensor"],
+          "learnerNotes": "Record: Housing bolt torque setting ___, Bolts removed using ___, Thermostat type ___, Gasket condition ___"
+        },
+        {
+          "id": 5,
+          "description": "Placed thermostat and temperature sensor into hot water and brought water up to thermostat opening temperature",
+          "completed": false,
+          "photos": ["Upload a picture of the test setup with temperature reading"],
+          "learnerNotes": "Record: Opening temperature specification ___, Actual temperature at opening ___, Sensor resistance at temperature ___Ω"
+        },
+        {
+          "id": 6,
+          "description": "Refitted new thermostat with new gasket and reconnected temperature sensor",
+          "completed": false,
+          "photos": ["Upload a picture of the refitted components"],
+          "learnerNotes": "Record: New gasket material ___, Torque setting applied ___ Nm, Pipes reconnected and secured ___"
+        },
+        {
+          "id": 7,
+          "description": "Refilled cooling system with correct coolant mixture and bled air from system",
+          "completed": false,
+          "photos": ["Upload a picture of coolant refilling process"],
+          "learnerNotes": "Record: Coolant type/specification ___, Capacity refilled ___ litres, Air bled successfully ___, System pressure tested ___"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "requestId": 4,
+      "requestText": "Test engine cooling temperature sensor",
+      "completed": false,
+      "tasks": [
+        {
+          "id": 1,
+          "description": "Removed and tested cooling system electrical components",
+          "completed": false,
+          "photos": ["Upload a picture of the multimeter testing the sensor"],
+          "learnerNotes": "Record: Component tested ___, Test type ___, Readings: Cold ___Ω at ___°C, Hot ___Ω at ___°C"
+        },
+        {
+          "id": 2,
+          "description": "Checked cooling fan relay operation",
+          "completed": false,
+          "photos": [],
+          "learnerNotes": "Record: Relay location ___, Fan engagement temperature ___°C, Operation correct ___ (Yes/No)"
+        },
+        {
+          "id": 3,
+          "description": "Verified temperature gauge sender is functioning correctly",
+          "completed": false,
+          "photos": [],
+          "learnerNotes": "Record: Gauge reading accuracy ___, Functional across range ___ (Yes/No)"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "requestId": 5,
+      "requestText": "Health/Safety, Relationship & Communication",
+      "completed": false,
+      "tasks": [
+        {
+          "id": 1,
+          "description": "Selected and used correct Personal Protective Equipment (PPE)",
+          "completed": false,
+          "photos": [],
+          "learnerNotes": "PPE used: ___ (e.g., Safety glasses, Gloves, Overalls)"
+        },
+        {
+          "id": 2,
+          "description": "Communicated effectively with assessor/team",
+          "completed": false,
+          "photos": [],
+          "learnerNotes": "Communication demonstrated: ___ (Clear explanations, Asked for clarification, Reported findings)"
+        },
+        {
+          "id": 3,
+          "description": "Maintained positive working relationships",
+          "completed": false,
+          "photos": [],
+          "learnerNotes": "Relationships maintained: ___ (Cooperated, Respectful, Professional)"
+        },
+        {
+          "id": 4,
+          "description": "Identified and managed hazards",
+          "completed": false,
+          "photos": [],
+          "learnerNotes": "Hazards identified: ___ (Hot engine, Pressurised system, Coolant disposal)"
+        },
+        {
+          "id": 5,
+          "description": "Maintained environmental/sustainability practices",
+          "completed": false,
+          "photos": [],
+          "learnerNotes": "Practices demonstrated: ___ (Proper coolant disposal, Waste recycling, No spillage)"
+        },
+        {
+          "id": 6,
+          "description": "Completed work within agreed timescales",
+          "completed": false,
+          "photos": [],
+          "learnerNotes": "Start time: ___, Finish time: ___, Tasks completed: ___ (On time/Early/Late)"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "requestId": 6,
+      "requestText": "Tools used/care of/checks",
+      "completed": false,
+      "tasks": [
+        {
+          "id": 1,
+          "description": "Selected the correct tools for each task",
+          "completed": false,
+          "photos": [],
+          "learnerNotes": "Tools selected appropriately for: Pressure testing ___, Anti-freeze testing ___, Thermostat removal ___"
+        },
+        {
+          "id": 2,
+          "description": "Used tools correctly and safely throughout",
+          "completed": false,
+          "photos": [],
+          "learnerNotes": "Torque wrench used correctly ___, Multimeter handled correctly ___, Other tools used safely ___"
+        },
+        {
+          "id": 3,
+          "description": "Cleaned tools after use",
+          "completed": false,
+          "photos": [],
+          "learnerNotes": "Tools cleaned: ___ (Yes/No), Method used ___"
+        },
+        {
+          "id": 4,
+          "description": "Checked tools for damage and correct function",
+          "completed": false,
+          "photos": [],
+          "learnerNotes": "Tools checked: ___ (Yes/No), Condition: All satisfactory ___ / Damage noted ___"
+        },
+        {
+          "id": 5,
+          "description": "Stored tools correctly and securely",
+          "completed": false,
+          "photos": [],
+          "learnerNotes": "Storage location: ___, Storage method: ___, Security: ___"
+        }
+      ]
+    }
+  ]
+}

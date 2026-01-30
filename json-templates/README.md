@@ -4,7 +4,8 @@ This folder contains demo job card templates that can be imported into the appli
 
 ## Available Templates
 
-- **demo-cooling-systems.json** - Engine Cooling Systems Assessment (7290-702)
+- **demo-cooling-systems.json** - Engine Cooling Systems Assessment (7290-702) - Example completed job card
+- **demo-cooling-systems-assessment.json** - Engine Cooling Systems Assessment Form (7290-702) - Assessor observation form with learner skeleton tasks
 - **demo-brake-systems.json** - Brake Systems Service (Coming)
 - **demo-engine-systems.json** - Engine Systems Diagnosis (Coming)
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Motor Vehicle Job Card - Enhanced</title>
+    <title>Motor Vehicle Job Card</title>
     <style>
         * {
             margin: 0;
@@ -14,7 +14,7 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: #f2f2f7;
+              background: #f5f5f5;
             min-height: 100vh;
             padding: 0;
             line-height: 1.5;
@@ -23,55 +23,55 @@
         .container {
             max-width: 600px;
             margin: 0 auto;
-            background: #f2f2f7;
+              background: #f5f5f5;
             min-height: 100vh;
         }
 
         .header {
-            background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
-            color: white;
-            padding: 20px 20px 30px 20px;
+              background: #111111;
+              color: #ffffff;
+              padding: 12px 16px 14px 16px;
             text-align: center;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+              box-shadow: 0 2px 8px rgba(0,0,0,0.18);
         }
 
         .header h1 {
-            font-size: 22px;
-            font-weight: 600;
-            margin-bottom: 4px;
-            letter-spacing: -0.5px;
+              font-size: 18px;
+              font-weight: 600;
+              margin-bottom: 2px;
+              letter-spacing: -0.3px;
         }
 
         .header p {
-            font-size: 13px;
-            opacity: 0.85;
-            font-weight: 400;
+              font-size: 12px;
+              opacity: 0.8;
+              font-weight: 400;
         }
 
         .progress-bar-container {
-            margin-top: 12px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            height: 8px;
+              margin-top: 8px;
+              background: rgba(255, 255, 255, 0.2);
+              border-radius: 8px;
+              height: 6px;
             overflow: hidden;
         }
 
         .progress-bar {
-            background: #34C759;
+              background: #ffffff;
             height: 100%;
             width: 0%;
             transition: width 0.3s ease;
-            border-radius: 10px;
+              border-radius: 8px;
         }
 
         .progress-text {
-            font-size: 11px;
-            margin-top: 6px;
-            opacity: 0.9;
-            font-weight: 500;
+              font-size: 11px;
+              margin-top: 4px;
+              opacity: 0.85;
+              font-weight: 500;
         }
 
         .form-content {
@@ -79,7 +79,7 @@
         }
 
         .section {
-            background: white;
+              background: #ffffff;
             border-radius: 16px;
             padding: 20px;
             margin-bottom: 16px;
@@ -135,18 +135,18 @@
         textarea:focus,
         select:focus {
             outline: none;
-            border-color: #007AFF;
-            box-shadow: 0 0 0 4px rgba(0, 122, 255, 0.1);
+            border-color: #111111;
+            box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.08);
         }
 
         input.error,
         textarea.error,
         select.error {
-            border-color: #FF3B30;
+            border-color: #333333;
         }
 
         .field-error {
-            color: #FF3B30;
+            color: #333333;
             font-size: 12px;
             margin-top: 4px;
             display: none;
@@ -205,58 +205,58 @@
         }
 
         .btn-primary {
-            background: #007AFF;
+            background: #111111;
             color: white;
         }
 
         .btn-primary:hover:not(:disabled) {
-            background: #0051D5;
+            background: #000000;
         }
 
         .btn-secondary {
-            background: #8E8E93;
+            background: #444444;
             color: white;
         }
 
         .btn-secondary:hover:not(:disabled) {
-            background: #636366;
+            background: #333333;
         }
 
         .btn-success {
-            background: #34C759;
+            background: #222222;
             color: white;
         }
 
         .btn-success:hover:not(:disabled) {
-            background: #30B350;
+            background: #111111;
         }
 
         .btn-danger {
-            background: #FF3B30;
+            background: #333333;
             color: white;
         }
 
         .btn-danger:hover:not(:disabled) {
-            background: #D70015;
+            background: #222222;
         }
 
         .btn-info {
-            background: #5AC8FA;
+            background: #555555;
             color: white;
         }
 
         .btn-info:hover:not(:disabled) {
-            background: #32ADE6;
+            background: #444444;
         }
 
         .btn-ghost {
-            background: #F5F5F7;
+            background: #ffffff;
             color: #3c3c43;
-            border: 1px solid #E5E5EA;
+            border: 1px solid #dddddd;
         }
 
         .btn-ghost:hover:not(:disabled) {
-            background: #E9E9EE;
+            background: #f0f0f0;
         }
 
         .status-message {
@@ -280,22 +280,22 @@
         }
 
         .status-message.success {
-            background: #D1F2EB;
-            color: #0C5134;
+              background: #f0f0f0;
+              color: #111111;
         }
 
         .status-message.error {
-            background: #FFEBE9;
-            color: #8B0000;
+              background: #ededed;
+              color: #111111;
         }
 
         .status-message.info {
-            background: #E3F2FD;
-            color: #1565C0;
+              background: #f5f5f5;
+              color: #111111;
         }
 
         .info-box {
-            background: #F0F0F5;
+              background: #f5f5f5;
             padding: 12px 16px;
             border-radius: 10px;
             font-size: 13px;
@@ -308,8 +308,8 @@
             position: fixed;
             top: 80px;
             right: 20px;
-            background: rgba(52, 199, 89, 0.95);
-            color: white;
+                background: rgba(17, 17, 17, 0.95);
+                color: #ffffff;
             padding: 8px 12px;
             border-radius: 8px;
             font-size: 12px;
@@ -352,9 +352,9 @@
         }
 
         .tab.active {
-            background: #007AFF;
-            color: white;
-            border-color: #007AFF;
+              background: #111111;
+              color: #ffffff;
+              border-color: #111111;
         }
 
         .hamburger-btn {
@@ -411,8 +411,8 @@
             position: sticky;
             top: 0;
             padding: 16px;
-            background: #007AFF;
-            color: white;
+              background: #111111;
+              color: #ffffff;
             border: none;
             font-size: 24px;
             cursor: pointer;
@@ -436,8 +436,8 @@
         }
 
         .mobile-menu .tab.active {
-            background: #E3F2FD;
-            color: #007AFF;
+              background: #f0f0f0;
+              color: #111111;
         }
 
         @keyframes fadeIn {
@@ -455,33 +455,33 @@
 
         .request-item {
             background: #F9F9FB;
-            padding: 14px;
+            padding: 14px 16px;
             border-radius: 12px;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
             gap: 12px;
             border: 1px solid #E5E5EA;
+            transition: all 0.2s;
+        }
+
+        .request-item:hover {
+            background: #F0F0F5;
+            border-color: #d1d1d6;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
         }
 
         .request-item.completed {
-            background: #E8F5E9;
-            border-color: #C8E6C9;
-            opacity: 0.7;
-        }
-
-        .request-item input[type="checkbox"] {
-            width: 24px;
-            height: 24px;
-            cursor: pointer;
-            flex-shrink: 0;
-            accent-color: #007AFF;
+              background: #f0f0f0;
+              border-color: #d1d1d6;
+            opacity: 1;
         }
 
         .request-item .request-text {
             flex: 1;
             font-size: 15px;
             color: #1c1c1e;
+            font-weight: 500;
         }
 
         .request-item.completed .request-text {
@@ -490,110 +490,175 @@
         }
 
         .request-item .delete-btn {
-            padding: 6px 12px;
-            background: #FF3B30;
-            color: white;
+            padding: 7px 14px;
+              background: #333333;
+              color: #ffffff;
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            font-size: 12px;
+            font-size: 13px;
             flex-shrink: 0;
             font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .request-item .delete-btn:hover {
+              background: #222222;
+            transform: scale(1.05);
         }
 
         .add-request-input {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 8px;
-            margin-bottom: 12px;
+            display: flex;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .add-request-input input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid #d1d1d6;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .add-request-input input:focus {
+            outline: none;
+              border-color: #111111;
+              box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.08);
+        }
+
+        .add-request-input button {
+            padding: 12px 24px;
+            font-weight: 600;
         }
 
         .job-card {
             background: white;
-            border: 1px solid #007AFF;
-            border-radius: 16px;
+            border: 2px solid #E5E5EA;
+            border-radius: 14px;
             padding: 18px;
-            margin-bottom: 12px;
-            box-shadow: 0 2px 8px rgba(0, 122, 255, 0.08);
+            margin-bottom: 14px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .job-card:hover {
+              border-color: #111111;
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .job-card.completed {
+              background: #f5f5f5;
+              border-color: #d1d1d6;
+        }
+
+        .job-card > div {
+            transition: opacity 0.2s ease;
         }
 
         .job-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 14px;
-            padding-bottom: 14px;
-            border-bottom: 1px solid #E5E5EA;
+            margin-bottom: 16px;
+            gap: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .job-header:hover {
+              background: rgba(0, 0, 0, 0.04);
+            border-radius: 8px;
+            padding: 8px;
+            margin: -8px -8px 8px -8px;
+        }
+
+        .job-title {
+            flex: 1;
         }
 
         .job-number {
-            font-size: 11px;
+            font-size: 12px;
             color: #8E8E93;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            font-weight: 600;
         }
 
         .job-request {
-            font-size: 15px;
+            font-size: 16px;
             color: #1c1c1e;
-            font-weight: 600;
-            margin-bottom: 4px;
-            letter-spacing: -0.2px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.3px;
         }
 
         .job-status {
-            font-size: 11px;
-            padding: 5px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 13px;
+            padding: 10px 14px;
             border-radius: 10px;
             font-weight: 600;
-            letter-spacing: 0.3px;
-            text-transform: uppercase;
+            letter-spacing: 0.2px;
+            white-space: nowrap;
+            min-width: 110px;
+            text-align: center;
         }
 
         .job-status.completed {
-            background: #D1F2EB;
-            color: #0C5134;
+              background: #f0f0f0;
+              color: #111111;
         }
 
         .job-status.in-progress {
-            background: #FFF4CE;
-            color: #996A00;
+              background: #f5f5f5;
+              color: #111111;
         }
 
         .task-item {
-            background: #F9F9FB;
-            border-left: 3px solid #34C759;
-            padding: 12px;
-            margin-bottom: 8px;
+              background: #f9f9f9;
+              border-left: 4px solid #111111;
+            padding: 14px;
+            margin-bottom: 12px;
             border-radius: 10px;
+            transition: all 0.2s;
+        }
+
+        .task-item:hover {
+              background: #f2f2f2;
+              border-left-color: #000000;
         }
 
         .task-header {
             display: flex;
-            gap: 10px;
+            gap: 12px;
             align-items: flex-start;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .task-header input[type="checkbox"] {
-            width: 24px;
-            height: 24px;
+            width: 22px;
+            height: 22px;
             cursor: pointer;
             margin-top: 2px;
             flex-shrink: 0;
-            accent-color: #34C759;
+              accent-color: #111111;
         }
 
         .task-description {
             flex: 1;
-            font-size: 14px;
+            font-size: 15px;
             color: #1c1c1e;
             font-weight: 500;
         }
 
         .task-item.completed {
-            opacity: 0.6;
+            opacity: 0.7;
+              background: #f0f0f0;
+              border-left-color: #111111;
         }
 
         .task-item.completed .task-description {
@@ -616,8 +681,8 @@
         .photo-upload-label {
             display: inline-block;
             padding: 8px 14px;
-            background: #007AFF;
-            color: white;
+              background: #111111;
+              color: #ffffff;
             border-radius: 10px;
             cursor: pointer;
             font-size: 13px;
@@ -625,7 +690,7 @@
         }
 
         .photo-upload-label:hover {
-            background: #0056D6;
+              background: #000000;
         }
 
         .photo-upload-label input[type="file"] {
@@ -660,8 +725,8 @@
             width: 22px;
             height: 22px;
             border-radius: 50%;
-            background: rgba(255, 59, 48, 0.95);
-            color: white;
+              background: rgba(17, 17, 17, 0.95);
+              color: #ffffff;
             border: none;
             cursor: pointer;
             font-size: 14px;
@@ -685,8 +750,8 @@
 
         .photo-drop-zone:hover,
         .photo-drop-zone.drag-over {
-            border-color: #007AFF;
-            background: #E3F2FD;
+              border-color: #111111;
+              background: #f2f2f2;
         }
 
         .photo-drop-zone-icon {
@@ -728,8 +793,8 @@
             width: 28px;
             height: 28px;
             border-radius: 50%;
-            background: rgba(255, 59, 48, 0.95);
-            color: white;
+              background: rgba(17, 17, 17, 0.95);
+              color: #ffffff;
             border: none;
             cursor: pointer;
             font-size: 16px;
@@ -757,7 +822,7 @@
             padding: 40px 20px;
             color: #8E8E93;
             font-size: 15px;
-            background: #F9F9FB;
+              background: #f5f5f5;
             border-radius: 12px;
             margin: 16px 0;
         }
@@ -775,15 +840,27 @@
             transform: translateX(-50%);
             width: 100%;
             max-width: 640px;
-            background: rgba(255, 255, 255, 0.97);
+              background: rgba(255, 255, 255, 0.97);
             backdrop-filter: blur(16px);
-            padding: 12px 16px;
-            border-top: 1px solid #E5E5EA;
+            padding: 8px 12px;
+              border-top: 1px solid #dddddd;
             box-shadow: 0 -2px 10px rgba(0,0,0,0.12);
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 10px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
             z-index: 200;
+        }
+
+        .bottom-actions .btn {
+            padding: 10px 8px;
+            font-size: 13px;
+            min-height: 40px;
+            white-space: nowrap;
+        }
+
+        .bottom-actions .btn-ghost {
+            font-size: 20px;
+            padding: 8px;
         }
 
         .keyboard-shortcuts-hint {
@@ -827,7 +904,7 @@
             width: 40px;
             height: 40px;
             border: 3px solid #E5E5EA;
-            border-top-color: #007AFF;
+              border-top-color: #111111;
             border-radius: 50%;
             animation: spin 0.8s linear infinite;
         }
@@ -881,8 +958,8 @@
 
         .load-btn {
             padding: 6px 12px;
-            background: #007AFF;
-            color: white;
+              background: #111111;
+              color: #ffffff;
             border: none;
             border-radius: 8px;
             cursor: pointer;
@@ -892,8 +969,8 @@
 
         .delete-card-btn {
             padding: 6px 12px;
-            background: #FF3B30;
-            color: white;
+              background: #333333;
+              color: #ffffff;
             border: none;
             border-radius: 8px;
             cursor: pointer;
@@ -942,6 +1019,66 @@
             #photoGallery {
                 grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
             }
+
+            .task-description {
+                word-wrap: break-word;
+                word-break: break-word;
+                overflow-wrap: break-word;
+            }
+        }
+
+        /* Landscape orientation adjustments */
+        @media (max-width: 1024px) and (orientation: landscape) {
+            .header {
+                padding: 12px 20px;
+            }
+
+            .header h1 {
+                font-size: 18px;
+            }
+
+            .form-content {
+                padding: 12px;
+            }
+
+            .section {
+                padding: 14px;
+                margin-bottom: 10px;
+            }
+
+            #photoGallery {
+                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+                gap: 8px;
+            }
+
+            .photo-grid {
+                grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+                gap: 6px;
+            }
+
+            .container {
+                max-width: 100%;
+            }
+        }
+
+        .storage-indicator {
+            display: inline-block;
+              font-size: 10px;
+              padding: 3px 10px;
+              background: rgba(255, 255, 255, 0.12);
+              border-radius: 10px;
+              color: #ffffff;
+              margin-top: 4px;
+        }
+
+        .storage-indicator.warning {
+              background: rgba(255, 255, 255, 0.2);
+              color: #ffffff;
+        }
+
+        .storage-indicator.critical {
+              background: rgba(255, 255, 255, 0.3);
+              color: #ffffff;
         }
 
         @media print {
@@ -984,11 +1121,11 @@
     <div class="container">
         <div class="header">
             <h1>🚗 Motor Vehicle Job Card</h1>
-            <p>Document your work and evidence</p>
-            <div class="progress-bar-container">
+                  <div class="progress-bar-container">
                 <div class="progress-bar" id="progressBar"></div>
             </div>
             <div class="progress-text" id="progressText">0% Complete</div>
+                <div class="storage-indicator" id="storageIndicator">Storage: Calculating...</div>
         </div>
 
         <button class="hamburger-btn" id="hamburgerBtn"></button>
@@ -996,7 +1133,7 @@
         <div class="tabs" id="tabs">
             <button class="tab" data-tab-target="template">Template</button>
             <button class="tab" data-tab-target="info">Info</button>
-            <button class="tab" data-tab-target="work">Requests & Reports</button>
+            <button class="tab" data-tab-target="work">Jobs & Reports</button>
             <button class="tab" data-tab-target="reflection">Reflection</button>
             <button class="tab" data-tab-target="cards">Saved Cards</button>
             <button class="tab" data-tab-target="signature">Signature</button>
@@ -1008,7 +1145,7 @@
                 <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
                 <button class="tab" data-tab-target="template">Template</button>
                 <button class="tab" data-tab-target="info">Info</button>
-                <button class="tab" data-tab-target="work">Requests & Reports</button>
+                <button class="tab" data-tab-target="work">Jobs & Reports</button>
                 <button class="tab" data-tab-target="reflection">Reflection</button>
                 <button class="tab" data-tab-target="cards">Saved Cards</button>
                 <button class="tab" data-tab-target="signature">Signature</button>
@@ -1114,23 +1251,17 @@
 
             <!-- Customer Requests & Jobs -->
             <div class="section" data-tab="work">
-                <h2 class="section-title">📋 Requests & Reports</h2>
-                
-                <div style="margin-bottom: 25px; padding-bottom: 25px; border-bottom: 1px solid #E5E5EA;">
-                    <h3 style="font-size: 15px; font-weight: 600; color: #1c1c1e; margin-bottom: 12px;">Customer Requests</h3>
-                    <p style="margin-bottom: 15px; color: #666; font-size: 14px;">
-                        Add each customer request. Each request becomes its own job card.
-                    </p>
-                    <div class="add-request-input">
-                        <input type="text" id="newRequestInput" placeholder="Add a customer request...">
-                        <button class="btn btn-info btn-small" onclick="JobCardApp.requests.add()">+ Add</button>
-                    </div>
-                    <div id="requestsList"></div>
+                <h2 class="section-title">📋 Jobs & Reports</h2>
+                <div class="info-box">
+                    <strong>Workflow:</strong> Create a job → Click to expand → Add reports, details, photos & evidence
                 </div>
-
-                <div>
-                    <h3 style="font-size: 15px; font-weight: 600; color: #1c1c1e; margin-bottom: 8px;">🔧 Job Reports</h3>
-                    <p style="margin-bottom: 12px; color: #666; font-size: 14px;">Each customer request is a job. Add task reports and evidence.</p>
+                
+                <div style="margin-bottom: 16px;">
+                    <div style="display: flex; gap: 8px; margin-bottom: 16px;">
+                        <input type="text" id="newRequestInput" placeholder="Create new job (customer request)..." 
+                               style="flex: 1; padding: 12px 16px; border: 1px solid #d1d1d6; border-radius: 12px; font-size: 16px;">
+                        <button class="btn btn-primary" onclick="JobCardApp.requests.add()" style="padding: 12px 24px;">Create Job</button>
+                    </div>
                     <div id="jobsList"></div>
                 </div>
             </div>
@@ -1180,6 +1311,15 @@
             <!-- Save and Export Tab -->
             <div class="section" data-tab="actions">
                 <h2 class="section-title">💾 Save and Export</h2>
+
+                <div class="info-box" style="margin-bottom: 12px; background: #f5f5f5; border-left: 4px solid #111111;">
+                    <strong>Quick steps for learners:</strong>
+                    <div style="margin-top: 6px; font-size: 13px; line-height: 1.5;">
+                        <div>1) Tap 💾 Save to keep your work locally.</div>
+                        <div>2) Tap 📄 Export PDF to hand in / share.</div>
+                        <div>3) Use 📥 JSON to back up (includes photos).</div>
+                    </div>
+                </div>
                 
                 <div class="info-box" style="margin-bottom: 20px;">
                     <strong>Vehicle Information:</strong>
@@ -1191,15 +1331,15 @@
                     </div>
                 </div>
 
-                <div class="info-box" style="background: #E3F2FD; border-left: 4px solid #2196F3;">
+                <div class="info-box" style="background: #f5f5f5; border-left: 4px solid #111111;">
                     <strong>Completion Status:</strong>
                     <div style="margin-top: 8px; font-size: 13px;">
-                        <div>Requests Completed: <span id="completionRequests" style="font-weight: 600; color: #1976D2;">0/0</span></div>
-                        <div>Tasks Completed: <span id="completionTasks" style="font-weight: 600; color: #1976D2;">0/0</span></div>
+                        <div>Requests Completed: <span id="completionRequests" style="font-weight: 600; color: #111111;">0/0</span></div>
+                        <div>Tasks Completed: <span id="completionTasks" style="font-weight: 600; color: #111111;">0/0</span></div>
                     </div>
                 </div>
 
-                <div class="info-box" id="exportChecklist" style="background: #FFF4CE; border-left: 4px solid #FFB300;">
+                <div class="info-box" id="exportChecklist" style="background: #f5f5f5; border-left: 4px solid #111111;">
                     <strong>Export Readiness:</strong>
                     <div id="exportChecklistBody" style="margin-top: 8px; font-size: 13px;"></div>
                 </div>
@@ -1220,9 +1360,9 @@
             </div>
 
             <div class="bottom-actions">
-                <button class="btn btn-ghost btn-small" onclick="JobCardApp.ui.navigateTab(-1)">⬅️ Previous</button>
-                <button class="btn btn-ghost btn-small" onclick="JobCardApp.ui.navigateTab(1)">Continue ➡️</button>
+                <button class="btn btn-ghost" onclick="JobCardApp.ui.navigateTab(-1)" title="Previous">⬅️</button>
                 <button class="btn btn-primary" onclick="JobCardApp.storage.save()">💾 Save</button>
+                <button class="btn btn-ghost" onclick="JobCardApp.ui.navigateTab(1)" title="Next">➡️</button>
             </div>
         </div>
     </div>
@@ -1280,7 +1420,7 @@
                     await this.database.init();
                     this.ui.setDefaultDate();
                     this.validation.setupValidation();
-                    this.requests.render();
+                    this.requests.render(); // Safe even if list is hidden
                     this.jobs.render();
                     this.cards.load();
                     this.templates.load();
@@ -1299,6 +1439,10 @@
                             document.getElementById('keyboardHint').classList.remove('active');
                         }, 3000);
                     }, 1000);
+                    
+                        // Update storage indicator
+                        this.storageUsage.updateIndicator();
+                        setInterval(() => this.storageUsage.updateIndicator(), 5000); // Update every 5 seconds
                 } catch (error) {
                     console.error('Error initializing app:', error);
                     this.ui.showMessage('Error initializing app', 'error');
@@ -1537,6 +1681,7 @@
                         ? Math.max(...JobCardApp.state.tools.map(t => t.id)) : 0;
                     
                     JobCardApp.state.jobs.forEach(job => {
+                        if (job.collapsed === undefined) job.collapsed = false;
                         job.tasks = job.tasks || [];
                         job.tasks.forEach(task => {
                             if (task.id > JobCardApp.state.currentTaskId) {
@@ -1575,12 +1720,23 @@
                             JobCardApp.ui.showLoading(false);
                             return;
                         }
+
+                        const payload = JSON.stringify(data);
+                        const approxBytes = new TextEncoder().encode(payload).length;
+                        const maxBytes = 4 * 1024 * 1024; // 4MB safety limit for browser storage
+
+                        if (approxBytes > maxBytes) {
+                            JobCardApp.ui.showMessage('Save is too large (photos/attachments). Please export to PDF/JSON instead.', 'error');
+                            JobCardApp.ui.showLoading(false);
+                            return;
+                        }
                         
                         if (JobCardApp.useLocalStorage) {
                             try {
-                                localStorage.setItem(JobCardApp.config.STORAGE_KEY, JSON.stringify(data));
+                                localStorage.setItem(JobCardApp.config.STORAGE_KEY, payload);
                                 JobCardApp.ui.showMessage('Job card saved', 'success');
                                 JobCardApp.state.hasUnsavedChanges = false;
+                                    JobCardApp.storageUsage.updateIndicator();
                             } catch (error) {
                                 if (error.name === 'QuotaExceededError') {
                                     JobCardApp.ui.showMessage('Storage quota exceeded. Please export to backup.', 'error');
@@ -1600,6 +1756,7 @@
                             transaction.oncomplete = () => {
                                 JobCardApp.ui.showMessage('Job card saved successfully!', 'success');
                                 JobCardApp.state.hasUnsavedChanges = false;
+                                    JobCardApp.storageUsage.updateIndicator();
                             };
                         }
                     } catch (error) {
@@ -1621,6 +1778,7 @@
                                 if (validation.valid) {
                                     JobCardApp.data.populate(data);
                                     JobCardApp.ui.showMessage('Job card loaded', 'success');
+                                        JobCardApp.storageUsage.updateIndicator();
                                 } else {
                                     JobCardApp.ui.showMessage('Saved data is invalid', 'error');
                                 }
@@ -1639,6 +1797,7 @@
                                     if (validation.valid) {
                                         JobCardApp.data.populate(data);
                                         JobCardApp.ui.showMessage('Job card loaded!', 'success');
+                                            JobCardApp.storageUsage.updateIndicator();
                                     } else {
                                         JobCardApp.ui.showMessage('Saved data is invalid', 'error');
                                     }
@@ -1683,9 +1842,18 @@
                         const validation = JobCardApp.validation.validateFormData(data);
                         
                         if (!validation.valid) return;
+
+                        const payload = JSON.stringify(data);
+                        const approxBytes = new TextEncoder().encode(payload).length;
+                        const maxBytes = 4 * 1024 * 1024; // 4MB safety limit
+
+                        if (approxBytes > maxBytes) {
+                            // Skip auto-save when too large; user will be notified on manual save
+                            return;
+                        }
                         
                         if (JobCardApp.useLocalStorage) {
-                            localStorage.setItem(JobCardApp.config.STORAGE_KEY, JSON.stringify(data));
+                            localStorage.setItem(JobCardApp.config.STORAGE_KEY, payload);
                         } else {
                             const transaction = JobCardApp.db.transaction([JobCardApp.config.STORE_NAME], 'readwrite');
                             const store = transaction.objectStore(JobCardApp.config.STORE_NAME);
@@ -1693,6 +1861,7 @@
                         }
                         
                         JobCardApp.state.hasUnsavedChanges = false;
+                            JobCardApp.storageUsage.updateIndicator();
                         this.showIndicator();
                     } catch (error) {
                         console.error('Auto-save error:', error);
@@ -1706,6 +1875,51 @@
                         indicator.classList.remove('active');
                     }, 2000);
                 }
+                },
+
+                // ========================================================================
+                // STORAGE USAGE MODULE
+                // ========================================================================
+            
+                storageUsage: {
+                    getEstimatedSize() {
+                        try {
+                            const data = JobCardApp.data.collect();
+                            const payload = JSON.stringify(data);
+                            const bytes = new TextEncoder().encode(payload).length;
+                            return bytes;
+                        } catch (error) {
+                            return 0;
+                        }
+                    },
+
+                    formatBytes(bytes) {
+                        if (bytes === 0) return '0 B';
+                        const k = 1024;
+                        const sizes = ['B', 'KB', 'MB'];
+                        const i = Math.floor(Math.log(bytes) / Math.log(k));
+                        return Math.round((bytes / Math.pow(k, i)) * 100) / 100 + ' ' + sizes[i];
+                    },
+
+                    updateIndicator() {
+                        const indicator = document.getElementById('storageIndicator');
+                        if (!indicator) return;
+
+                        const usedBytes = this.getEstimatedSize();
+                        const maxBytes = 4 * 1024 * 1024; // 4MB
+                        const percentUsed = Math.round((usedBytes / maxBytes) * 100);
+                        const formatted = this.formatBytes(usedBytes);
+
+                        indicator.textContent = `Storage: ${formatted} (${percentUsed}%)`;
+                    
+                        // Update visual state
+                        indicator.classList.remove('warning', 'critical');
+                        if (percentUsed >= 90) {
+                            indicator.classList.add('critical');
+                        } else if (percentUsed >= 70) {
+                            indicator.classList.add('warning');
+                        }
+                    }
             },
 
             // ========================================================================
@@ -1766,17 +1980,19 @@
 
                 render() {
                     const requestsList = document.getElementById('requestsList');
+                    if (!requestsList) return; // No separate requests list UI anymore
                     
                     if (JobCardApp.state.customerRequests.length === 0) {
-                        requestsList.innerHTML = '<div class="empty-state"><div class="empty-state-icon">📝</div><p>No customer requests added yet.</p></div>';
+                        requestsList.innerHTML = '';
                         return;
                     }
 
-                    requestsList.innerHTML = JobCardApp.state.customerRequests.map(req => `
+                    // Keep rendering for potential future use; currently not displayed
+                    requestsList.innerHTML = JobCardApp.state.customerRequests.map((req, index) => `
                         <div class="request-item ${req.completed ? 'completed' : ''}">
-                            <input type="checkbox" ${req.completed ? 'checked' : ''} 
-                                   onchange="JobCardApp.requests.toggle(${req.id})"
-                                   aria-label="Mark request as ${req.completed ? 'incomplete' : 'complete'}">
+                            <div style="flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: ${req.completed ? '#111111' : '#555555'}; color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px;">
+                                ${req.completed ? '✓' : index + 1}
+                            </div>
                             <div class="request-text">${JobCardApp.utils.escapeHtml(req.text)}</div>
                             <button class="delete-btn" onclick="JobCardApp.requests.delete(${req.id})"
                                     aria-label="Delete request">Remove</button>
@@ -1799,7 +2015,8 @@
                                 requestId: req.id,
                                 requestText: req.text,
                                 tasks: [],
-                                completed: req.completed || false
+                                completed: req.completed || false,
+                                collapsed: false
                             });
                         } else {
                             job.requestText = req.text;
@@ -1821,6 +2038,32 @@
                         this.render();
                         JobCardApp.requests.render();
                         JobCardApp.ui.updateProgress();
+                        JobCardApp.state.hasUnsavedChanges = true;
+                    }
+                },
+
+                toggleCollapse(jobId) {
+                    const job = JobCardApp.state.jobs.find(j => j.id === jobId);
+                    if (job) {
+                        job.collapsed = !job.collapsed;
+                        const content = document.getElementById(`job-content-${jobId}`);
+                        const icon = document.getElementById(`collapse-icon-${jobId}`);
+                        if (content) {
+                            if (job.collapsed) {
+                                content.style.opacity = '0';
+                                setTimeout(() => {
+                                    content.style.display = 'none';
+                                }, 200);
+                            } else {
+                                content.style.display = 'block';
+                                setTimeout(() => {
+                                    content.style.opacity = '1';
+                                }, 10);
+                            }
+                        }
+                        if (icon) {
+                            icon.textContent = job.collapsed ? '▶' : '▼';
+                        }
                         JobCardApp.state.hasUnsavedChanges = true;
                     }
                 },
@@ -1855,6 +2098,81 @@
                     JobCardApp.ui.updateProgress();
                     JobCardApp.ui.showMessage('Task added', 'success');
                     JobCardApp.state.hasUnsavedChanges = true;
+                },
+
+                async addTaskWithDetails(jobId) {
+                    const descInput = document.getElementById(`taskInput-${jobId}`);
+                    const toolsInput = document.getElementById(`taskTools-${jobId}`);
+                    const technicalInput = document.getElementById(`taskTechnical-${jobId}`);
+                    const photosInput = document.getElementById(`taskPhotos-${jobId}`);
+                    
+                    const description = descInput.value.trim();
+                    
+                    if (!description) {
+                        JobCardApp.ui.showMessage('Please describe what you did', 'error');
+                        return;
+                    }
+
+                    const job = JobCardApp.state.jobs.find(j => j.id === jobId);
+                    if (!job) return;
+
+                    JobCardApp.ui.showLoading(true);
+
+                    try {
+                        // Create the task
+                        const task = {
+                            id: ++JobCardApp.state.currentTaskId,
+                            description: description,
+                            completed: false,
+                            photos: [],
+                            toolsUsed: toolsInput.value.trim() ? toolsInput.value.split(',').map(t => t.trim()).filter(t => t) : [],
+                            technicalData: technicalInput.value.trim(),
+                            timeStarted: new Date().toISOString(),
+                            timeCompleted: null,
+                            duration: null
+                        };
+
+                        // Handle photo uploads if any
+                        if (photosInput.files && photosInput.files.length > 0) {
+                            const validFiles = Array.from(photosInput.files).filter(file => {
+                                if (!JobCardApp.config.ALLOWED_IMAGE_TYPES.includes(file.type)) {
+                                    JobCardApp.ui.showMessage(`${file.name} is not a supported image format`, 'error');
+                                    return false;
+                                }
+                                if (file.size > JobCardApp.config.MAX_FILE_SIZE) {
+                                    JobCardApp.ui.showMessage(`${file.name} is too large (max 10MB)`, 'error');
+                                    return false;
+                                }
+                                return true;
+                            });
+
+                            for (const file of validFiles) {
+                                const compressed = await JobCardApp.photos.compress(file);
+                                task.photos.push({ 
+                                    id: Date.now() + Math.random(), 
+                                    dataUrl: compressed.dataUrl 
+                                });
+                            }
+                        }
+
+                        job.tasks.push(task);
+                        
+                        // Clear form
+                        descInput.value = '';
+                        toolsInput.value = '';
+                        technicalInput.value = '';
+                        photosInput.value = '';
+                        
+                        this.render();
+                        JobCardApp.ui.updateProgress();
+                        JobCardApp.ui.showMessage('Report saved successfully', 'success');
+                        JobCardApp.state.hasUnsavedChanges = true;
+                    } catch (error) {
+                        console.error('Error adding task:', error);
+                        JobCardApp.ui.showMessage('Error saving report', 'error');
+                    } finally {
+                        JobCardApp.ui.showLoading(false);
+                    }
                 },
 
                 toggleTask(jobId, taskId) {
@@ -1982,111 +2300,145 @@
 
                     jobsList.innerHTML = JobCardApp.state.jobs.map((job, jobIndex) => `
                         <div class="job-card">
-                            <div class="job-header">
+                            <div class="job-header" onclick="JobCardApp.jobs.toggleCollapse(${job.id})" style="cursor: pointer; user-select: none;">
                                 <div class="job-title">
                                     <div class="job-number">Request ${jobIndex + 1}</div>
-                                    <div class="job-request">📋 ${JobCardApp.utils.escapeHtml(job.requestText)}</div>
+                                    <div class="job-request">
+                                        <span style="font-size: 18px; margin-right: 8px;" id="collapse-icon-${job.id}">${job.collapsed ? '▶' : '▼'}</span>
+                                        📋 ${JobCardApp.utils.escapeHtml(job.requestText)}
+                                    </div>
                                 </div>
                                 <div class="job-status ${job.completed ? 'completed' : 'in-progress'}">
-                                    ${job.completed ? '✓ Complete' : '⏳ In Progress'}
-                                    <div style="font-size: 10px; color: #1c1c1e; margin-top: 6px; font-weight: 600;">
-                                        ${(job.tasks?.filter(t => t.completed).length || 0)}/${(job.tasks?.length || 0)} reports
+                                    ${job.completed ? '✓ COMPLETE' : '⏳ IN PROGRESS'}
+                                    <div style="font-size: 12px; color: inherit; margin-top: 8px; font-weight: 500;">
+                                        ${(job.tasks?.filter(t => t.completed).length || 0)}/${(job.tasks?.length || 0)} reports done
                                     </div>
                                 </div>
                             </div>
 
-                            <div style="display: flex; gap: 8px; margin-bottom: 12px;">
-                                <button class="btn ${job.completed ? 'btn-secondary' : 'btn-success'} btn-small" 
-                                        onclick="JobCardApp.jobs.toggle(${job.id})">
-                                    ${job.completed ? 'Mark Incomplete' : 'Mark Complete'}
+                            <div id="job-content-${job.id}" style="display: ${job.collapsed ? 'none' : 'block'};">
+
+                            <!-- New Report Form -->
+                            <div style="background: #f5f5f5; padding: 18px; border-radius: 12px; border: 2px solid #111111; margin-bottom: 20px;">
+                                <div style="font-size: 15px; font-weight: 700; color: #111111; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+                                    <span>📝</span> Add New Report
+                                </div>
+
+                                <div style="margin-bottom: 14px;">
+                                    <label style="display: block; font-size: 13px; font-weight: 600; color: #3c3c43; margin-bottom: 6px;">
+                                        What did you do?
+                                    </label>
+                                    <textarea id="taskInput-${job.id}" 
+                                              placeholder="Describe the work you performed..." 
+                                              style="width: 100%; padding: 12px 14px; border: 1px solid #d1d1d6; border-radius: 10px; font-size: 14px; min-height: 80px; font-family: inherit; resize: vertical;"></textarea>
+                                </div>
+                                
+                                <div style="margin-bottom: 14px;">
+                                    <label style="display: block; font-size: 13px; font-weight: 600; color: #3c3c43; margin-bottom: 6px;">
+                                        🔧 Tools Used
+                                    </label>
+                                    <input type="text" 
+                                           id="taskTools-${job.id}"
+                                           placeholder="e.g., Wrench, Socket set, Multimeter" 
+                                           style="width: 100%; padding: 10px 12px; border: 1px solid #d1d1d6; border-radius: 8px; font-size: 13px;">
+                                </div>
+
+                                <div style="margin-bottom: 14px;">
+                                    <label style="display: block; font-size: 13px; font-weight: 600; color: #3c3c43; margin-bottom: 6px;">
+                                        📈 Technical Data & Measurements
+                                    </label>
+                                    <textarea id="taskTechnical-${job.id}"
+                                              placeholder="e.g., Torque: 85 Nm, Temperature: 45°C, Pressure: 2.5 bar" 
+                                              style="width: 100%; padding: 10px 12px; border: 1px solid #d1d1d6; border-radius: 8px; font-size: 13px; min-height: 70px; font-family: inherit; resize: vertical;"></textarea>
+                                </div>
+
+                                <div style="margin-bottom: 14px;">
+                                    <label style="display: block; font-size: 13px; font-weight: 600; color: #3c3c43; margin-bottom: 6px;">
+                                        📸 Photos / Evidence
+                                    </label>
+                                    <input type="file" 
+                                           id="taskPhotos-${job.id}"
+                                           accept="image/*" 
+                                           multiple
+                                           style="width: 100%; padding: 10px 12px; border: 1px solid #d1d1d6; border-radius: 8px; font-size: 13px; background: white;">
+                                </div>
+
+                                <button class="btn btn-primary" onclick="JobCardApp.jobs.addTaskWithDetails(${job.id})" style="width: 100%; padding: 14px; font-size: 15px;">
+                                    ✓ Save Report
                                 </button>
                             </div>
 
-                            <div style="background: #F9F9FB; padding: 14px; border-radius: 12px; border: 1px solid #E5E5EA; margin-bottom: 12px;">
-                                <div style="display: grid; grid-template-columns: 1fr auto; gap: 8px;">
-                                    <input type="text" id="taskInput-${job.id}" placeholder="Add a report / what you did..." 
-                                           style="padding: 10px 14px; font-size: 14px;">
-                                    <button class="btn btn-info btn-small" onclick="JobCardApp.jobs.addTask(${job.id})">+ Add</button>
-                                </div>
-                            </div>
-
+                            <!-- Existing Reports -->
                             <div>
+                                ${job.tasks.length > 0 ? `
+                                    <div style="font-size: 15px; font-weight: 700; color: #1c1c1e; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                                        <span>📋</span> Saved Reports (${job.tasks.length})
+                                    </div>
+                                ` : ''}
                                 ${job.tasks.length === 0 ? 
-                                    '<p style="color: #999; font-size: 14px; padding: 10px;">No tasks added yet.</p>' :
+                                    '' :
                                     job.tasks.map((task, taskIndex) => {
                                         const timeInfo = task.duration 
                                             ? `Time taken: ${task.duration} minute${task.duration !== 1 ? 's' : ''}`
                                             : '';
                                         
                                         return `
-                                            <div class="task-item ${task.completed ? 'completed' : ''}">
-                                                <div class="task-header">
-                                                    <input type="checkbox" ${task.completed ? 'checked' : ''} 
-                                                           onchange="JobCardApp.jobs.toggleTask(${job.id}, ${task.id})"
-                                                           aria-label="Mark task as ${task.completed ? 'incomplete' : 'complete'}">
-                                                    <div>
-                                                        <div class="task-description">${JobCardApp.utils.escapeHtml(task.description)}</div>
-                                                        ${timeInfo ? `<div class="task-time-info">${timeInfo}</div>` : ''}
-                                                    </div>
-                                                </div>
-                                                
-                                                <div style="display: flex; gap: 8px; margin-left: 30px; margin-top: 8px;">
-                                                    <button class="btn btn-ghost btn-small" 
-                                                            onclick="JobCardApp.jobs.toggleTask(${job.id}, ${task.id})">
-                                                        ${task.completed ? 'Mark Incomplete' : 'Mark Complete'}
-                                                    </button>
-                                                    <button class="btn btn-danger btn-small" 
-                                                            onclick="JobCardApp.jobs.deleteTask(${job.id}, ${task.id})">
-                                                        Delete
-                                                    </button>
-                                                </div>
-
-                                                <div style="margin-top: 12px; margin-left: 30px; background: #f9f9fb; padding: 12px; border-radius: 10px;">
-                                                    <div style="font-size: 13px; font-weight: 600; color: #1c1c1e; margin-bottom: 8px;">📊 Report Details</div>
-                                                    
-                                                    <div style="margin-bottom: 10px;">
-                                                        <label style="display: block; font-size: 12px; color: #666; margin-bottom: 4px;">
-                                                            Tools Used (comma-separated)
-                                                        </label>
-                                                        <input type="text" value="${(task.toolsUsed || []).join(', ')}" 
-                                                               placeholder="e.g., Wrench, Socket set" 
-                                                               onchange="JobCardApp.jobs.updateTaskTools(${job.id}, ${task.id}, this.value)" 
-                                                               style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 8px; font-size: 12px;">
-                                                    </div>
-
-                                                    <div>
-                                                        <label style="display: block; font-size: 12px; color: #666; margin-bottom: 4px;">
-                                                            Technical Data & Measurements
-                                                        </label>
-                                                        <textarea placeholder="e.g., Torque: 85 Nm, Temperature: 45°C" 
-                                                                  onchange="JobCardApp.jobs.updateTaskTechnicalData(${job.id}, ${task.id}, this.value)"
-                                                                  style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 8px; font-size: 12px; min-height: 60px;">${task.technicalData || ''}</textarea>
-                                                    </div>
-                                                </div>
-
-                                                <div class="photo-section">
-                                                    <label class="photo-upload-label">
-                                                        📸 Add Photos
-                                                        <input type="file" accept="image/*" multiple 
-                                                               onchange="JobCardApp.jobs.handleTaskPhotoUpload(${job.id}, ${task.id}, this.files)">
-                                                    </label>
-                                                    ${task.photos.length > 0 ? `
-                                                        <div class="photo-grid">
-                                                            ${task.photos.map((photo, photoIndex) => `
-                                                                <div class="photo-item">
-                                                                    <img src="${photo.dataUrl}" alt="Task evidence" loading="lazy">
-                                                                    <button class="delete-photo-btn" 
-                                                                            onclick="JobCardApp.jobs.removePhotoFromTask(${job.id}, ${task.id}, ${photoIndex})"
-                                                                            aria-label="Delete photo">×</button>
-                                                                </div>
-                                                            `).join('')}
+                                            <div class="task-item ${task.completed ? 'completed' : ''}" style="margin-bottom: 14px;">
+                                                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
+                                                    <div class="task-header" style="margin-bottom: 0;">
+                                                        <input type="checkbox" ${task.completed ? 'checked' : ''} 
+                                                               onchange="JobCardApp.jobs.toggleTask(${job.id}, ${task.id})"
+                                                               aria-label="Mark task as ${task.completed ? 'incomplete' : 'complete'}">
+                                                        <div style="flex: 1;">
+                                                            <div class="task-description">${JobCardApp.utils.escapeHtml(task.description)}</div>
+                                                            ${timeInfo ? `<div class="task-time-info">${timeInfo}</div>` : ''}
                                                         </div>
-                                                    ` : ''}
+                                                    </div>
+                                                    <button class="btn btn-danger btn-small" 
+                                                            onclick="JobCardApp.jobs.deleteTask(${job.id}, ${task.id})"
+                                                            style="margin-left: 10px;">
+                                                        🗑
+                                                    </button>
                                                 </div>
+
+                                                ${(task.toolsUsed && task.toolsUsed.length > 0) || task.technicalData || (task.photos && task.photos.length > 0) ? `
+                                                    <div style="margin-left: 32px; background: white; padding: 14px; border-radius: 10px; border: 1px solid #E5E5EA;">
+                                                        ${task.toolsUsed && task.toolsUsed.length > 0 ? `
+                                                            <div style="margin-bottom: 10px;">
+                                                                <div style="font-size: 12px; font-weight: 600; color: #8E8E93; margin-bottom: 4px;">🔧 TOOLS USED</div>
+                                                                <div style="font-size: 13px; color: #1c1c1e;">${task.toolsUsed.join(', ')}</div>
+                                                            </div>
+                                                        ` : ''}
+
+                                                        ${task.technicalData ? `
+                                                            <div style="margin-bottom: 10px;">
+                                                                <div style="font-size: 12px; font-weight: 600; color: #8E8E93; margin-bottom: 4px;">📈 TECHNICAL DATA</div>
+                                                                <div style="font-size: 13px; color: #1c1c1e; white-space: pre-wrap;">${task.technicalData}</div>
+                                                            </div>
+                                                        ` : ''}
+
+                                                        ${task.photos && task.photos.length > 0 ? `
+                                                            <div>
+                                                                <div style="font-size: 12px; font-weight: 600; color: #8E8E93; margin-bottom: 8px;">📸 PHOTOS (${task.photos.length})</div>
+                                                                <div class="photo-grid">
+                                                                    ${task.photos.map((photo, photoIndex) => `
+                                                                        <div class="photo-item">
+                                                                            <img src="${photo.dataUrl}" alt="Task evidence" loading="lazy">
+                                                                            <button class="delete-photo-btn" 
+                                                                                    onclick="JobCardApp.jobs.removePhotoFromTask(${job.id}, ${task.id}, ${photoIndex})"
+                                                                                    aria-label="Delete photo">×</button>
+                                                                        </div>
+                                                                    `).join('')}
+                                                                </div>
+                                                            </div>
+                                                        ` : ''}
+                                                    </div>
+                                                ` : ''}
                                             </div>
                                         `;
                                     }).join('')
                                 }
+                            </div>
                             </div>
                         </div>
                     `).join('');
@@ -2266,7 +2618,7 @@
                 async load() {
                     try {
                         const templates = [
-                            'json-templates/demo-cooling-systems.json',
+                            'json-templates/demo-cooling-systems-assessment.json',
                             'json-templates/demo-brake-systems.json'
                         ];
                         
@@ -2331,23 +2683,40 @@
 
                         JobCardApp.state.customerRequests = [];
                         if (template.customerRequests && Array.isArray(template.customerRequests)) {
-                            template.customerRequests.forEach((text, index) => {
-                                JobCardApp.state.customerRequests.push({
-                                    id: Date.now() + index,
-                                    text: text,
-                                    completed: false
-                                });
+                            template.customerRequests.forEach((item, index) => {
+                                // Handle both string format and object format
+                                if (typeof item === 'string') {
+                                    JobCardApp.state.customerRequests.push({
+                                        id: Date.now() + index,
+                                        text: item,
+                                        completed: false
+                                    });
+                                } else if (typeof item === 'object' && item.text) {
+                                    JobCardApp.state.customerRequests.push({
+                                        id: item.id || (Date.now() + index),
+                                        text: item.text,
+                                        completed: item.completed || false
+                                    });
+                                }
                             });
                         }
 
                         JobCardApp.state.tools = [];
                         JobCardApp.state.currentToolId = 0;
                         if (template.tools && Array.isArray(template.tools)) {
-                            template.tools.forEach(toolName => {
-                                JobCardApp.state.tools.push({
-                                    id: ++JobCardApp.state.currentToolId,
-                                    name: toolName
-                                });
+                            template.tools.forEach(item => {
+                                // Handle both string format and object format
+                                if (typeof item === 'string') {
+                                    JobCardApp.state.tools.push({
+                                        id: ++JobCardApp.state.currentToolId,
+                                        name: item
+                                    });
+                                } else if (typeof item === 'object' && item.name) {
+                                    JobCardApp.state.tools.push({
+                                        id: ++JobCardApp.state.currentToolId,
+                                        name: item.name
+                                    });
+                                }
                             });
                         }
 
@@ -2627,6 +2996,20 @@
             // ========================================================================
             
             exports: {
+                getJobStatus(job) {
+                    if (!job || !Array.isArray(job.tasks) || job.tasks.length === 0) return 'In progress';
+                    const allDone = job.tasks.every(t => t.completed);
+                    return allDone ? 'Complete' : 'In progress';
+                },
+
+                getImageFormat(dataUrl) {
+                    if (typeof dataUrl !== 'string') return 'JPEG';
+                    if (dataUrl.startsWith('data:image/png')) return 'PNG';
+                    if (dataUrl.startsWith('data:image/jpeg') || dataUrl.startsWith('data:image/jpg')) return 'JPEG';
+                    // Fallback: jsPDF supports JPEG/PNG best
+                    return 'JPEG';
+                },
+
                 toJSON() {
                     const data = JobCardApp.data.collect();
                     const json = JSON.stringify(data, null, 2);
@@ -2674,6 +3057,7 @@
                         const { jsPDF } = window.jspdf;
                         const doc = new jsPDF('p', 'mm', 'a4');
                         const data = JobCardApp.data.collect();
+                        const jobMap = Object.fromEntries((data.jobs || []).map(j => [j.requestId, j]));
                         const missing = this.getMissingItems(data);
                         
                         if (missing.length > 0) {
@@ -2760,7 +3144,7 @@
                                 body: data.customerRequests.map((req, idx) => [
                                     idx + 1,
                                     req.text,
-                                    req.completed ? 'Complete' : 'In progress'
+                                    this.getJobStatus(jobMap[req.id])
                                 ])
                             });
                             yPos = doc.lastAutoTable.finalY + 6;
@@ -2861,7 +3245,8 @@
                                     checkNewPage(imgHeight + 10);
                                 }
                                 try {
-                                    doc.addImage(photo.dataUrl, 'JPEG', xPos, yPos, imgWidth, imgHeight);
+                                    const format = this.getImageFormat(photo.dataUrl);
+                                    doc.addImage(photo.dataUrl, format, xPos, yPos, imgWidth, imgHeight);
                                     doc.setDrawColor(150);
                                     doc.rect(xPos, yPos, imgWidth, imgHeight);
                                 } catch (err) {
@@ -3097,14 +3482,14 @@
                     if (!body || !checklist || !exportBtn) return;
 
                     if (missing.length === 0) {
-                        body.innerHTML = '<div style="color: #0C5134; font-weight: 600;">✓ Ready to export. All key details are present.</div>';
-                        checklist.style.background = '#D1F2EB';
-                        checklist.style.borderLeft = '4px solid #0C5134';
+                            body.innerHTML = '<div style="color: #111111; font-weight: 600;">✓ Ready to export. All key details are present.</div>';
+                            checklist.style.background = '#f5f5f5';
+                            checklist.style.borderLeft = '4px solid #111111';
                         exportBtn.disabled = false;
                     } else {
-                        body.innerHTML = '<div style="color: #7A4A00; font-weight: 600;">Add before exporting:</div><ul style="margin: 6px 0 0 16px; color: #7A4A00;">' + missing.map(item => `<li>${item}</li>`).join('') + '</ul>';
-                        checklist.style.background = '#FFF4CE';
-                        checklist.style.borderLeft = '4px solid #FFB300';
+                            body.innerHTML = '<div style="color: #111111; font-weight: 600;">Add before exporting:</div><ul style="margin: 6px 0 0 16px; color: #111111;">' + missing.map(item => `<li>${item}</li>`).join('') + '</ul>';
+                            checklist.style.background = '#f5f5f5';
+                            checklist.style.borderLeft = '4px solid #111111';
                         exportBtn.disabled = true;
                     }
                 },
