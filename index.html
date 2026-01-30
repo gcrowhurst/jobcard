@@ -1345,16 +1345,12 @@
                 </div>
 
                 <div class="button-group" style="margin-top: 20px;">
-                    <button class="btn btn-primary" onclick="JobCardApp.storage.save()">💾 Save</button>
+                    <button class="btn btn-primary" id="exportBtnMain" onclick="JobCardApp.exports.toPDF()" style="flex: 1; min-width: 180px;">📄 Export PDF</button>
+                    <button class="btn btn-ghost" onclick="JobCardApp.storage.save()">💾 Save</button>
                     <button class="btn btn-success" onclick="JobCardApp.storage.load()">📂 Load Saved</button>
-                    <button class="btn btn-info" onclick="JobCardApp.exports.toJSON()">📥 Export JSON</button>
-                    <button class="btn btn-info" onclick="JobCardApp.exports.importJSON()">📤 Import JSON</button>
                 </div>
 
                 <div class="button-group" style="margin-top: 12px;">
-                    <button class="btn btn-ghost btn-small" onclick="JobCardApp.ui.navigateTab(-1)">⬅️ Previous</button>
-                    <button class="btn btn-ghost btn-small" onclick="JobCardApp.ui.navigateTab(1)">Continue ➡️</button>
-                    <button class="btn btn-primary btn-small" id="exportBtnMain" onclick="JobCardApp.exports.toPDF()">📄 Export PDF</button>
                     <button class="btn btn-danger btn-small" onclick="JobCardApp.ui.clearForm()">🗑️ Clear All</button>
                 </div>
             </div>
@@ -3072,24 +3068,17 @@
                         const margin = 12;
                         const contentWidth = pageWidth - (margin * 2);
                         
-                        // Header
-                        doc.setFillColor(30, 60, 114);
-                        doc.rect(0, 0, pageWidth, 25, 'F');
-                        
-                        doc.setTextColor(255, 255, 255);
+                        // Header (black & white theme)
+                        doc.setDrawColor(0);
+                        doc.setLineWidth(0.3);
+                        doc.rect(0, 0, pageWidth, 25);
+
+                        doc.setTextColor(0, 0, 0);
                         doc.setFontSize(18);
                         doc.setFont(undefined, 'bold');
-                        doc.text('MOTOR VEHICLE JOB CARD', pageWidth / 2, 12, { align: 'center' });
-                        
-                        doc.setFontSize(9);
-                        doc.setFont(undefined, 'normal');
-                        const dateStr = new Date().toLocaleDateString('en-GB', { 
-                            weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' 
-                        });
-                        doc.text(`Report Generated: ${dateStr}`, pageWidth / 2, 20, { align: 'center' });
-                        
-                        yPos = 32;
-                        doc.setTextColor(0, 0, 0);
+                        doc.text('MOTOR VEHICLE JOB CARD', pageWidth / 2, 14, { align: 'center' });
+
+                        yPos = 30;
                         
                         const checkNewPage = (spaceNeeded = 20) => {
                             if (yPos + spaceNeeded > pageHeight - 10) {
@@ -3101,8 +3090,9 @@
                         const sectionHeading = (title) => {
                             doc.setFontSize(11);
                             doc.setFont(undefined, 'bold');
-                            doc.setFillColor(235, 235, 240);
+                            doc.setFillColor(245, 245, 245);
                             doc.rect(margin, yPos - 2, contentWidth, 6, 'F');
+                            doc.setTextColor(0, 0, 0);
                             doc.text(title, margin + 2, yPos + 2);
                             yPos += 8;
                             doc.setFontSize(9);
@@ -3236,13 +3226,16 @@
                             let xPos = margin;
                             let imgsInRow = 0;
                             const imgsPerRow = Math.max(1, Math.floor(contentWidth / (imgWidth + spacing)));
-                            
+
+                            const ensureRowSpace = () => checkNewPage(imgHeight + 12);
+                            ensureRowSpace();
+
                             allPhotos.forEach((photo) => {
                                 if (imgsInRow >= imgsPerRow) {
                                     xPos = margin;
                                     yPos += imgHeight + spacing;
                                     imgsInRow = 0;
-                                    checkNewPage(imgHeight + 10);
+                                    ensureRowSpace();
                                 }
                                 try {
                                     const format = this.getImageFormat(photo.dataUrl);
@@ -3283,10 +3276,15 @@
                             doc.setFont(undefined, 'normal');
                             doc.text('Learner Reflection:', margin, yPos);
                             yPos += 5;
-                            
+
                             const reflectionLines = doc.splitTextToSize(data.learnerProfile, contentWidth - 4);
                             doc.setFontSize(8);
-                            doc.text(reflectionLines, margin + 2, yPos);
+                            const lineHeight = 4;
+                            reflectionLines.forEach((line) => {
+                                checkNewPage(lineHeight + 4);
+                                doc.text(line, margin + 2, yPos);
+                                yPos += lineHeight;
+                            });
                         }
                         
                         // Footer
